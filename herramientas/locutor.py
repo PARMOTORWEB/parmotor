@@ -111,6 +111,27 @@ def tempo(a, sr, factor, tmp):
     return b
 
 
+_asr = None
+
+
+def oido(wav, sr):
+    """Lo que entiende Whisper de un trozo de audio."""
+    global _asr
+    import torchaudio
+    from faster_whisper import WhisperModel
+    if _asr is None:
+        _asr = WhisperModel("small", device="cpu", compute_type="int8")
+    a16 = torchaudio.functional.resample(torch.from_numpy(wav), sr, 16000).numpy()
+    return " ".join(x.text for x in _asr.transcribe(a16, language="es")[0])
+
+
+def error(esperado, oido_txt):
+    """Tasa de error de palabras comparando ambos textos ya «leídos» (cifras y siglas en palabras)."""
+    import jiwer
+    a, b = " ".join(_norm(leer(esperado))), " ".join(_norm(leer(oido_txt)))
+    return jiwer.wer(a, b) if a else 0.0
+
+
 def bloques(frases):
     """Agrupa frases de 2 en 2 para que la entonación fluya; [pausa] y {rapido}/{lento} cortan bloque."""
     out, cur, pausa_antes = [], [], False
@@ -185,13 +206,23 @@ def locutar(guion, salida, semilla=7):
         if "{lento}" in texto: ritmo *= 0.93
         texto = re.sub(r"\s*\{(rapido|lento)\}", "", texto).strip()
         limpias += [re.sub(r"\s*\{(rapido|lento)\}", "", f).strip() for f in bl["frases"]]
-        torch.manual_seed(semilla * 1000 + n)
         kw = dict(language_id="es", exaggeration=max(0.25, est["exag"] + rnd.uniform(-0.05, 0.05)),
                   cfg_weight=est["cfg"], temperature=est["temp"])
         if ref:
             kw["audio_prompt_path"] = ref
-        wav = m.generate(leer(texto), **kw).squeeze(0).numpy().astype("float32")
-        wav = tempo(recortar(wav, sr), sr, ritmo, tmp)
+        # Control de calidad: si el modelo se come o se inventa palabras, se repite (hasta 3 intentos)
+        mejor = None
+        for intento in range(3):
+            torch.manual_seed(semilla * 1000 + n + 7919 * intento)
+            w = recortar(m.generate(leer(texto), **kw).squeeze(0).numpy().astype("float32"), sr)
+            e = error(texto, oido(w, sr))
+            if mejor is None or e < mejor[0]:
+                mejor = (e, w)
+            if e <= 0.10:
+                break
+        if mejor[0] > 0.10:
+            print(f"  aviso: bloque {n + 1} con {mejor[0]:.0%} de error tras 3 intentos: {texto}", file=sys.stderr)
+        wav = tempo(mejor[1], sr, ritmo, tmp)
         if trozos or bl["pausa_antes"]:  # pausas entre bloques: nunca iguales
             p = rnd.uniform(*(PAUSA_REVELACION if bl["pausa_antes"] else est["pausa"]))
             trozos.append(np.zeros(int(p * sr), dtype="float32"))
