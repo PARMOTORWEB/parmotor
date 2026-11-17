@@ -1,0 +1,29 @@
+{
+ "estilo": "intriga",
+ "escenas": [
+  {
+   "imagen": "social/2026-11-18/chollo-o-caro-vid-1.jpg",
+   "frases": [
+    "¿Chollo o caro?",
+    "Renault Clio de 2016, con 85.000 km.",
+    "Piden 7.700 €.",
+    "Piénsalo un segundo…"
+   ]
+  },
+  {
+   "imagen": "social/2026-11-18/chollo-o-caro-vid-2.jpg",
+   "frases": [
+    "[pausa]",
+    "Su precio justo ronda los 8.900 €.",
+    "Así que es un chollo: un 13 % por debajo."
+   ]
+  },
+  {
+   "imagen": "social/2026-11-18/chollo-o-caro-vid-3.jpg",
+   "frases": [
+    "Antes de comprar, tásalo gratis en Par Motor.",
+    "Enlace en el perfil."
+   ]
+  }
+ ]
+}

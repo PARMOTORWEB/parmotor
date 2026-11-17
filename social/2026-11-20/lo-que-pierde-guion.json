@@ -1,0 +1,28 @@
+{
+ "estilo": "intriga",
+ "escenas": [
+  {
+   "imagen": "social/2026-11-20/lo-que-pierde-vid-1.jpg",
+   "frases": [
+    "¿Cuánto dinero pierde un Skoda Octavia en pocos años?",
+    "Uno de 2023 costaba 26.000 € nuevo.",
+    "[pausa]",
+    "Hoy vale unos 21.400 €. {lento}"
+   ]
+  },
+  {
+   "imagen": "social/2026-11-20/lo-que-pierde-vid-2.jpg",
+   "frases": [
+    "El de 2020 ya ha perdido un 37 %.",
+    "El de 2017 ya ha perdido un 40 %."
+   ]
+  },
+  {
+   "imagen": "social/2026-11-20/lo-que-pierde-vid-3.jpg",
+   "frases": [
+    "Eso también es un gasto, aunque nunca veas la factura.",
+    "Calcula el coste real al mes en Par Motor. Enlace en el perfil."
+   ]
+  }
+ ]
+}

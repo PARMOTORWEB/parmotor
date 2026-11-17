@@ -1,0 +1,27 @@
+{
+ "estilo": "narrativo",
+ "escenas": [
+  {
+   "imagen": "social/2026-11-21/museo-vid-1.jpg",
+   "frases": [
+    "Volkswagen Golf GTI.",
+    "De 1976 a 1983."
+   ]
+  },
+  {
+   "imagen": "social/2026-11-21/museo-vid-2.jpg",
+   "frases": [
+    "El que inventó el compacto deportivo:",
+    "ligero, alegre y con cuatro plazas.",
+    "Los originales y cuidados ya se pagan como un coche nuevo."
+   ]
+  },
+  {
+   "imagen": "social/2026-11-21/museo-vid-3.jpg",
+   "frases": [
+    "¿Lo has tenido, o lo has conducido?",
+    "Cuéntamelo en comentarios."
+   ]
+  }
+ ]
+}

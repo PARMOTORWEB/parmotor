@@ -1,0 +1,26 @@
+{
+ "estilo": "informativo",
+ "escenas": [
+  {
+   "imagen": "social/2026-11-19/consejo-vid-1.jpg",
+   "frases": [
+    "Antes de ir a ver un coche usado: apunta estas tres cosas."
+   ]
+  },
+  {
+   "imagen": "social/2026-11-19/consejo-vid-2.jpg",
+   "frases": [
+    "Una: pide la matrícula y saca el informe de la DGT: cargas, embargos y titulares.",
+    "Dos: mira el historial de mantenimiento: facturas, no solo sellos.",
+    "Y tres: tasa el coche antes de ir: llegarás con una cifra a la que agarrarte."
+   ]
+  },
+  {
+   "imagen": "social/2026-11-19/consejo-vid-3.jpg",
+   "frases": [
+    "Guárdalo para cuando lo necesites.",
+    "Y si quieres saber cuánto vale un coche, enlace en el perfil."
+   ]
+  }
+ ]
+}

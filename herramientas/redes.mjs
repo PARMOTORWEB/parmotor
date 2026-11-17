@@ -110,7 +110,7 @@ body.tt .pic{margin-top:60px}
 <div class="top"><div class="brand">${LOGO}Par Motor</div><div class="pg">${n}/${total}</div></div>
 ${img ? `<div class="pic"><img src="${img}"></div><div class="cred">${esc(cred)}</div>` : ""}
 <div class="main">${tag ? `<div class="tag">${esc(tag)}</div>` : ""}<h1>${title}</h1>${body}</div>
-<div class="foot">${cta ? "<b>Tasador gratis</b> · enlace en el perfil" : "Desliza →"}</div><div class="hz"></div></body></html>`;
+<div class="foot">${cta ? "<b>Tasador gratis</b> · enlace en el perfil" : red === "vid" ? "<b>Par Motor</b> · tasador gratis de coches" : "Desliza →"}</div><div class="hz"></div></body></html>`;
 }
 
 // ---------- contenido de cada día ----------
@@ -131,7 +131,11 @@ function radar() {
     ...blocks.map(([h, s]) => ({ tag: "Qué significa para ti", title: esc(h), body: `<p class="body">${esc(s)}</p>` })),
     ctaSlide("El Radar completo, en la web", "Cada lunes, lo que se mueve en el mercado y qué significa si vas a comprar o vender."),
   ];
-  return { tipo: "radar", slides, ig: `📰 Radar semanal Nº ${num}: ${titulo}.\n\n${blocks.map(([h]) => "▪️ " + h).join("\n")}\n\nEl Radar completo, gratis en la web 👉 enlace en el perfil.\n\n${TAGS_IG} #noticiasmotor`, tt: `Radar Nº ${num}: ${titulo} 📰 Lo tienes entero en el enlace del perfil. ${TAGS_TT} #noticiascoches`, ttTitle: `Radar semanal Nº ${num}` };
+  return { tipo: "radar", slides, guion: { estilo: "informativo", escenas: [
+    { s: 0, frases: ["Esto es lo que ha pasado esta semana en el mercado del coche.", "Te lo cuento en un minuto."] },
+    { s: 1, frases: kpis.slice(0, 2).map(([b, t]) => `${b}: ${t}.`) },
+    ...blocks.map(([h, so], i) => ({ s: 2 + i, frases: [`${h}.`, so] })),
+    { s: 2 + blocks.length, frases: ["El Radar completo lo tienes gratis en la web.", "Enlace en el perfil."] }] }, ig: `📰 Radar semanal Nº ${num}: ${titulo}.\n\n${blocks.map(([h]) => "▪️ " + h).join("\n")}\n\nEl Radar completo, gratis en la web 👉 enlace en el perfil.\n\n${TAGS_IG} #noticiasmotor`, tt: `Radar Nº ${num}: ${titulo} 📰 Lo tienes entero en el enlace del perfil. ${TAGS_TT} #noticiascoches`, ttTitle: `Radar semanal Nº ${num}` };
 }
 function cuantoVale(w) {
   const m = MODELOS[w % MODELOS.length], n = nombre(m);
@@ -142,7 +146,10 @@ function cuantoVale(w) {
     { tag: "¿Cuánto vale?", title: `Un <em>${esc(n)}</em> de segunda mano`, img: f?.src, cred: f?.cred, body: f ? "" : `<p class="body">Precio justo en España, año por año. Desliza →</p>` },
     { tag: "Precio justo · España", title: esc(n), body: `<div class="rows">${rows}</div><p class="body" style="font-size:28px">Con los km normales para su edad y en buen estado.</p>` },
     ctaSlide(`¿Y el tuyo?`, `Tasa tu ${esc(n)} con sus kilómetros reales en 30 segundos. Gratis y sin registro.`),
-  ], ig: `¿Cuánto vale un ${n} de segunda mano? 🚗\n\nPrecio justo en España según el año, con los kilómetros normales y en buen estado. Desliza para ver la tabla 👉\n\nTasa el tuyo gratis y sin registro: enlace en el perfil.\nTodos los años y versiones: ${SITE}tasar/${slug(`${m.mk} ${m.md}`)}/\n\n${TAGS_IG}`, tt: `¿Cuánto vale un ${n} de segunda mano? 🚗 Tasa el tuyo gratis: enlace en el perfil. ${TAGS_TT}`, ttTitle: `¿Cuánto vale un ${n}?` };
+  ], guion: { estilo: "informativo", escenas: [
+    { s: 0, frases: [`¿Cuánto vale de verdad un ${n} de segunda mano?`, "Te lo digo en quince segundos."] },
+    { s: 1, frases: ys.slice(0, 3).map(([y, g], i) => `${["Uno", "Otro", "Y uno"][i]} de ${y}, con ${NF.format(kmOf(g.v[0], y))} km: unos ${eur(val(m, g.v[0], y))}.`) },
+    { s: 2, frases: ["¿El tuyo tiene más o menos kilómetros?", "Tásalo gratis en Par Motor. Enlace en el perfil."] }] }, ig: `¿Cuánto vale un ${n} de segunda mano? 🚗\n\nPrecio justo en España según el año, con los kilómetros normales y en buen estado. Desliza para ver la tabla 👉\n\nTasa el tuyo gratis y sin registro: enlace en el perfil.\nTodos los años y versiones: ${SITE}tasar/${slug(`${m.mk} ${m.md}`)}/\n\n${TAGS_IG}`, tt: `¿Cuánto vale un ${n} de segunda mano? 🚗 Tasa el tuyo gratis: enlace en el perfil. ${TAGS_TT}`, ttTitle: `¿Cuánto vale un ${n}?` };
 }
 function cholloCaro(w) {
   const m = MODELOS[(w + 5) % MODELOS.length], n = nombre(m);
@@ -154,7 +161,10 @@ function cholloCaro(w) {
     { tag: "¿Chollo o caro?", title: esc(`${n} ${v[0]}`), body: `<div class="rows"><div class="row"><span>Año</span><b>${yy}</b></div><div class="row"><span>Kilómetros</span><b>${NF.format(km)}</b></div><div class="row"><span>Motor</span><b>${v[1]} CV</b></div></div><p class="body">Piden</p><p class="big">${NF.format(pide)} €</p>` },
     { tag: "Veredicto", title: "Precio justo", body: `<p class="big">${NF.format(justo)} €</p><span class="pill ${chollo ? "ok" : "ko"}">${chollo ? "Chollo" : "Caro"} ${dif > 0 ? "+" : ""}${dif} %</span><p class="body">${chollo ? "Por debajo del precio justo. Si el historial está en orden, merece la pena verlo." : "Por encima del precio justo. Usa la cifra para negociar a la baja."}</p>` },
     ctaSlide("Antes de comprar, tásalo", "Escribe lo que te piden y te decimos si es chollo o caro."),
-  ], ig: `¿Chollo o caro? 🤔 ${n} ${v[0]} de ${yy} con ${NF.format(km)} km por ${NF.format(pide)} €.\n\nDéjalo en comentarios ANTES de deslizar 👇 La respuesta, en la segunda imagen.\n\nComprueba cualquier anuncio gratis: enlace en el perfil.\n\n(Ejemplo calculado con el tasador de Par Motor, no es un anuncio real.)\n\n${TAGS_IG} #chollo`, tt: `¿Chollo o caro? ${n} de ${yy} con ${NF.format(km)} km por ${NF.format(pide)} € 🤔 Comenta antes de ver la respuesta. ${TAGS_TT} #chollo`, ttTitle: "¿Chollo o caro?" };
+  ], guion: { estilo: "intriga", escenas: [
+    { s: 0, frases: ["¿Chollo o caro?", `${n} de ${yy}, con ${NF.format(km)} km.`, `Piden ${NF.format(pide)} €.`, "Piénsalo un segundo…"] },
+    { s: 1, frases: ["[pausa]", `Su precio justo ronda los ${NF.format(justo)} €.`, chollo ? `Así que es un chollo: un ${Math.abs(dif)} % por debajo.` : `Así que es caro: un ${dif} % por encima. Y esa cifra te sirve para negociar.`] },
+    { s: 2, frases: ["Antes de comprar, tásalo gratis en Par Motor.", "Enlace en el perfil."] }] }, ig: `¿Chollo o caro? 🤔 ${n} ${v[0]} de ${yy} con ${NF.format(km)} km por ${NF.format(pide)} €.\n\nDéjalo en comentarios ANTES de deslizar 👇 La respuesta, en la segunda imagen.\n\nComprueba cualquier anuncio gratis: enlace en el perfil.\n\n(Ejemplo calculado con el tasador de Par Motor, no es un anuncio real.)\n\n${TAGS_IG} #chollo`, tt: `¿Chollo o caro? ${n} de ${yy} con ${NF.format(km)} km por ${NF.format(pide)} € 🤔 Comenta antes de ver la respuesta. ${TAGS_TT} #chollo`, ttTitle: "¿Chollo o caro?" };
 }
 function consejo(w) {
   const [t, ps] = CONSEJOS[w % CONSEJOS.length];
@@ -162,7 +172,10 @@ function consejo(w) {
     { tag: "Consejo del jueves", title: esc(t), body: `<p class="body">3 claves en 30 segundos. Desliza →</p>` },
     { tag: esc(t), title: "Apunta", body: `<ul class="list">${ps.map(p => `<li>${esc(p)}</li>`).join("")}</ul>` },
     ctaSlide("Llega con una cifra", "Tasa el coche antes de ir a verlo: gratis y sin registro."),
-  ], ig: `💡 ${t}\n\n${ps.map(p => "✅ " + p).join("\n")}\n\nGuárdalo para cuando vayas a comprar 🔖\nTasador gratis: enlace en el perfil.\n\n${TAGS_IG} #consejos`, tt: `💡 ${t}. Guárdalo 🔖 Tasador gratis en el enlace del perfil. ${TAGS_TT} #consejos`, ttTitle: t.slice(0, 80) };
+  ], guion: { estilo: "informativo", escenas: [
+    { s: 0, frases: [`${t}: apunta estas tres cosas.`] },
+    { s: 1, frases: ps.map((p, i) => `${["Una", "Dos", "Y tres"][i]}: ${p.charAt(0).toLowerCase() + p.slice(1)}`) },
+    { s: 2, frases: ["Guárdalo para cuando lo necesites.", "Y si quieres saber cuánto vale un coche, enlace en el perfil."] }] }, ig: `💡 ${t}\n\n${ps.map(p => "✅ " + p).join("\n")}\n\nGuárdalo para cuando vayas a comprar 🔖\nTasador gratis: enlace en el perfil.\n\n${TAGS_IG} #consejos`, tt: `💡 ${t}. Guárdalo 🔖 Tasador gratis en el enlace del perfil. ${TAGS_TT} #consejos`, ttTitle: t.slice(0, 80) };
 }
 function loQuePierde(w) {
   const m = MODELOS[(w + 10) % MODELOS.length], n = nombre(m);
@@ -172,7 +185,10 @@ function loQuePierde(w) {
     { tag: "Lo que pierde", title: `Un <em>${esc(n)}</em> ${r0.y} ya ha perdido`, body: `<p class="big">${r0.pct > 0 ? "−" : ""}${Math.abs(r0.pct)} %</p><p class="body">Costaba ${eur(r0.v[3])} nuevo (${esc(r0.v[0])}). Hoy vale unos ${eur(r0.hoy)}.</p>` },
     { tag: "Precio de nuevo → hoy", title: esc(n), body: `<div class="rows">${rows.map(r => `<div class="row"><span>${r.y} · ${eur(r.v[3])} → ${eur(r.hoy)}</span><b>${r.pct > 0 ? "−" : "+"}${Math.abs(r.pct)} %</b></div>`).join("")}</div><p class="body" style="font-size:28px">Versión de acceso, km normales para su edad. Precio de nuevo de la época.</p>` },
     ctaSlide("La depreciación también es un gasto", "Mira cuánto te costaría al mes con todo incluido en el comparador."),
-  ], ig: `📉 Lo que pierde un ${n}: uno de ${r0.y} ya vale un ${r0.pct} % menos que cuando era nuevo.\n\nLa depreciación suele ser el gasto más grande de un coche, aunque no la veas en ninguna factura. Desliza 👉\n\nCalcula el coste real al mes de cualquier coche: enlace en el perfil.\n\n${TAGS_IG} #depreciacion`, tt: `📉 Cuánto pierde un ${n} con los años. El gasto que nadie ve. ${TAGS_TT} #depreciacion`, ttTitle: `Lo que pierde un ${n}` };
+  ], guion: { estilo: "intriga", escenas: [
+    { s: 0, frases: [`¿Cuánto dinero pierde un ${n} en pocos años?`, `Uno de ${r0.y} costaba ${eur(r0.v[3])} nuevo.`, "[pausa]", `Hoy vale unos ${eur(r0.hoy)}. {lento}`] },
+    { s: 1, frases: rows.slice(1).map(r => `El de ${r.y} ya ha perdido un ${r.pct} %.`) },
+    { s: 2, frases: ["Eso también es un gasto, aunque nunca veas la factura.", "Calcula el coste real al mes en Par Motor. Enlace en el perfil."] }] }, ig: `📉 Lo que pierde un ${n}: uno de ${r0.y} ya vale un ${r0.pct} % menos que cuando era nuevo.\n\nLa depreciación suele ser el gasto más grande de un coche, aunque no la veas en ninguna factura. Desliza 👉\n\nCalcula el coste real al mes de cualquier coche: enlace en el perfil.\n\n${TAGS_IG} #depreciacion`, tt: `📉 Cuánto pierde un ${n} con los años. El gasto que nadie ve. ${TAGS_TT} #depreciacion`, ttTitle: `Lo que pierde un ${n}` };
 }
 function museo(w) {
   const c = CLASICOS[w % CLASICOS.length], f = foto(c.f);
@@ -180,13 +196,17 @@ function museo(w) {
     { tag: "Museo del box", title: esc(c.n), img: f?.src, cred: f?.cred, body: `<p class="body">${esc(c.y)}</p>` },
     { tag: esc(c.y), title: "Por qué es un clásico", body: `<p class="body">${esc(c.t)}</p>` },
     ctaSlide("¿Cuánto vale el tuyo?", "Para los coches de hoy, el tasador de Par Motor. Gratis y sin registro."),
-  ], ig: `🏁 Museo del box: ${c.n} (${c.y}).\n\n${c.t}\n\n¿Lo has tenido o lo has conducido? Cuéntanoslo 👇\n\n${f ? f.cred + ".\n\n" : ""}${TAGS_IG} #clasicos #cochesclasicos`, tt: `🏁 ${c.n} (${c.y}). ¿Lo has conducido? ${TAGS_TT} #clasicos`, ttTitle: `Museo del box: ${c.n}` };
+  ], guion: { estilo: "narrativo", escenas: [
+    { s: 0, frases: [`${c.n}.`, `De ${c.y.replace("–", " a ")}.`] },
+    { s: 1, frases: c.t.split(/(?<=[.:])\s+/) },
+    { s: 2, frases: ["¿Lo has tenido, o lo has conducido?", "Cuéntamelo en comentarios."] }] }, ig: `🏁 Museo del box: ${c.n} (${c.y}).\n\n${c.t}\n\n¿Lo has tenido o lo has conducido? Cuéntanoslo 👇\n\n${f ? f.cred + ".\n\n" : ""}${TAGS_IG} #clasicos #cochesclasicos`, tt: `🏁 ${c.n} (${c.y}). ¿Lo has conducido? ${TAGS_TT} #clasicos`, ttTitle: `Museo del box: ${c.n}` };
 }
 
 // ---------- generación ----------
-const HORAS = { // mejores horas de Metricool (Europe/Madrid)
-  1: { ig: "10:00", tt: "18:00" }, 2: { ig: "10:00", tt: "18:00" }, 3: { ig: "10:00", tt: "18:00" },
-  4: { ig: "10:00", tt: "18:00" }, 5: { ig: "10:00", tt: "18:00" }, 6: { ig: "10:00", tt: "12:00" },
+const HORAS = { // mejores horas de Metricool (Europe/Madrid): carrusel IG, Reel IG, TikTok (vídeo), YouTube Short
+  1: { ig: "10:00", reel: "18:00", tt: "18:00", yt: "16:00" }, 2: { ig: "10:00", reel: "18:00", tt: "18:00", yt: "16:00" },
+  3: { ig: "10:00", reel: "18:00", tt: "18:00", yt: "16:00" }, 4: { ig: "10:00", reel: "18:00", tt: "18:00", yt: "16:00" },
+  5: { ig: "10:00", reel: "18:00", tt: "18:00", yt: "16:00" }, 6: { ig: "10:00", reel: "18:00", tt: "12:00", yt: "16:00" },
 };
 const plan = [];
 const browser = await chromium.launch();
@@ -196,19 +216,21 @@ for (let d = new Date(desde + "T12:00:00Z"); d <= new Date(hasta + "T12:00:00Z")
   if (!gen) continue; // domingo: descanso
   const post = gen(w), dir = path.join(ROOT, "social", fecha);
   fs.mkdirSync(dir, { recursive: true });
-  const media = { ig: [], tt: [] };
-  for (const [red, W, H] of [["ig", 1080, 1350], ["tt", 1080, 1920]]) {
+  const media = { ig: [], tt: [], vid: [] };
+  for (const [red, W, H] of [["ig", 1080, 1350], ["tt", 1080, 1920], ["vid", 1080, 1350]]) {
     const page = await browser.newPage({ viewport: { width: W, height: H } });
     for (let i = 0; i < post.slides.length; i++) {
       await page.setContent(slide({ ...post.slides[i], n: i + 1, total: post.slides.length, red }), { waitUntil: "load" });
       await page.evaluate(() => document.fonts.ready);
       const file = `${post.tipo}-${red}-${i + 1}.jpg`;
       await page.screenshot({ path: path.join(dir, file), type: "jpeg", quality: 86 });
-      media[red].push(`${SITE}social/${fecha}/${file}`);
+      media[red].push(red === "vid" ? `social/${fecha}/${file}` : `${SITE}social/${fecha}/${file}`);
     }
     await page.close();
   }
-  plan.push({ fecha, dia: dow, tipo: post.tipo, instagram: { hora: HORAS[dow].ig, texto: post.ig, media: media.ig }, tiktok: { hora: HORAS[dow].tt, texto: post.tt, titulo: post.ttTitle, media: media.tt } });
+  const guionVid = { estilo: post.guion.estilo, escenas: post.guion.escenas.filter(e => e.frases.length).map(e => ({ imagen: media.vid[e.s], frases: e.frases })) };
+  fs.writeFileSync(path.join(dir, `${post.tipo}-guion.json`), JSON.stringify(guionVid, null, 1));
+  plan.push({ fecha, dia: dow, tipo: post.tipo, guion: `social/${fecha}/${post.tipo}-guion.json`, video: `${SITE}social/${fecha}/${post.tipo}.mp4`, instagram: { hora: HORAS[dow].ig, texto: post.ig, media: media.ig }, reel: { hora: HORAS[dow].reel, texto: post.ig }, tiktok: { hora: HORAS[dow].tt, texto: post.tt, titulo: post.ttTitle, media: media.tt }, youtube: { hora: HORAS[dow].yt, titulo: `${post.ttTitle} | Par Motor`.slice(0, 100), texto: `${post.tt.replace(/#\S+/g, "").trim()}\n\nTasador gratis y sin registro: ${SITE}\n\n#shorts #coches #cochesusados #parmotor` } });
 }
 await browser.close();
 fs.writeFileSync(path.join(ROOT, "social", `plan-${desde}_${hasta}.json`), JSON.stringify(plan, null, 1));
