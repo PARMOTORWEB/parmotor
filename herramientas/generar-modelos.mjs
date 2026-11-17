@@ -94,6 +94,23 @@ td b{color:var(--accent);font-weight:600}
 footer{margin-top:80px;padding:0 0 50px;color:var(--ink-3);font-size:14px}
 footer:before{content:"";display:block;height:8px;background:var(--hazard);margin-bottom:30px}
 footer a{color:var(--ink-2)}
+/* números del Radar archivados */
+.edition{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:36px;margin-top:30px}
+.ed-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.ed-head h3{font-size:clamp(28px,4vw,40px);margin-top:8px}
+.ed-date{font-size:13.5px;color:var(--ink-3);padding:5px 12px;border:1px solid var(--line);border-radius:5px}
+.num{font:800 15px/1.4 var(--disp);color:var(--accent);letter-spacing:.12em;text-transform:uppercase}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:30px 0 40px}
+.kpi{background:var(--surface-2);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:18px 16px}
+.kpi b{display:block;font:800 36px/1 var(--disp);margin-bottom:8px}
+.kpi span{font-size:14px;color:var(--ink-2)}
+.ed-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 48px}
+.ed-block h4{font:700 24px/1.1 var(--disp);text-transform:uppercase;margin:6px 0 12px}
+.ed-block p{margin:0 0 14px;color:var(--ink-2);font-size:15.5px}
+.ed-block .so{color:var(--ink);background:var(--surface-2);border-radius:8px;padding:14px 18px;border-left:3px solid var(--accent)}
+.ed-src{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);line-height:2}
+.ed-src a{color:var(--ink-2)}
+@media (max-width:860px){.kpis{grid-template-columns:1fr 1fr}.ed-grid{grid-template-columns:1fr}.edition{padding:24px 18px}}
 @media (max-width:640px){.hl{grid-template-columns:1fr}.gen{padding:20px 16px}.nav a.cta{font-size:13px;padding:9px 11px}}
 `;
 fs.writeFileSync(path.join(ROOT, "assets", "modelos.css"), CSS);
