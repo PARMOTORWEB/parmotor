@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Monta un vídeo vertical (1080x1920) con voz en off natural (voz E, Chatterbox) y subtítulos.
 
-Uso: python3 herramientas/video.py guion.json salida.mp4
+Uso: python3 herramientas/video.py guion.json salida.mp4 [semilla]
 
 guion.json (lo genera herramientas/redes.mjs):
 {
@@ -54,7 +54,7 @@ def trocear(texto, ini, fin, maximo=38):
     return out
 
 
-def main(spec_path, out):
+def main(spec_path, out, semilla=7):
     spec = json.loads(Path(spec_path).read_text())
     tmp = Path(tempfile.mkdtemp(prefix="video-"))
     # 1) locución completa con el locutor (voz E) y tiempos de cada frase
@@ -67,7 +67,7 @@ def main(spec_path, out):
     guion.write_text(json.dumps({"estilo": spec.get("estilo", "informativo"), "frases": frases}, ensure_ascii=False))
     voz = tmp / "voz.wav"
     env = {**os.environ, "HF_HUB_DISABLE_XET": "1"}
-    subprocess.run([str(VENV), str(ROOT / "herramientas" / "locutor.py"), str(guion), str(voz)], check=True, env=env,
+    subprocess.run([str(VENV), str(ROOT / "herramientas" / "locutor.py"), str(guion), str(voz), str(semilla)], check=True, env=env,
                    stdout=subprocess.DEVNULL)
     marcas = json.loads(voz.with_suffix(".json").read_text())
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(voz)],
@@ -115,4 +115,4 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:3])
+    main(sys.argv[1], sys.argv[2], int(sys.argv[3]) if len(sys.argv) > 3 else 7)
