@@ -27,12 +27,12 @@ import torch
 # Parámetros por estilo. En Chatterbox, «exaggeration» sube la emoción y la energía;
 # «cfg» bajo hace el habla más pausada y deliberada; «temperature» añade variación.
 ESTILOS = {
-    "intriga":     dict(exag=0.55, cfg=0.40, temp=0.80, pausa=(0.22, 0.42), tempo=1.00),
-    "informativo": dict(exag=0.45, cfg=0.50, temp=0.75, pausa=(0.16, 0.34), tempo=1.02),
-    "dinamico":    dict(exag=0.70, cfg=0.45, temp=0.85, pausa=(0.10, 0.24), tempo=1.04),
-    "narrativo":   dict(exag=0.40, cfg=0.35, temp=0.70, pausa=(0.30, 0.55), tempo=0.97),
+    "intriga":     dict(exag=0.55, cfg=0.45, temp=0.80, pausa=(0.16, 0.30), tempo=1.03),
+    "informativo": dict(exag=0.50, cfg=0.50, temp=0.78, pausa=(0.12, 0.26), tempo=1.04),
+    "dinamico":    dict(exag=0.68, cfg=0.50, temp=0.85, pausa=(0.08, 0.18), tempo=1.06),
+    "narrativo":   dict(exag=0.42, cfg=0.40, temp=0.72, pausa=(0.22, 0.40), tempo=0.99),
 }
-PAUSA_REVELACION = (0.55, 0.80)
+PAUSA_REVELACION = (0.50, 0.70)
 _modelo = None
 
 
@@ -71,6 +71,62 @@ def tempo(a, sr, factor, tmp):
     return b
 
 
+def bloques(frases):
+    """Agrupa frases de 2 en 2 para que la entonación fluya; [pausa] y {rapido}/{lento} cortan bloque."""
+    out, cur, pausa_antes = [], [], False
+    def cerrar():
+        nonlocal cur, pausa_antes
+        if cur:
+            out.append({"frases": cur, "pausa_antes": pausa_antes}); cur, pausa_antes = [], False
+    for fr in frases:
+        if fr.strip() == "[pausa]":
+            cerrar(); pausa_antes = True; continue
+        marca = re.search(r"\{(rapido|lento)\}", fr)
+        if marca:
+            cerrar(); cur = [fr]; cerrar(); continue
+        cur.append(fr)
+        if len(cur) == 2: cerrar()
+    cerrar()
+    return out
+
+
+def _norm(s):
+    return re.sub(r"[^a-záéíóúüñ0-9 ]", " ", s.lower()).split()
+
+
+def alinear(wav, frases):
+    """Momento exacto en que se dice cada frase (Whisper, marcas por palabra)."""
+    import difflib
+    from faster_whisper import WhisperModel
+    import torchaudio
+    a, sr = sf.read(wav, dtype="float32")
+    a16 = torchaudio.functional.resample(torch.from_numpy(a), sr, 16000).numpy()
+    w = WhisperModel("small", device="cpu", compute_type="int8")
+    segs, _ = w.transcribe(a16, language="es", word_timestamps=True)
+    hyp = [(t, x.start, x.end) for sg in segs for x in sg.words for t in _norm(x.word)]
+    ref, dueño = [], []
+    for k, fr in enumerate(frases):
+        for t in _norm(fr): ref.append(t); dueño.append(k)
+    sm = difflib.SequenceMatcher(a=ref, b=[h[0] for h in hyp], autojunk=False)
+    tiempos = {}
+    for bl in sm.get_matching_blocks():
+        for d in range(bl.size):
+            tiempos.setdefault(dueño[bl.a + d], []).append(hyp[bl.b + d][1:])
+    dur = len(a) / sr
+    marcas, ult = [], 0.0
+    for k, fr in enumerate(frases):
+        ts = tiempos.get(k)
+        ini, fin = (min(x[0] for x in ts), max(x[1] for x in ts)) if ts else (ult, ult)
+        marcas.append({"texto": fr, "inicio": round(max(ini, ult), 3), "fin": round(fin, 3)})
+        ult = max(ult, fin)
+    # frases sin coincidencias: reparte el hueco
+    for k, m in enumerate(marcas):
+        if m["fin"] <= m["inicio"]:
+            sig = next((x["inicio"] for x in marcas[k + 1:] if x["fin"] > x["inicio"]), dur)
+            m["fin"] = round(max(m["inicio"] + 0.6, sig - 0.05), 3)
+    return marcas
+
+
 def locutar(guion, salida, semilla=7):
     rnd = random.Random(semilla)
     est = ESTILOS[guion.get("estilo", "informativo")]
@@ -78,17 +134,14 @@ def locutar(guion, salida, semilla=7):
     sr = m.sr
     ref = guion.get("voz")
     tmp = Path(tempfile.mkdtemp(prefix="locutor-"))
-    trozos, marcas, t = [], [], 0.0
-    pendiente = None  # pausa que va antes de la próxima frase
-    frases = guion["frases"]
-    for n, fr in enumerate(frases):
-        if fr.strip() == "[pausa]":
-            pendiente = rnd.uniform(*PAUSA_REVELACION)
-            continue
+    trozos, limpias = [], []
+    for n, bl in enumerate(bloques(guion["frases"])):
         ritmo = est["tempo"] * rnd.uniform(0.98, 1.02)
-        if "{rapido}" in fr: ritmo *= 1.06
-        if "{lento}" in fr: ritmo *= 0.93
-        texto = re.sub(r"\{(rapido|lento)\}", "", fr).strip()
+        texto = " ".join(bl["frases"])
+        if "{rapido}" in texto: ritmo *= 1.06
+        if "{lento}" in texto: ritmo *= 0.93
+        texto = re.sub(r"\s*\{(rapido|lento)\}", "", texto).strip()
+        limpias += [re.sub(r"\s*\{(rapido|lento)\}", "", f).strip() for f in bl["frases"]]
         torch.manual_seed(semilla * 1000 + n)
         kw = dict(language_id="es", exaggeration=max(0.25, est["exag"] + rnd.uniform(-0.05, 0.05)),
                   cfg_weight=est["cfg"], temperature=est["temp"])
@@ -96,22 +149,17 @@ def locutar(guion, salida, semilla=7):
             kw["audio_prompt_path"] = ref
         wav = m.generate(texto, **kw).squeeze(0).numpy().astype("float32")
         wav = tempo(recortar(wav, sr), sr, ritmo, tmp)
-        if trozos:  # pausa entre frases: nunca igual, más larga tras punto y aparte
-            p = pendiente if pendiente else rnd.uniform(*est["pausa"])
-            if texto.endswith("?") or frases[n - 1].rstrip().endswith((".", "!", "?")):
-                p *= rnd.uniform(1.0, 1.2)
-            trozos.append(np.zeros(int(p * sr), dtype="float32")); t += p
-        elif pendiente:
-            trozos.append(np.zeros(int(pendiente * sr), dtype="float32")); t += pendiente
-        pendiente = None
-        marcas.append({"texto": texto, "inicio": round(t, 3), "fin": round(t + len(wav) / sr, 3)})
-        trozos.append(wav); t += len(wav) / sr
+        if trozos or bl["pausa_antes"]:  # pausas entre bloques: nunca iguales
+            p = rnd.uniform(*(PAUSA_REVELACION if bl["pausa_antes"] else est["pausa"]))
+            trozos.append(np.zeros(int(p * sr), dtype="float32"))
+        trozos.append(wav)
     crudo = tmp / "crudo.wav"
     sf.write(crudo, np.concatenate(trozos), sr)
     # Masterización para redes: sin graves de ruido, compresión suave y volumen estándar (-14 LUFS)
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", crudo, "-af",
                     "highpass=f=75,acompressor=threshold=-21dB:ratio=2.2:attack=10:release=140:makeup=1.5,"
                     "loudnorm=I=-14:TP=-1.5:LRA=8", "-ar", "44100", "-ac", "1", salida], check=True)
+    marcas = alinear(salida, limpias)
     Path(salida).with_suffix(".json").write_text(json.dumps(marcas, ensure_ascii=False, indent=1))
     return marcas
 
