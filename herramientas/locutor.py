@@ -36,12 +36,52 @@ PAUSA_REVELACION = (0.50, 0.70)
 _modelo = None
 
 
+# Pronunciación: lo que se LEE (los subtítulos siguen mostrando el texto original)
+LETRAS = dict(A="a", B="be", C="ce", D="de", E="e", F="efe", G="ge", H="hache", I="i", J="jota", K="ka", L="ele",
+              M="eme", N="ene", O="o", P="pe", Q="cu", R="erre", S="ese", T="te", U="u", V="uve", W="uve doble",
+              X="equis", Y="i griega", Z="zeta")
+PALABRAS = {  # se leen tal cual, no se deletrean
+    "SEAT": "seat", "SUV": "suv", "ANFAC": "anfac", "GANVAM": "ganvam", "OCU": "ocu", "RACE": "race",
+    "IVA": "iva", "ITV": "i te uve", "ITP": "i te pe", "UE": "u e", "IA": "i a", "Plan Auto+": "Plan Auto Plus",
+}
+UNIDADES = [(r"(\d)\s*€/l\b", r"\1 euros el litro"), (r"(\d)\s*€", r"\1 euros"), (r"€", "euros"), (r"(\d)\s*km\b", r"\1 kilómetros"), (r"\bkm\b", "kilómetros"),
+            (r"(\d)\s*CV\b", r"\1 caballos"), (r"(\d)\s*%", r"\1 por ciento"), (r"(\d)\s*kWh", r"\1 kilovatios hora"),
+            (r"€/l\b", "euros el litro")]
+
+
+def leer(texto):
+    """Convierte siglas, modelos, unidades y cifras en palabras para que se pronuncien bien."""
+    from num2words import num2words
+    t = texto
+    for k, v in PALABRAS.items():
+        t = re.sub(rf"\b{re.escape(k)}(?!\w)", v, t)
+    for a, b in UNIDADES:
+        t = re.sub(a, b, t)
+    def numero(m):
+        ent, _, dec = m.group(0).replace(".", "").partition(",")
+        if not ent.isdigit() or (dec and not dec.isdigit()):
+            return m.group(0)
+        out = num2words(int(ent), lang="es")
+        return out + (" coma " + num2words(int(dec), lang="es") if dec else "")
+    def sigla(m):  # GTI, DGT, MX-5, GT86, A3, X1…
+        letras, num = m.group(1), m.group(2)
+        out = " ".join(LETRAS[c] for c in letras)
+        return out + (" " + numero(re.match(r".+", num)) if num else "")
+    t = re.sub(r"\b([A-Z]{1,4})-?(\d+)?\b", lambda m: sigla(m) if (len(m.group(1)) > 1 or m.group(2)) and m.group(1) not in ("I",) else m.group(0), t)
+    t = re.sub(r"(\d)([a-zA-Z])", r"\1 \2", t)  # 330e → 330 e
+    t = re.sub(r"\d+(?:[.,]\d+)*", numero, t)
+    t = t.replace(" - ", ", ").replace("−", "menos ")
+    return re.sub(r"\s+", " ", t).strip()
+
+
 def modelo():
     global _modelo
     if _modelo is None:
         torch.set_num_threads(4)
         from chatterbox.mtl_tts import ChatterboxMultilingualTTS
         _modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+        import copy
+        _modelo._conds_defecto = copy.deepcopy(_modelo.conds)
     return _modelo
 
 
@@ -133,6 +173,9 @@ def locutar(guion, salida, semilla=7):
     m = modelo()
     sr = m.sr
     ref = guion.get("voz")
+    if not ref:  # Chatterbox recuerda la última referencia: volver a la voz por defecto
+        import copy
+        m.conds = copy.deepcopy(m._conds_defecto)
     tmp = Path(tempfile.mkdtemp(prefix="locutor-"))
     trozos, limpias = [], []
     for n, bl in enumerate(bloques(guion["frases"])):
@@ -147,7 +190,7 @@ def locutar(guion, salida, semilla=7):
                   cfg_weight=est["cfg"], temperature=est["temp"])
         if ref:
             kw["audio_prompt_path"] = ref
-        wav = m.generate(texto, **kw).squeeze(0).numpy().astype("float32")
+        wav = m.generate(leer(texto), **kw).squeeze(0).numpy().astype("float32")
         wav = tempo(recortar(wav, sr), sr, ritmo, tmp)
         if trozos or bl["pausa_antes"]:  # pausas entre bloques: nunca iguales
             p = rnd.uniform(*(PAUSA_REVELACION if bl["pausa_antes"] else est["pausa"]))
