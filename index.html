@@ -490,6 +490,8 @@
   .adv-acts button{background:none;border:1px solid var(--axis);color:var(--ink-2);border-radius:8px;padding:8px 13px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:color .2s,border-color .2s}
   .adv-acts button:hover{color:var(--accent);border-color:var(--accent)}
   .adv-empty{grid-column:1/-1;padding:30px;border:1px dashed var(--axis);border-radius:var(--radius);color:var(--ink-2)}
+  .adv-res,.adv-more{overflow-anchor:none}
+  .adv-card{scroll-margin-top:calc(var(--head) + 16px)}
   .adv-more{text-align:center;margin-top:26px}
   .adv-note{margin-top:22px;max-width:900px}
   @media (max-width:1000px){.adv-form{grid-template-columns:1fr 1fr}}
@@ -1696,11 +1698,15 @@ Dacia|Bigster|0.9|Bigster~2025-2026~1.2 TCe mHEV,130,G,25000;1.2 TCe mHEV 4x4,14
       more();
       if (!groups.length) $("#aRes").innerHTML = '<div class="adv-empty">Con estos filtros no hay ningún coche. Prueba a subir el presupuesto, a ampliar el rango de kilómetros o a quitar algún filtro (tipo de coche, etiqueta o potencia).</div>';
     }
-    function more(){
-      const next = groups.slice(shown, shown + 20);
+    function more(scroll){
+      const next = groups.slice(shown, shown + 20), first = shown;
       $("#aRes").insertAdjacentHTML("beforeend", next.map((G, i) => card(G, shown + i + 1)).join(""));
       shown += next.length;
-      $("#aMore").hidden = shown >= groups.length;
+      const left = groups.length - shown;
+      $("#aMore").hidden = left <= 0;
+      $("#aMore").textContent = `Ver más resultados (quedan ${NF.format(left)})`;
+      // lleva la vista al primer resultado nuevo (si no, el navegador sigue al botón y parece que no ha cargado nada)
+      if (scroll === true && next.length) $("#aRes").children[first].scrollIntoView({behavior: RM.matches ? "auto" : "smooth", block: "start"});
     }
     function card(G, n){
       const {m, g, c} = G, vs = G.vs.slice(0, 3);
@@ -1709,7 +1715,7 @@ Dacia|Bigster|0.9|Bigster~2025-2026~1.2 TCe mHEV,130,G,25000;1.2 TCe mHEV 4x4,14
       const li = vs.map(v => `<li><span class="vn">${esc(v.ver[0])} · ${v.ver[1]} CV · ${FUEL[v.ver[2]].l}</span><span class="vd">${v.y} · ${NF.format(v.km)} km · ≈ ${fmt(v.month)} al mes</span><span class="vp">${fmt(v.price)}<small>precio justo</small></span></li>`).join("");
       return `<article class="adv-card"><div class="top"><div><h3>${esc(m.mk)} ${esc(m.md)}</h3><div class="gen">${esc(g.g)} · ${g.y[0]}–${g.y[1] >= 2026 ? "hoy" : g.y[1]} · ${CATN[c[0]]}</div></div><span class="rank">#${n}</span></div><div class="adv-tags">${tags}</div><ul class="adv-vers">${li}</ul><div class="adv-acts"><button type="button" data-a="t" data-k="${G.mi}:${G.gi}">Tasar el primero</button><button type="button" data-a="c" data-k="${G.mi}:${G.gi}">Llevar al comparador</button></div></article>`;
     }
-    $("#aMore").addEventListener("click", more);
+    $("#aMore").addEventListener("click", () => more(true));
     $("#aRes").addEventListener("click", e => {
       const b = e.target.closest("button[data-a]"); if (!b) return;
       const G = groups.find(x => x.mi + ":" + x.gi === b.dataset.k); if (!G) return;
