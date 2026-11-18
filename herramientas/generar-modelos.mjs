@@ -6,7 +6,7 @@ import path from "node:path";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const SITE = "https://parmotorweb.github.io/parmotor/";
-const HOY = "2026-11-17";
+const HOY = "2026-11-18";
 const MES = "noviembre de 2026";
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 
