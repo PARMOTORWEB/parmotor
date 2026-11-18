@@ -462,6 +462,8 @@
   .tog button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
   .adv-quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
   .adv-quick button{padding:5px 10px;font-size:13px}
+  .kmr{display:grid;grid-template-columns:52px 1fr;align-items:center;gap:10px;margin-top:6px}
+  .kmr label{font-size:13px;color:var(--ink-3);margin:0;text-transform:none;letter-spacing:0;font-weight:500}
   .adv-checks{display:flex;flex-wrap:wrap;gap:12px 28px}
   .chk{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--ink-2);cursor:pointer}
   .chk input{width:20px;height:20px;accent-color:var(--accent);cursor:pointer}
@@ -538,7 +540,7 @@
       <div class="sec-h rv"><div><h2>Asesor de compra</h2><p>Dinos cuánto quieres gastar y qué necesitas. Te decimos qué modelos, generaciones y motores encajan, con su precio justo y lo que te costarían al mes.</p></div></div>
       <div class="card adv-form rv">
         <div class="field"><label for="aBud">Presupuesto máximo</label><div class="val" id="aBudV"></div><input type="range" id="aBud" min="3000" max="150000" step="500" value="20000"><div class="adv-quick" id="aBudQ"><button type="button" data-v="8000">8.000 €</button><button type="button" data-v="12000">12.000 €</button><button type="button" data-v="20000">20.000 €</button><button type="button" data-v="30000">30.000 €</button><button type="button" data-v="50000">50.000 €</button></div></div>
-        <div class="field"><label for="aKm">Kilómetros máximos del coche</label><div class="val" id="aKmV"></div><input type="range" id="aKm" min="10000" max="100000" step="5000" value="100000"></div>
+        <div class="field"><span class="flabel" id="aKmL">Kilometraje del coche</span><div class="val" id="aKmV"></div><div class="kmr"><label for="aKm0">Desde</label><input type="range" id="aKm0" min="0" max="100000" step="5000" value="0" aria-describedby="aKmL"></div><div class="kmr"><label for="aKm">Hasta</label><input type="range" id="aKm" min="0" max="100000" step="5000" value="100000" aria-describedby="aKmL"></div></div>
         <div class="field"><label for="aYear">Año mínimo</label><select id="aYear"></select></div>
         <div class="field"><label for="aUse">Kilómetros que harás al año</label><div class="val" id="aUseV"></div><input type="range" id="aUse" min="3000" max="40000" step="1000" value="15000"></div>
         <div class="field full"><span class="flabel" id="aBodyL">Tipo de coche <small>(elige uno o varios; ninguno = todos)</small></span><div class="tog" id="aBody" role="group" aria-labelledby="aBodyL">
@@ -554,7 +556,7 @@
       <div class="adv-head" aria-live="polite"><p id="aCount"></p><p class="hint" id="aTip"></p></div>
       <div class="adv-res" id="aRes"></div>
       <div class="adv-more"><button type="button" class="btn" id="aMore" hidden>Ver más resultados</button></div>
-      <p class="hint adv-note">Precios orientativos para coches en buen estado y con los kilómetros normales para su edad (sin pasar de tu máximo). El gasto al mes incluye depreciación, combustible, seguro, mantenimiento, neumáticos e impuestos durante 4 años, con los precios de combustible del comparador. Etiqueta DGT orientativa: compruébala con la matrícula en la web de la DGT.</p>
+      <p class="hint adv-note">Precios orientativos para coches en buen estado y con los kilómetros normales para su edad, ajustados al rango de kilometraje que elijas. El gasto al mes incluye depreciación, combustible, seguro, mantenimiento, neumáticos e impuestos durante 4 años, con los precios de combustible del comparador. Etiqueta DGT orientativa: compruébala con la matrícula en la web de la DGT.</p>
     </div>
   </section>
 
@@ -1610,13 +1612,16 @@ Dacia|Bigster|0.9|Bigster~2025-2026~1.2 TCe mHEV,130,G,25000;1.2 TCe mHEV 4x4,14
     const SPORT = /\b(GTI|GTD|GTE|GTS|GTX|R|R32|R36|RS ?\d?|S\d|SQ\d|M\d{1,3}[a-z]*|AMG|Type R|Cupra|VZ\d?|N|ST\d*|JCW|John Cooper Works|GR|Performance|Clubsport|TCR|Trophy|Competition|CS|CSL|GT|PSE|Plaid|Alpine|Abarth|Nismo|TTS|TT RS|S1|130)\b(?![- ]Line)(?! Sport\b)/;
     const label = (f, y) => f === "E" ? 4 : f === "P" ? (y >= 2019 ? 4 : 3) : f === "H" ? 3 : f === "G" ? (y >= 2006 ? 2 : y >= 2001 ? 1 : 0) : (y >= 2015 ? 2 : y >= 2006 ? 1 : 0);
     const catOf = m => CAT[m.mk + "|" + m.md] || "C";
-    const aBud = $("#aBud"), aKm = $("#aKm"), aUse = $("#aUse"), aYear = $("#aYear"), aMk = $("#aMk"), aSort = $("#aSort");
+    const aBud = $("#aBud"), aKm = $("#aKm"), aKm0 = $("#aKm0"), aUse = $("#aUse"), aYear = $("#aYear"), aMk = $("#aMk"), aSort = $("#aSort");
     aYear.innerHTML = '<option value="0">Cualquiera</option>' + Array.from({length:27}, (_, i) => 2026 - i).map(y => `<option value="${y}">${y} o más nuevo</option>`).join("");
     aMk.innerHTML += MAKES.slice().sort((a, b) => a.localeCompare(b, "es")).map(m => `<option value="${esc(m)}">${esc(m)}</option>`).join("");
     const toggled = id => [...document.querySelectorAll(`#${id} button[aria-pressed=true]`)].map(b => b.dataset.v);
     document.querySelectorAll("#aBody button,#aFuel button").forEach(b => b.addEventListener("click", () => { b.setAttribute("aria-pressed", b.getAttribute("aria-pressed") !== "true"); go(); }));
     $("#aBudQ").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; aBud.value = b.dataset.v; go(); });
-    [aBud, aKm, aUse].forEach(el => el.addEventListener("input", go));
+    [aBud, aUse].forEach(el => el.addEventListener("input", go));
+    // rango de km: si un tirador cruza al otro, lo empuja
+    aKm0.addEventListener("input", () => { if (+aKm0.value > +aKm.value) aKm.value = aKm0.value; go(); });
+    aKm.addEventListener("input", () => { if (+aKm.value < +aKm0.value) aKm0.value = aKm.value; go(); });
     [aYear, aMk, aSort, $("#aLabel"), $("#aCv"), $("#a7"), $("#aSport")].forEach(el => el.addEventListener("change", go));
 
     function monthCost(m, ver, y, age, km, price, K){
@@ -1637,11 +1642,11 @@ Dacia|Bigster|0.9|Bigster~2025-2026~1.2 TCe mHEV,130,G,25000;1.2 TCe mHEV 4x4,14
     let groups = [], shown = 0, timer = 0;
     function go(){ clearTimeout(timer); timer = setTimeout(run, 90); paint(); }
     function paint(){
-      syncRange(aBud); syncRange(aKm); syncRange(aUse);
-      $("#aBudV").textContent = fmt(+aBud.value); $("#aKmV").textContent = NF.format(+aKm.value) + " km"; $("#aUseV").textContent = NF.format(+aUse.value) + " km/año";
+      syncRange(aBud); syncRange(aKm0); syncRange(aKm); syncRange(aUse);
+      $("#aBudV").textContent = fmt(+aBud.value); $("#aKmV").textContent = NF.format(+aKm0.value) + " – " + NF.format(+aKm.value) + " km"; $("#aUseV").textContent = NF.format(+aUse.value) + " km/año";
     }
     function run(){
-      const bud = +aBud.value, kmMax = +aKm.value, minY = +aYear.value, K = +aUse.value;
+      const bud = +aBud.value, kmMin = +aKm0.value, kmMax = +aKm.value, minY = +aYear.value, K = +aUse.value;
       const bodies = toggled("aBody"), fuels = toggled("aFuel"), minLab = +$("#aLabel").value, minCv = +$("#aCv").value;
       const mk = aMk.value, need7 = $("#a7").checked, sport = $("#aSport").checked, sort = aSort.value;
       const map = new Map();
@@ -1658,7 +1663,7 @@ Dacia|Bigster|0.9|Bigster~2025-2026~1.2 TCe mHEV,130,G,25000;1.2 TCe mHEV 4x4,14
             for (let y = Math.min(g.y[1], 2026); y >= Math.max(g.y[0], minY || 0); y--){
               if (label(ver[2], y) < minLab) continue;
               const age = Math.max(0.25, NOW - (y + 0.5));
-              const km = Math.min(kmMax, Math.round(FUEL[ver[2]].kmY*age/5000)*5000);
+              const km = Math.min(kmMax, Math.max(kmMin, Math.round(FUEL[ver[2]].kmY*age/5000)*5000));
               const price = Math.round(valueAt(m, ver, y, age, km, 1).v/100)*100;
               if (price > bud) continue;
               const cand = {mi, gi, vi, y, km, age, price, ver, lab: label(ver[2], y)};
@@ -1689,7 +1694,7 @@ Dacia|Bigster|0.9|Bigster~2025-2026~1.2 TCe mHEV,130,G,25000;1.2 TCe mHEV 4x4,14
       else if (fuels.includes("E") || fuels.includes("P")) tip = "Para que un eléctrico o un enchufable salga a cuenta, necesitas poder cargar en casa o en el trabajo.";
       $("#aTip").textContent = tip;
       more();
-      if (!groups.length) $("#aRes").innerHTML = '<div class="adv-empty">Con estos filtros no hay ningún coche. Prueba a subir el presupuesto, a permitir más kilómetros o a quitar algún filtro (tipo de coche, etiqueta o potencia).</div>';
+      if (!groups.length) $("#aRes").innerHTML = '<div class="adv-empty">Con estos filtros no hay ningún coche. Prueba a subir el presupuesto, a ampliar el rango de kilómetros o a quitar algún filtro (tipo de coche, etiqueta o potencia).</div>';
     }
     function more(){
       const next = groups.slice(shown, shown + 20);
