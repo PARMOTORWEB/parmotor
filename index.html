@@ -489,6 +489,9 @@
   .adv-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
   .adv-acts button{background:none;border:1px solid var(--axis);color:var(--ink-2);border-radius:8px;padding:8px 13px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:color .2s,border-color .2s}
   .adv-acts button:hover{color:var(--accent);border-color:var(--accent)}
+  .adv-shop{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13.5px;color:var(--ink-3);padding-top:4px}
+  .adv-shop a{color:var(--ink);text-decoration:none;font-weight:600;padding:5px 11px;border-radius:7px;background:var(--surface-2);border:1px solid var(--axis);transition:border-color .2s,color .2s}
+  .adv-shop a:hover{border-color:var(--accent);color:var(--accent)}
   .adv-empty{grid-column:1/-1;padding:30px;border:1px dashed var(--axis);border-radius:var(--radius);color:var(--ink-2)}
   .adv-res,.adv-more{overflow-anchor:none}
   .adv-card{scroll-margin-top:calc(var(--head) + 16px)}
@@ -558,7 +561,7 @@
       <div class="adv-head" aria-live="polite"><p id="aCount"></p><p class="hint" id="aTip"></p></div>
       <div class="adv-res" id="aRes"></div>
       <div class="adv-more"><button type="button" class="btn" id="aMore" hidden>Ver más resultados</button></div>
-      <p class="hint adv-note">Precios orientativos para coches en buen estado y con los kilómetros normales para su edad, ajustados al rango de kilometraje que elijas. El gasto al mes incluye depreciación, combustible, seguro, mantenimiento, neumáticos e impuestos durante 4 años, con los precios de combustible del comparador. Etiqueta DGT orientativa: compruébala con la matrícula en la web de la DGT.</p>
+      <p class="hint adv-note">Precios orientativos para coches en buen estado y con los kilómetros normales para su edad, ajustados al rango de kilometraje que elijas. El gasto al mes incluye depreciación, combustible, seguro, mantenimiento, neumáticos e impuestos durante 4 años, con los precios de combustible del comparador. Etiqueta DGT orientativa: compruébala con la matrícula en la web de la DGT. Los enlaces abren búsquedas en coches.net, Wallapop y AutoScout24 con tus filtros (generación, años, kilómetros y presupuesto): muestran los anuncios que haya publicados en ese momento. Par Motor no tiene relación con esos portales. Última revisión de precios y enlaces: <span id="aStamp">18/11/2026</span>.</p>
     </div>
   </section>
 
@@ -1641,6 +1644,23 @@ Dacia|Bigster|0.9|Bigster~2025-2026~1.2 TCe mHEV,130,G,25000;1.2 TCe mHEV 4x4,14
       return tot/(Y*12);
     }
 
+    // nombre con el que buscan los portales (nuestros modelos agrupan a veces dos nombres)
+    const PORTAL = {"Corolla y Auris":"Corolla","Golf Plus y Sportsvan":"Golf Sportsvan","CC y Arteon":"Arteon","Multivan y California":"Multivan","Yeti y Karoq":"Karoq","ML y GLE":"GLE","SLK y SLC":"SLC","SL y AMG GT":"SL","EQS y EQC":"EQS","GT86 y GR86":"GR86","Mazda6e y CX-6e":"6e","i30 e i30 N":"i30","Ceed y ProCeed":"Ceed","EV4 y EV5":"EV4","Ka y Ka+":"Ka","Tourneo Connect y Courier":"Tourneo Connect","S-Max y Galaxy":"S-Max","207 y 208":"208","307 y 308":"308","Partner y Rifter":"Rifter","Mini 3 y 5 puertas":"Cooper","Coupé y Roadster":"Coupe","e-tron y Q8 e-tron":"e-tron","Serie 6 y Serie 8":"Serie 8","Land Cruiser 200":"Land Cruiser","Mégane E-Tech":"Megane E-Tech","Renault 5":"R5","Renault 4":"R4","GR Yaris":"Yaris","GR Corolla":"Corolla","e":"Honda e"};
+    const slugP = t => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\+/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const AS_FUEL = {G:"B", D:"D", E:"E", H:"2", P:"2"};
+    function shopLinks(G, F){
+      const m = G.m, md = PORTAL[m.md] || m.md, mk = m.mk;
+      const y0 = Math.max(G.g.y[0], F.minY || 0), y1 = Math.min(G.g.y[1], 2026);
+      const fuels = F.fuels.length ? F.fuels : [];
+      const cn = `https://www.coches.net/${slugP(mk)}/${slugP(md)}/segunda-mano/?MinYear=${y0}&MaxYear=${y1}&MinKms=${F.kmMin}&MaxKms=${F.kmMax}&MaxPrice=${F.bud}`;
+      let as = `https://www.autoscout24.es/lst/${slugP(mk)}/${slugP(md)}?atype=C&cy=E&ustate=N%2CU&sort=price&desc=0&fregfrom=${y0}&fregto=${y1}&kmfrom=${F.kmMin}&kmto=${F.kmMax}&priceto=${F.bud}`;
+      const asf = [...new Set(fuels.map(f => AS_FUEL[f]))];
+      if (asf.length) as += "&fuel=" + encodeURIComponent(asf.join(","));
+      const wq = `${mk === "Mercedes-Benz" ? "Mercedes" : mk} ${md}`;
+      const wp = `https://es.wallapop.com/search?category_id=100&keywords=${encodeURIComponent(wq)}&max_sale_price=${F.bud}&min_year=${y0}&max_year=${y1}&min_km=${F.kmMin}&max_km=${F.kmMax}&order_by=price_low_to_high`;
+      return `<div class="adv-shop"><span>Ver anuncios reales:</span><a href="${cn}" target="_blank" rel="noopener nofollow">coches.net</a><a href="${wp}" target="_blank" rel="noopener nofollow">Wallapop</a><a href="${as}" target="_blank" rel="noopener nofollow">AutoScout24</a></div>`;
+    }
+    let lastF = null;
     let groups = [], shown = 0, timer = 0;
     function go(){ clearTimeout(timer); timer = setTimeout(run, 90); paint(); }
     function paint(){
@@ -1651,6 +1671,7 @@ Dacia|Bigster|0.9|Bigster~2025-2026~1.2 TCe mHEV,130,G,25000;1.2 TCe mHEV 4x4,14
       const bud = +aBud.value, kmMin = +aKm0.value, kmMax = +aKm.value, minY = +aYear.value, K = +aUse.value;
       const bodies = toggled("aBody"), fuels = toggled("aFuel"), minLab = +$("#aLabel").value, minCv = +$("#aCv").value;
       const mk = aMk.value, need7 = $("#a7").checked, sport = $("#aSport").checked, sort = aSort.value;
+      lastF = {bud, kmMin, kmMax, minY, fuels};
       const map = new Map();
       DB.forEach((m, mi) => {
         if (mk && m.mk !== mk) return;
@@ -1713,7 +1734,7 @@ Dacia|Bigster|0.9|Bigster~2025-2026~1.2 TCe mHEV,130,G,25000;1.2 TCe mHEV 4x4,14
       const labs = [...new Set(G.vs.map(v => v.lab))].sort((a, b) => b - a), fuels = [...new Set(G.vs.map(v => v.ver[2]))];
       const tags = labs.map(l => `<span class="${LABC[l]}">Etiqueta ${LABN[l]}</span>`).join("") + fuels.map(f => `<span>${FUEL[f].l}</span>`).join("") + (c.includes("7") ? "<span>Hasta 7 plazas</span>" : "") + (G.vs.length > 3 ? `<span>+${G.vs.length - 3} motores más</span>` : "");
       const li = vs.map(v => `<li><span class="vn">${esc(v.ver[0])} · ${v.ver[1]} CV · ${FUEL[v.ver[2]].l}</span><span class="vd">${v.y} · ${NF.format(v.km)} km · ≈ ${fmt(v.month)} al mes</span><span class="vp">${fmt(v.price)}<small>precio justo</small></span></li>`).join("");
-      return `<article class="adv-card"><div class="top"><div><h3>${esc(m.mk)} ${esc(m.md)}</h3><div class="gen">${esc(g.g)} · ${g.y[0]}–${g.y[1] >= 2026 ? "hoy" : g.y[1]} · ${CATN[c[0]]}</div></div><span class="rank">#${n}</span></div><div class="adv-tags">${tags}</div><ul class="adv-vers">${li}</ul><div class="adv-acts"><button type="button" data-a="t" data-k="${G.mi}:${G.gi}">Tasar el primero</button><button type="button" data-a="c" data-k="${G.mi}:${G.gi}">Llevar al comparador</button></div></article>`;
+      return `<article class="adv-card"><div class="top"><div><h3>${esc(m.mk)} ${esc(m.md)}</h3><div class="gen">${esc(g.g)} · ${g.y[0]}–${g.y[1] >= 2026 ? "hoy" : g.y[1]} · ${CATN[c[0]]}</div></div><span class="rank">#${n}</span></div><div class="adv-tags">${tags}</div><ul class="adv-vers">${li}</ul>${shopLinks(G, lastF)}<div class="adv-acts"><button type="button" data-a="t" data-k="${G.mi}:${G.gi}">Tasar el primero</button><button type="button" data-a="c" data-k="${G.mi}:${G.gi}">Llevar al comparador</button></div></article>`;
     }
     $("#aMore").addEventListener("click", () => more(true));
     $("#aRes").addEventListener("click", e => {
