@@ -500,6 +500,9 @@
   .adv-shop{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:13.5px;color:var(--ink-3);padding-top:4px}
   .adv-shop a{color:var(--ink);text-decoration:none;font-weight:600;padding:5px 11px;border-radius:7px;background:var(--surface-2);border:1px solid var(--axis);transition:border-color .2s,color .2s}
   .adv-shop a:hover{border-color:var(--accent);color:var(--accent)}
+  .adv-shop-n{flex-basis:100%;font-size:12px;color:var(--ink-3);line-height:1.45}
+  .adv-vers .vlink{color:var(--accent);text-decoration:none;font-weight:600}
+  .adv-vers .vlink:hover{text-decoration:underline}
   .adv-empty{grid-column:1/-1;padding:30px;border:1px dashed var(--axis);border-radius:var(--radius);color:var(--ink-2)}
   .adv-res,.adv-more{overflow-anchor:none}
   .adv-card{scroll-margin-top:calc(var(--head) + 16px)}
@@ -1842,17 +1845,47 @@ SsangYong|Rexton y Musso|0.95|Rexton (2017)~2017-2026~2.2 e-XDi,181,D,36000;2.2 
     const PORTAL = {"Corolla y Auris":"Corolla","Golf Plus y Sportsvan":"Golf Sportsvan","CC y Arteon":"Arteon","Multivan y California":"Multivan","Yeti y Karoq":"Karoq","ML y GLE":"GLE","SLK y SLC":"SLC","SL y AMG GT":"SL","EQS y EQC":"EQS","GT86 y GR86":"GR86","Mazda6e y CX-6e":"6e","i30 e i30 N":"i30","Ceed y ProCeed":"Ceed","EV4 y EV5":"EV4","Ka y Ka+":"Ka","Tourneo Connect y Courier":"Tourneo Connect","S-Max y Galaxy":"S-Max","207 y 208":"208","307 y 308":"308","Partner y Rifter":"Rifter","Mini 3 y 5 puertas":"Cooper","Coupé y Roadster":"Coupe","e-tron y Q8 e-tron":"e-tron","Serie 6 y Serie 8":"Serie 8","Land Cruiser 200":"Land Cruiser","Mégane E-Tech":"Megane E-Tech","Renault 5":"R5","Renault 4":"R4","GR Yaris":"Yaris","GR Corolla":"Corolla","e":"Honda e","C4 Picasso y SpaceTourer":"C4 Picasso","C5 y C5 X":"C5 X","500 y 595":"595","159 y Brera":"159","S60 y V60":"V60","S90 y V90":"V90","V50 y S40":"V50","V70 y XC70":"V70","LC y RC":"RC","370Z y Z":"370Z","SX4 y Across":"SX4","Impreza y XV":"XV","BRZ y WRX":"BRZ","718 Boxster y Cayman":"718 Cayman","Ghibli y Quattroporte":"Ghibli","ForTwo y ForFour":"ForTwo","#1 y #3":"#1","3 y 4":"3","MG3 y MG5":"MG3","Marvel R y Cyberster":"Cyberster","Seal 6 y Han":"Seal 6","Tang y Sealion 7":"Sealion 7","Rexton y Musso":"Rexton","2":"2"};
     const slugP = t => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\+/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     const AS_FUEL = {G:"B", D:"D", E:"E", H:"2", P:"2"};
+    // Nombre del modelo para los portales: en modelos agrupados ("207 y 208") usa el de esa generación
+    function portalMd(m, g){
+      if (/ y /.test(m.md)){
+        const parts = m.md.split(" y ").map(s => s.trim());
+        const esc2 = s => s.replace(/[.*+?^${}()|[\]\\#]/g, "\\$&");
+        const hits = parts.filter(p => new RegExp("(^|\\s)" + esc2(p) + "(\\s|$)").test(g.g)).sort((x, y) => y.length - x.length);
+        let hit = hits[0] || parts.find(p => g.g.startsWith(p));
+        if (!hit){ const tok = g.g.split(/\s+/).find(t => parts.some(p => t.startsWith(p) && t !== p)); if (tok) return tok; }
+        if (hit) return PORTAL[hit] || hit;
+      }
+      return PORTAL[m.md] || m.md;
+    }
     function shopLinks(G, F){
-      const m = G.m, md = PORTAL[m.md] || m.md, mk = m.mk;
+      const m = G.m, md = portalMd(m, G.g), mk = m.mk, vs = G.vs;
       const y0 = Math.max(G.g.y[0], F.minY || 0), y1 = Math.min(G.g.y[1], 2026);
-      const fuels = F.fuels.length ? F.fuels : [];
-      const cn = `https://www.coches.net/${slugP(mk)}/${slugP(md)}/segunda-mano/?MinYear=${y0}&MaxYear=${y1}&MinKms=${F.kmMin}&MaxKms=${F.kmMax}&MaxPrice=${F.bud}`;
-      let as = `https://www.autoscout24.es/lst/${slugP(mk)}/${slugP(md)}?atype=C&cy=E&ustate=N%2CU&sort=price&desc=0&fregfrom=${y0}&fregto=${y1}&kmfrom=${F.kmMin}&kmto=${F.kmMax}&priceto=${F.bud}`;
-      const asf = [...new Set(fuels.map(f => AS_FUEL[f]))];
-      if (asf.length) as += "&fuel=" + encodeURIComponent(asf.join(","));
-      const wq = `${mk === "Mercedes-Benz" ? "Mercedes" : mk} ${md}`;
+      // Filtros sacados de los motores que encajan, no solo del modelo
+      const cvs = vs.map(v => v.ver[1]), cvMin = Math.min(...cvs), cvMax = Math.max(...cvs);
+      const fu = [...new Set(vs.map(v => v.ver[2]))];
+      const kw = cv => Math.round(cv * 0.7355);
+      const pFrom = kw(cvMin * 0.96), pTo = kw(cvMax * 1.04);
+      // Palabra de versión común a todos los motores (Quadrifoglio, GTI, Cupra, AMG…) para afinar texto
+      const BADGE = /\b(Quadrifoglio|Veloce|GTI|GTD|GTE|GTS|Cupra|AMG|JCW|John Cooper Works|Type R|Nismo|Abarth|SVR|Trofeo|Competizione|Polestar|Performance|RS ?\d?|ST|GR|S[1-8]|M\d{1,3}[id]?|R)\b/;
+      const bm = vs.map(v => (BADGE.exec(v.ver[0]) || [])[1]);
+      const badge = bm[0] && bm.every(b => b === bm[0]) ? bm[0] : "";
+      let cn = `https://www.coches.net/${slugP(mk)}/${slugP(md)}/segunda-mano/?MinYear=${y0}&MaxYear=${y1}&MinKms=${F.kmMin}&MaxKms=${F.kmMax}&MaxPrice=${F.bud}`;
+      const CN_FUEL = {G:"2", D:"1"};
+      if (fu.every(f => CN_FUEL[f])) cn += "&fueltype2List=" + encodeURIComponent(fu.map(f => CN_FUEL[f]).join("|"));
+      if (badge) cn += "&KeyWords=" + encodeURIComponent(badge);
+      let as = `https://www.autoscout24.es/lst/${slugP(mk)}/${slugP(md)}?atype=C&cy=E&ustate=N%2CU&sort=price&desc=0&fregfrom=${y0}&fregto=${y1}&kmfrom=${F.kmMin}&kmto=${F.kmMax}&priceto=${F.bud}&powertype=kw&powerfrom=${pFrom}&powerto=${pTo}`;
+      const asf = [...new Set(fu.map(f => AS_FUEL[f]))];
+      as += "&fuel=" + encodeURIComponent(asf.join(","));
+      const wq = `${mk === "Mercedes-Benz" ? "Mercedes" : mk} ${md}${badge ? " " + badge : ""}`;
       const wp = `https://es.wallapop.com/search?category_id=100&keywords=${encodeURIComponent(wq)}&max_sale_price=${F.bud}&min_year=${y0}&max_year=${y1}&min_km=${F.kmMin}&max_km=${F.kmMax}&order_by=price_low_to_high`;
-      return `<div class="adv-shop"><span>Ver anuncios reales:</span><a href="${cn}" target="_blank" rel="noopener nofollow">coches.net</a><a href="${wp}" target="_blank" rel="noopener nofollow">Wallapop</a><a href="${as}" target="_blank" rel="noopener nofollow">AutoScout24</a></div>`;
+      const pot = cvMin === cvMax ? `${cvMin} CV` : `${cvMin}–${cvMax} CV`;
+      return `<div class="adv-shop"><span>Ver anuncios reales:</span><a href="${as}" target="_blank" rel="noopener nofollow">AutoScout24</a><a href="${cn}" target="_blank" rel="noopener nofollow">coches.net</a><a href="${wp}" target="_blank" rel="noopener nofollow">Wallapop</a><small class="adv-shop-n">AutoScout24 ya filtra potencia (${pot}), combustible, años, km y precio. En coches.net y Wallapop la potencia no se puede filtrar desde el enlace: mira los CV de cada anuncio.</small></div>`;
+    }
+    // Enlace a anuncios de un motor concreto (potencia exacta ±4 %, combustible y año ±1)
+    function verLink(G, v, F){
+      const m = G.m, md = portalMd(m, G.g), kw = cv => Math.round(cv * 0.7355);
+      const y0 = Math.max(G.g.y[0], v.y - 1), y1 = Math.min(G.g.y[1], 2026, v.y + 1);
+      return `https://www.autoscout24.es/lst/${slugP(m.mk)}/${slugP(md)}?atype=C&cy=E&ustate=N%2CU&sort=price&desc=0&fregfrom=${y0}&fregto=${y1}&kmfrom=${F.kmMin}&kmto=${F.kmMax}&priceto=${F.bud}&powertype=kw&powerfrom=${kw(v.ver[1]*0.96)}&powerto=${kw(v.ver[1]*1.04)}&fuel=${encodeURIComponent(AS_FUEL[v.ver[2]])}`;
     }
     let lastF = null;
     let groups = [], shown = 0, timer = 0;
@@ -1931,7 +1964,7 @@ SsangYong|Rexton y Musso|0.95|Rexton (2017)~2017-2026~2.2 e-XDi,181,D,36000;2.2 
       const {m, g, c} = G, vs = G.vs.slice(0, 3);
       const labs = [...new Set(G.vs.map(v => v.lab))].sort((a, b) => b - a), fuels = [...new Set(G.vs.map(v => v.ver[2]))];
       const tags = labs.map(l => `<span class="${LABC[l]}">Etiqueta ${LABN[l]}</span>`).join("") + fuels.map(f => `<span>${FUEL[f].l}</span>`).join("") + (vs.some(v => v.rk) ? `<span class="lab-warn">⚠ Motor con fallos graves</span>` : "") + (c.includes("7") ? "<span>Hasta 7 plazas</span>" : "") + (G.vs.length > 3 ? `<span>+${G.vs.length - 3} motores más</span>` : "");
-      const li = vs.map(v => `<li><span class="vn">${esc(v.ver[0])} · ${ccT(v.ver)}${v.ver[1]} CV · ${FUEL[v.ver[2]].l}</span><span class="vd">${v.y} · ${NF.format(v.km)} km · ≈ ${fmt(v.month)} al mes</span><span class="vp">${fmt(v.price)}<small>precio justo</small></span>${v.rk ? `<details class="vwarn"><summary>⚠ Ojo: ${v.rk.t}</summary><p>${v.rk.d}</p></details>` : ""}</li>`).join("");
+      const li = vs.map(v => `<li><span class="vn">${esc(v.ver[0])} · ${ccT(v.ver)}${v.ver[1]} CV · ${FUEL[v.ver[2]].l}</span><span class="vd">${v.y} · ${NF.format(v.km)} km · ≈ ${fmt(v.month)} al mes · <a class="vlink" href="${verLink(G, v, lastF)}" target="_blank" rel="noopener nofollow">anuncios de este motor →</a></span><span class="vp">${fmt(v.price)}<small>precio justo</small></span>${v.rk ? `<details class="vwarn"><summary>⚠ Ojo: ${v.rk.t}</summary><p>${v.rk.d}</p></details>` : ""}</li>`).join("");
       return `<article class="adv-card"><div class="top"><div><h3>${esc(m.mk)} ${esc(m.md)}</h3><div class="gen">${esc(g.g)} · ${g.y[0]}–${g.y[1] >= 2026 ? "hoy" : g.y[1]} · ${CATN[c[0]]}</div></div><span class="rank">#${n}</span></div><div class="adv-tags">${tags}</div><ul class="adv-vers">${li}</ul>${shopLinks(G, lastF)}<div class="adv-acts"><button type="button" data-a="t" data-k="${G.mi}:${G.gi}">Tasar el primero</button><button type="button" data-a="c" data-k="${G.mi}:${G.gi}">Llevar al comparador</button></div></article>`;
     }
     $("#aMore").addEventListener("click", () => more(true));
