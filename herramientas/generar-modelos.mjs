@@ -6,8 +6,10 @@ import path from "node:path";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const SITE = "https://parmotorweb.github.io/parmotor/";
-const HOY = "2026-11-18";
-const MES = "noviembre de 2026";
+// Fecha de hoy en España (para "actualizado en…" y el sitemap): se calcula sola en cada ejecución
+const _d = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Madrid" }));
+const HOY = `${_d.getFullYear()}-${String(_d.getMonth() + 1).padStart(2, "0")}-${String(_d.getDate()).padStart(2, "0")}`;
+const MES = `${["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"][_d.getMonth()]} de ${_d.getFullYear()}`;
 const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 
 // ---------- 1. Motor de cálculo: se extrae tal cual de index.html ----------
@@ -16,8 +18,9 @@ const motor = [
   cut("const RAW = `", "const T = {st:1};"),
   cut("const yearsOf =", "const tMk="),
   cut("function retained(", "function initT("),
+  cut("  // ── Motores con fallos graves", "  function renderT(){"),
 ].join("\n");
-const { DB, FUEL, valueAt, yearsOf, NOW } = new Function(motor + "\nreturn {DB, FUEL, valueAt, yearsOf, NOW};")();
+const { DB, FUEL, valueAt, yearsOf, NOW, riskOf } = new Function(motor + "\nreturn {DB, FUEL, valueAt, yearsOf, NOW, riskOf};")();
 
 // ---------- 2. Fuentes compartidas (se extraen una vez a /assets/fonts) ----------
 const fontDir = path.join(ROOT, "assets", "fonts");
@@ -83,6 +86,10 @@ th:first-child,td:first-child{text-align:left}
 th{color:var(--ink-3);font-weight:600;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;white-space:normal}
 td b{color:var(--accent);font-weight:600}
 .note{font-size:14px;color:var(--ink-3);margin:14px 0 0}
+.warn{margin:16px 0 0;border:1px solid #f59e0b;background:rgba(245,158,11,.08);border-radius:10px;padding:12px 14px;font-size:14.5px;color:var(--ink-2)}
+.warn b{display:block;color:#fcd34d}
+.warn span{display:block;font-weight:600;color:var(--ink);margin:3px 0}
+.warn p{margin:4px 0 0;color:var(--ink-2)}
 .faq details{border-top:1px solid var(--line);padding:16px 0}
 .faq summary{cursor:pointer;font-weight:600;font-size:17px}
 .faq p{color:var(--ink-2);margin:10px 0 0}
@@ -145,6 +152,7 @@ for (const m of DB) {
   const gens = m.gens.filter(g => g.y[0] <= 2026);
   // filas: generación → años → versiones
   let todos = [];
+  const todosAvisos = new Map();
   const bloques = gens.map(g => {
     const vs = versiones(g);
     const ys = []; for (let y = Math.min(g.y[1], 2026); y >= g.y[0]; y--) ys.push(y);
@@ -154,8 +162,13 @@ for (const m of DB) {
       return `<tr><td>${y}</td><td>${NF.format(kmOf(vs[0], y))} km</td>${ps.map(p => `<td><b>${eur(p)}</b></td>`).join("")}</tr>`;
     }).join("");
     const hasta = g.y[1] >= 2026 ? "hoy" : g.y[1];
+    // motores con fallos graves conocidos en esta generación
+    const avisos = new Map();
+    for (const v of g.v) for (let y = g.y[0]; y <= Math.min(g.y[1], 2026); y++){ const r = riskOf(m, g, v, y); if (r){ const a = avisos.get(r.t) || {r, vs: new Set(), y0: y, y1: y}; a.vs.add(v[0]); a.y0 = Math.min(a.y0, y); a.y1 = Math.max(a.y1, y); avisos.set(r.t, a); } }
+    avisos.forEach(a => { const t = todosAvisos.get(a.r.t); if (!t) todosAvisos.set(a.r.t, {r: a.r, vs: new Set(a.vs), y0: a.y0, y1: a.y1}); else { a.vs.forEach(x => t.vs.add(x)); t.y0 = Math.min(t.y0, a.y0); t.y1 = Math.max(t.y1, a.y1); } });
+    const avisoHtml = [...avisos.values()].map(a => `<div class="warn"><b>⚠ Cuidado: ${esc(a.r.t)}</b><span>Afecta a: ${esc([...a.vs].join(", "))} (${a.y0}–${a.y1})</span><p>${esc(a.r.d)}</p></div>`).join("");
     return `<section class="gen"><h3>${esc(g.g)} (${g.y[0]}–${hasta})</h3><p>Precio de nuevo: ${vs.map(v => `${esc(v[0])} ${v[1]} CV, ${eur(v[3])}`).join(" · ")}</p>
-<div class="tbl"><table><thead><tr><th>Año</th><th>Km normales</th>${vs.map(v => `<th>${esc(v[0])}<br>${v[1]} CV · ${FUEL[v[2]].l}</th>`).join("")}</tr></thead><tbody>${filas}</tbody></table></div></section>`;
+<div class="tbl"><table><thead><tr><th>Año</th><th>Km normales</th>${vs.map(v => `<th>${esc(v[0])}<br>${v[1]} CV · ${FUEL[v[2]].l}</th>`).join("")}</tr></thead><tbody>${filas}</tbody></table></div>${avisoHtml}</section>`;
   }).join("\n");
   const min = todos.reduce((a, b) => b.p < a.p ? b : a), max = todos.reduce((a, b) => b.p > a.p ? b : a);
   const ultimo = todos.filter(t => t.y === Math.max(...todos.map(t => t.y)));
@@ -171,6 +184,7 @@ for (const m of DB) {
     [`¿Cuánto vale un ${n} de segunda mano?`, `Según el año, la versión y los kilómetros, un ${n} usado vale hoy ${rango} en España. El más barato de nuestra tabla es un ${min.v[0]} de ${min.y} (${eur(min.p)}) y el más caro un ${max.v[0]} de ${max.y} (${eur(max.p)}). Son precios justos estimados entre particulares y profesionales, con los kilómetros normales para su edad y en buen estado.`],
     perdida ? [`¿Cuánto valor pierde un ${n} al año?`, `Con unos años encima, un ${n} pierde alrededor de un ${perdida} % de su valor cada año (calculado sobre el ${v0[0]} de la generación ${g0.g}). Los primeros años la caída es mayor y a partir de los 70.000 km se acelera.`] : null,
     [`¿Qué motorizaciones tiene el ${n}?`, `En nuestra base de datos hay versiones ${lista(fuels)}, en ${gens.length} generación${gens.length > 1 ? "es" : ""}: ${lista(gens.map(g => g.g))}.`],
+    todosAvisos.size ? [`¿Qué motores del ${n} dan problemas?`, `Ojo con ${lista([...todosAvisos.values()].map(a => `el ${a.r.t} (${[...a.vs].slice(0, 3).join(", ")}, ${a.y0}–${a.y1})`))}: son motores con fallos graves y muy extendidos. Antes de comprar uno, pide el historial de mantenimiento y comprueba si ya se hizo la reparación. El resto de motores no tiene problemas fuera de lo normal.`] : null,
     [`¿Cómo sé si me piden demasiado por un ${n}?`, `Abre el tasador de Par Motor, elige el ${n}, el año y los kilómetros reales, y escribe lo que te piden. Te diremos si está por debajo del precio justo (chollo) o por encima (caro). Es gratis y no pide registro ni matrícula.`],
   ].filter(Boolean);
 
@@ -237,3 +251,14 @@ ${all.map(u => `  <url><loc>${u}</loc><lastmod>${HOY}</lastmod></url>`).join("\n
 const links = Object.entries(porMarca).map(([mk, ms]) => `<p><b>${esc(mk)}:</b> ${ms.map(m => `<a href="tasar/${modelSlug(m)}/">${esc(m.md)}</a>`).join(" · ")}</p>`).join("");
 fs.writeFileSync(path.join(ROOT, "herramientas", "enlaces-modelos.html"), links);
 console.log(`${DB.length} páginas de modelo + índice + sitemap (${all.length} URLs)`);
+
+// ---------- 8. Inserta esos enlaces en index.html (así la portada enlaza siempre a todos los modelos) ----------
+{
+  const A = "<!-- MODELOS:INICIO -->", B = "<!-- MODELOS:FIN -->";
+  const idx = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const i = idx.indexOf(A), j = idx.indexOf(B);
+  if (i >= 0 && j > i){
+    const nuevo = idx.slice(0, i + A.length) + links + idx.slice(j);
+    if (nuevo !== idx){ fs.writeFileSync(path.join(ROOT, "index.html"), nuevo); console.log("Enlaces de modelos actualizados en index.html"); }
+  }
+}
