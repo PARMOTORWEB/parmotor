@@ -24,7 +24,8 @@ await shot("logo-perfil-1080.png", 1080, 1080, gear(670));
 // En escritorio solo se ve la franja central (2560×423) y en móvil 1546×423: el letrero va ahí.
 const web = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 const fotos = {};
-for (const m of web.matchAll(/<img src="(data:image\/webp;base64,[^"]+)"[^>]*alt="([^"]+)"/g)) fotos[m[2]] = m[1];
+for (const m of web.matchAll(/<img src="((?:data:image\/webp;base64,|assets\/img\/)[^"]+)"[^>]*alt="([^"]+)"/g))
+  fotos[m[2]] = m[1].startsWith("data:") ? m[1] : `data:image/webp;base64,${fs.readFileSync(path.join(ROOT, m[1])).toString("base64")}`;
 // Fila central (la que se ve en todos los dispositivos): deportivos. Arriba y abajo (solo TV): el resto.
 const tile = (alt, pos = "50% 55%") => `<div style="flex:1 1 0;min-width:0;height:100%;overflow:hidden;transform:skewX(-12deg);border-radius:6px"><img src="${fotos[alt]}" style="width:100%;height:100%;object-fit:cover;object-position:${pos};transform:skewX(12deg) scale(1.28)"></div>`;
 const fila = (alts, h) => `<div style="display:flex;gap:16px;height:${h}px;margin:0 -120px">${alts.map(a => tile(...[].concat(a))).join("")}</div>`;

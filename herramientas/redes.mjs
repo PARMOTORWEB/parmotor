@@ -39,7 +39,8 @@ const CRED = {
   "Mazda MX-5 NA": "Spanish Coches · CC BY 2.0", "SEAT 600": "Matti Blume · CC BY-SA 4.0",
 };
 const FOTOS = {};
-for (const m of html.matchAll(/<img src="(data:image\/webp;base64,[^"]+)"[^>]*alt="([^"]+)"/g)) FOTOS[m[2]] = m[1];
+for (const m of html.matchAll(/<img src="((?:data:image\/webp;base64,|assets\/img\/)[^"]+)"[^>]*alt="([^"]+)"/g))
+  FOTOS[m[2]] = m[1].startsWith("data:") ? m[1] : `data:image/webp;base64,${fs.readFileSync(path.join(ROOT, m[1])).toString("base64")}`;
 const foto = alt => FOTOS[alt] ? { src: FOTOS[alt], cred: `Foto: ${CRED[alt]} (Wikimedia Commons)` } : null;
 const FOTO_MODELO = { "Volkswagen|Golf": "Volkswagen Golf", "BMW|Serie 3": "BMW Serie 3", "Seat|León": "Seat León", "Toyota|Corolla y Auris": "Toyota Corolla", "Mazda|MX-5": "Mazda MX-5", "Toyota|GR Yaris": "Toyota GR Yaris" };
 
