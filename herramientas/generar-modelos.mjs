@@ -46,6 +46,10 @@ const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(
 const slug = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const modelSlug = m => slug(`${m.mk} ${m.md}`);
 const nombre = m => `${m.mk} ${m.md}`;
+// Fotos de cada modelo (assets/modelos/<slug>.webp) con su autor y licencia (Wikimedia Commons)
+const FOTOS = JSON.parse(fs.readFileSync(path.join(ROOT, "assets", "modelos", "creditos.json"), "utf8"));
+const fotoHtml = (m, rel) => { const f = FOTOS[modelSlug(m)]; if (!f) return "";
+  return `<figure class="foto"><img src="${rel}assets/modelos/${modelSlug(m)}.webp" width="640" height="400" alt="${esc(nombre(m))}" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(f.file)}" rel="noopener">${esc(f.author || "Wikimedia Commons")}</a> · ${esc(f.license)}</figcaption></figure>`; };
 const ageOf = y => Math.max(0.25, NOW - (y + 0.5));
 const kmOf = (ver, y) => Math.min(100000, Math.round(FUEL[ver[2]].kmY * ageOf(y) / 5000) * 5000);
 const precio = (m, ver, y) => valueAt(m, ver, y, ageOf(y), kmOf(ver, y), 1).v;
@@ -62,6 +66,7 @@ function versiones(g) {
 const CSS = faces.join("\n") + `
 :root{--bg:#0f0f0e;--surface:#1a1a19;--surface-2:#232321;--line:#2c2c2a;--axis:#3a3a37;--ink:#f2f1ec;--ink-2:#bdbcb4;--ink-3:#8a897f;--accent:#e4ff4f;--on-accent:#0f0f0e;--disp:"Barlow Condensed",Inter,sans-serif;--hazard:repeating-linear-gradient(-45deg,var(--accent) 0 12px,#0f0f0e 12px 24px);color-scheme:dark}
 *{box-sizing:border-box}
+.foto{max-width:640px;margin:22px 0 26px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--surface);position:relative}.foto img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}.foto figcaption{position:absolute;right:0;bottom:0;max-width:100%;padding:3px 9px;font-size:11px;line-height:1.5;color:#e9e8e2;background:rgba(15,15,14,.72);border-top-left-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.foto figcaption a{color:inherit}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
@@ -113,7 +118,7 @@ fs.writeFileSync(path.join(ROOT, "assets", "modelos.css"), CSS);
 
 const LOGO = `<svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true"><g fill="#e4ff4f">${[0,45,90,135,180,225,270,315].map(a => `<rect x="54" y="10" width="12" height="18" rx="2" transform="rotate(${a} 60 60)"/>`).join("")}<circle cx="60" cy="60" r="36"/></g><circle cx="60" cy="60" r="14" fill="#0f0f0e"/></svg>`;
 
-function pagina({ rel, url, title, desc, body, ld }) {
+function pagina({ rel, url, title, desc, body, ld, img }) {
   return `<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -131,7 +136,7 @@ function pagina({ rel, url, title, desc, body, ld }) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${SITE}og.png">
+<meta property="og:image" content="${img || SITE + "og.png"}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="${rel}assets/modelos.css">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
@@ -199,6 +204,7 @@ for (const m of DB) {
   const body = `<p class="crumbs"><a href="../../">Par Motor</a> › <a href="../">Precios por modelo</a> › ${esc(n)}</p>
 <span class="tag">Precio de segunda mano · ${MES}</span>
 <h1>¿Cuánto vale un ${esc(n)} de segunda mano?</h1>
+${fotoHtml(m, "../../")}
 <p class="lead">Precio justo estimado de un ${esc(n)} usado en España, año por año, con los kilómetros normales para su edad y en buen estado: ${rango}. Para tasar el tuyo con sus kilómetros reales y su estado, usa el tasador gratis.</p>
 <div class="hl"><div><b>${eur(min.p)}</b><span>el más barato (${esc(min.v[0])}, ${min.y})</span></div><div><b>${eur(ultimo[0].p)}</b><span>uno de ${ultimo[0].y} (${esc(ultimo[0].v[0])})</span></div><div><b>${perdida ? `−${perdida} %` : gens.length}</b><span>${perdida ? "de valor al año, aprox." : "generaciones"}</span></div></div>
 <a class="btn" href="../../?mk=${encodeURIComponent(m.mk)}&amp;md=${encodeURIComponent(m.md)}&amp;y=${years[0]}#tasador">Tasar mi ${esc(m.md)} con mis datos →</a>
@@ -222,7 +228,7 @@ ${otros.length ? `<h2>Otros ${esc(m.mk)}</h2><ul class="rel">${otros.map(x => `<
   const dir = path.join(ROOT, "tasar", s);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), pagina({
-    rel: "../../", url, ld, body,
+    rel: "../../", url, ld, body, img: FOTOS[s] ? `${SITE}assets/modelos/${s}.webp` : null,
     title: `${n} de segunda mano: cuánto vale (precios ${MES.split(" ").pop()}) | Par Motor`,
     desc: `¿Cuánto vale un ${n} usado? Precio justo por año y kilómetros en España, ${rango}. Tasación gratis, sin registro, actualizada en ${MES}.`,
   }));
