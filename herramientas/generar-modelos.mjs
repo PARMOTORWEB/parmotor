@@ -129,6 +129,7 @@ function pagina({ rel, url, title, desc, body, ld }) {
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="${rel}assets/modelos.css">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
+<script src="${rel}assets/analitica.js" defer></script>
 </head>
 <body>
 <header><div class="wrap nav"><a class="logo" href="${rel}">${LOGO}Par Motor</a><a class="cta" href="${rel}#tasador">Tasador</a></div></header>
