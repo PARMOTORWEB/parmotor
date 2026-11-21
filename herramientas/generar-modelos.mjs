@@ -32,6 +32,12 @@ for (const m of html.matchAll(/@font-face\{font-family:"([^"]+)";font-style:(\w+
   fs.writeFileSync(path.join(fontDir, file), Buffer.from(b64, "base64"));
   faces.push(`@font-face{font-family:"${fam}";font-style:${st};font-weight:${w};font-display:swap;src:url(fonts/${file}) format("woff2")}`);
 }
+// Si la portada ya enlaza las fuentes como archivos (assets/fonts/…), se usan esos mismos archivos
+for (const m of html.matchAll(/@font-face\{font-family:"([^"]+)";font-style:(\w+);font-weight:(\d+);font-display:swap;src:url\(assets\/fonts\/([^)]+\.woff2)\)/g)) {
+  const [, fam, st, w, file] = m;
+  faces.push(`@font-face{font-family:"${fam}";font-style:${st};font-weight:${w};font-display:swap;src:url(fonts/${file}) format("woff2")}`);
+}
+if (!faces.length) throw new Error("No encuentro las fuentes de la portada");
 
 // ---------- 3. Utilidades ----------
 const NF = new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0, useGrouping: "always" });
