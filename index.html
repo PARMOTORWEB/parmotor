@@ -483,6 +483,13 @@
   .adv-card h3{font-size:28px;font-weight:800;font-style:italic;text-transform:uppercase;line-height:1}
   .adv-card .gen{font-size:13.5px;color:var(--ink-3);margin-top:6px}
   .adv-card .rank{flex:none;font:800 italic 22px/1 var(--disp);color:var(--on-accent);background:var(--accent);padding:6px 10px;border-radius:5px;transform:skewX(-10deg)}
+  .adv-pic{position:relative;margin:-26px -26px 2px;aspect-ratio:16/10;overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;background:var(--surface-2)}
+  .adv-pic img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+  .adv-card:hover .adv-pic img{transform:scale(1.03)}
+  .adv-pic:after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,rgba(15,15,14,.55));pointer-events:none}
+  .adv-pic figcaption{position:absolute;right:0;bottom:0;z-index:1;max-width:100%;padding:3px 9px;font-size:11px;line-height:1.5;color:#e9e8e2;background:rgba(15,15,14,.7);border-top-left-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .adv-pic figcaption a{color:inherit}
+  @media (max-width:520px){.adv-pic{margin:-22px -18px 2px}}
   .adv-tags{display:flex;flex-wrap:wrap;gap:6px}
   .adv-tags span{font-size:12.5px;padding:3px 9px;border-radius:5px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2)}
   .adv-tags .lab-0{border-color:#2f6fd0;color:#8fb8ff}.adv-tags .lab-eco{border-color:#22c55e;color:#86efac}.adv-tags .lab-c{border-color:#3d9a52;color:#a7e3b4}.adv-tags .lab-b{border-color:#c9a227;color:#f2d675}
@@ -2007,13 +2014,20 @@ SsangYong|Rexton y Musso|0.95|Rexton (2017)~2017-2026~2.2 e-XDi,181,D,36000;2.2 
       // lleva la vista al primer resultado nuevo (si no, el navegador sigue al botón y parece que no ha cargado nada)
       if (scroll === true && next.length) $("#aRes").children[first].scrollIntoView({behavior: RM.matches ? "auto" : "smooth", block: "start"});
     }
+    // Fotos de cada modelo: assets/modelos/<slug>.webp (Wikimedia Commons). [archivo, autor, licencia]
+    const FOTOS = /*FOTOS*/{}/*FIN-FOTOS*/;
+    const slugM = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    function fotoM(m){
+      const s = slugM(m.mk + " " + m.md), f = FOTOS[s]; if (!f) return "";
+      return `<figure class="adv-pic"><img src="assets/modelos/${s}.webp" width="640" height="400" loading="lazy" decoding="async" alt="${esc(m.mk)} ${esc(m.md)}"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(f[0])}" target="_blank" rel="noopener">${esc(f[1] || "Wikimedia Commons")}</a> · ${esc(f[2])}</figcaption></figure>`;
+    }
     function card(G, n){
       const ccT = ver => { const cc = ccOf(ver); return !cc ? "" : "HP".includes(ver[2]) ? cc + " cc + motor eléctrico · " : cc + " cc · "; };
       const {m, g, c} = G, vs = G.vs.slice(0, 3);
       const labs = [...new Set(G.vs.map(v => v.lab))].sort((a, b) => b - a), fuels = [...new Set(G.vs.map(v => v.ver[2]))];
       const tags = labs.map(l => `<span class="${LABC[l]}">Etiqueta ${LABN[l]}</span>`).join("") + fuels.map(f => `<span>${FUEL[f].l}</span>`).join("") + (vs.some(v => v.rk) ? `<span class="lab-warn">⚠ Motor con fallos graves</span>` : "") + (c.includes("7") ? "<span>Hasta 7 plazas</span>" : "") + (G.vs.length > 3 ? `<span>+${G.vs.length - 3} motores más</span>` : "");
       const li = vs.map(v => `<li><span class="vn">${esc(v.ver[0])} · ${ccT(v.ver)}${v.ver[1]} CV · ${FUEL[v.ver[2]].l}</span><span class="vd">${v.y} · ${NF.format(v.km)} km · ≈ ${fmt(v.month)} al mes · <a class="vlink" href="${verLink(G, v, lastF)}" target="_blank" rel="noopener nofollow">anuncios de este motor →</a></span><span class="vp">${fmt(v.price)}<small>precio justo</small></span>${v.rk ? `<details class="vwarn"><summary>⚠ Ojo: ${v.rk.t}</summary><p>${v.rk.d}</p></details>` : ""}</li>`).join("");
-      return `<article class="adv-card"><div class="top"><div><h3>${esc(m.mk)} ${esc(m.md)}</h3><div class="gen">${esc(g.g)} · ${g.y[0]}–${g.y[1] >= 2026 ? "hoy" : g.y[1]} · ${CATN[c[0]]}</div></div><span class="rank">#${n}</span></div><div class="adv-tags">${tags}</div><ul class="adv-vers">${li}</ul>${shopLinks(G, lastF)}<div class="adv-acts"><button type="button" data-a="t" data-k="${G.mi}:${G.gi}">Tasar el primero</button><button type="button" data-a="c" data-k="${G.mi}:${G.gi}">Llevar al comparador</button></div></article>`;
+      return `<article class="adv-card">${fotoM(m)}<div class="top"><div><h3>${esc(m.mk)} ${esc(m.md)}</h3><div class="gen">${esc(g.g)} · ${g.y[0]}–${g.y[1] >= 2026 ? "hoy" : g.y[1]} · ${CATN[c[0]]}</div></div><span class="rank">#${n}</span></div><div class="adv-tags">${tags}</div><ul class="adv-vers">${li}</ul>${shopLinks(G, lastF)}<div class="adv-acts"><button type="button" data-a="t" data-k="${G.mi}:${G.gi}">Tasar el primero</button><button type="button" data-a="c" data-k="${G.mi}:${G.gi}">Llevar al comparador</button></div></article>`;
     }
     $("#aMore").addEventListener("click", () => more(true));
     $("#aRes").addEventListener("click", e => {
