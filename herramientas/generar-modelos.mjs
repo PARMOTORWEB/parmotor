@@ -233,7 +233,7 @@ ${hist.length ? `<h2>Historia y curiosidades</h2><ul class="rel">${hist.map(h =>
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), pagina({
     rel: "../../", url, ld, body, img: FOTOS[s] ? `${SITE}assets/modelos/${s}.webp` : null,
-    title: `${n} de segunda mano: cuánto vale (precios ${MES.split(" ").pop()}) | Par Motor`,
+    title: ((b) => `${b}${b.length <= 36 ? ": cuánto vale" : ""} | Par Motor`)(`Precio ${n} de segunda mano ${MES.split(" ").pop()}`),
     desc: `¿Cuánto vale un ${n} usado? Precio justo por año y kilómetros en España, ${rango}. Tasación gratis, sin registro, actualizada en ${MES}.`,
   }));
   urls.push(url);
