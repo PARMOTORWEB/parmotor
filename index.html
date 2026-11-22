@@ -529,8 +529,75 @@
   @media (max-width:520px){.adv-form{grid-template-columns:1fr}.adv-card{padding:22px 18px 18px}.adv-card h3{font-size:24px}#aCount{font-size:23px}}
 </style>
 <script src="assets/analitica.js" defer></script>
+<style>
+  /* Intro 3D: concesionario bajo la lluvia (assets/intro/) */
+  #intro{display:none;position:fixed;inset:0;z-index:9999;background:#0f0f0e;transition:opacity .9s ease}
+  html.intro-on{overflow:hidden}
+  html.intro-on #intro,#intro.out{display:block}
+  #intro.out{opacity:0;pointer-events:none}
+  #intro canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.2s ease}
+  #intro.ready canvas{opacity:1}
+  #intro .i-load{position:absolute;inset:0;display:grid;place-items:center;color:#8a897f;font:600 13px/1.4 Inter,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:opacity .6s}
+  #intro.ready .i-load{opacity:0}
+  #intro .i-load b{display:block;margin-bottom:10px;color:#e4ff4f;font:italic 800 34px/1 "Barlow Condensed",Inter,sans-serif;letter-spacing:.04em;text-align:center}
+  #intro .i-ui{position:absolute;left:0;right:0;bottom:0;padding:22px clamp(16px,4vw,40px) calc(22px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:18px;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+  #intro .i-bar{flex:1;height:3px;background:rgba(255,255,255,.18);border-radius:3px;overflow:hidden}
+  #intro .i-bar i{display:block;height:100%;width:100%;background:#e4ff4f;transform-origin:0 50%;transform:scaleX(0)}
+  #intro .i-hint{margin:0;color:rgba(242,241,236,.7);font:500 12.5px/1.3 Inter,system-ui,sans-serif}
+  #intro .i-skip{flex:none;border:1px solid rgba(242,241,236,.35);background:rgba(15,15,14,.55);color:#f2f1ec;border-radius:99px;padding:9px 16px;font:600 13.5px/1 Inter,system-ui,sans-serif;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+  #intro .i-skip:hover,#intro .i-skip:focus-visible{border-color:#e4ff4f;color:#e4ff4f;outline:none}
+  @media (max-width:600px){#intro .i-hint{display:none}}
+</style>
+<script>
+  // Decide antes de pintar la página si se muestra la intro (así no hay parpadeo).
+  (function(){ try {
+    var q = location.search, force = /[?&]intro\b/.test(q);
+    var ref = document.referrer, interna = false; try { interna = !!ref && new URL(ref).host === location.host; } catch (e) {}
+    var bot = /bot|crawl|spider|slurp|lighthouse|headless/i.test(navigator.userAgent) || navigator.webdriver;
+    var calma = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var c = document.createElement("canvas"), gl = !!(window.WebGLRenderingContext && (c.getContext("webgl2") || c.getContext("webgl")));
+    if (gl && (force || (!location.hash && !q && !interna && !bot && !calma))) document.documentElement.classList.add("intro-on");
+  } catch (e) {} })();
+</script>
 </head>
 <body>
+<div id="intro" aria-label="Intro: entrando al concesionario de Par Motor">
+  <canvas aria-hidden="true"></canvas>
+  <div class="i-load"><div><b>PAR MOTOR</b>Abriendo el concesionario…</div></div>
+  <div class="i-ui"><div class="i-bar" aria-hidden="true"><i></i></div><p class="i-hint">Desliza o usa la rueda para entrar antes</p><button type="button" class="i-skip">Saltar intro →</button></div>
+</div>
+<script type="module">
+  const root = document.documentElement, el = document.getElementById("intro");
+  if (root.classList.contains("intro-on")) {
+    let api = null, done = false, suelta = null;
+    // la página sigue bloqueada (overflow: hidden) hasta que se deja de girar la rueda o de deslizar,
+    // para que la inercia de acelerar la intro no lance la web hacia abajo
+    const libera = () => { root.classList.remove("intro-on"); removeEventListener("wheel", quieto); removeEventListener("touchmove", quieto); };
+    const quieto = () => { if (done) { clearTimeout(suelta); suelta = setTimeout(libera, 700); } };
+    addEventListener("wheel", quieto, { passive: true }); addEventListener("touchmove", quieto, { passive: true });
+    const salir = () => {
+      if (done) return; done = true;
+      scrollTo(0, 0);
+      el.classList.add("out");
+      suelta = setTimeout(libera, 700); setTimeout(libera, 3000);
+      setTimeout(() => { api && api.dispose(); el.remove(); }, 950);
+    };
+    const bar = el.querySelector(".i-bar i"), skip = el.querySelector(".i-skip");
+    skip.addEventListener("click", () => api ? api.skip() : salir());
+    addEventListener("keydown", e => { if (e.key === "Escape") api ? api.skip() : salir(); });
+    skip.focus({ preventScroll: true });
+    // si la conexión es lenta, no hacemos esperar: a los 7 s sin arrancar se entra directo a la web
+    const espera = setTimeout(() => { if (!el.classList.contains("ready")) salir(); }, 7000);
+    import("./assets/intro/intro.js").then(({ iniciarIntro }) => {
+      if (done) return;
+      const lowPower = matchMedia("(pointer: coarse)").matches || (navigator.hardwareConcurrency || 8) <= 4;
+      api = iniciarIntro({ canvas: el.querySelector("canvas"), lowPower,
+        onReady: () => { clearTimeout(espera); el.classList.add("ready"); },
+        onProgress: p => { bar.style.transform = "scaleX(" + p + ")"; },
+        onEnd: salir });
+    }).catch(salir);
+  } else el.remove();
+</script>
 <a class="skip" href="#tasador">Saltar al tasador</a>
 <header>
   <div class="wrap nav">
