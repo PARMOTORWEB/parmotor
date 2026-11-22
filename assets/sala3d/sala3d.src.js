@@ -132,18 +132,20 @@ export function iniciarSala(room, base) {
     const src = gltf.scene.children[0];
     slots.forEach((s, i) => {
       const car = src.clone(true);
-      const body = new THREE.MeshPhysicalMaterial({ color: s.a.body, metalness: 0.85, roughness: 0.38, clearcoat: 1, clearcoatRoughness: 0.03, side: THREE.DoubleSide });
+      const body = s.body = new THREE.MeshPhysicalMaterial({ emissive: 0xffc583, emissiveIntensity: 0, color: s.a.body, metalness: 0.85, roughness: 0.38, clearcoat: 1, clearcoatRoughness: 0.03, side: THREE.DoubleSide });
       const det = new THREE.MeshStandardMaterial({ color: s.a.det, metalness: 1, roughness: 0.38 });
       const gl = new THREE.MeshPhysicalMaterial({ color: 0x08090b, metalness: 0.4, roughness: 0.03, transparent: true, opacity: 0.82 });
       car.getObjectByName('body').material = body;
       ['rim_fl', 'rim_fr', 'rim_rr', 'rim_rl', 'trim'].forEach(n => { const o = car.getObjectByName(n); if (o) o.material = det; });
       car.getObjectByName('glass').material = gl;
+      const caja = new THREE.Box3().setFromObject(car); // en unidades del modelo, sin escalar
       const sh = new THREE.Mesh(new THREE.PlaneGeometry(0.655 * 4, 1.3 * 4), new THREE.MeshBasicMaterial({ map: aoTex, blending: THREE.MultiplyBlending, toneMapped: false, transparent: true, premultipliedAlpha: true }));
-      sh.rotation.x = -Math.PI / 2; sh.position.y = 0.004; sh.renderOrder = 2; car.add(sh);
+      sh.rotation.x = -Math.PI / 2; sh.position.y = 0.006; sh.scale.setScalar(1.12); sh.renderOrder = 2; s.sombra = sh;
       car.traverse(o => { if (o.isMesh) o.userData.slot = i; });
       s.plat.userData.slot = i;
       car.scale.setScalar(1.12);
-      s.turn.add(car); s.car = car;
+      s.base = -caja.min.y * 1.12 + 0.015; // la rueda más baja queda sobre la plataforma
+      s.turn.add(car, sh); s.car = car;
     });
     listo = true; room.classList.add('sr-listo'); wake();
   });
@@ -199,13 +201,15 @@ export function iniciarSala(room, base) {
       s.hover += ((hov === i ? 1 : 0) - s.hover) * 0.1;
       const lit = s.on * (0.55 + s.hover * 0.45);
       s.ringMat.color.copy(warm).multiplyScalar(0.25 + lit * 2.4);
-      s.halo.material.opacity = lit * 0.75;
-      s.spot.intensity = (70 + s.hover * 110) * s.on;
+      s.halo.material.opacity = lit * 0.75 + s.hover * 0.25;
+      s.spot.intensity = (70 + s.hover * 190) * s.on;
+      if (s.sombra) s.sombra.material.opacity = 1 - s.hover * 0.45;
+      if (s.body) s.body.emissiveIntensity = s.hover * 0.06;
       s.speed += ((0.12 + s.hover * 0.9) - s.speed) * 0.06;
       s.rot += s.speed * dt;
       s.turn.rotation.y = s.rot;
-      s.turn.position.y = 0.29 + s.hover * 0.08;
-      if (s.car) s.car.position.y = (1 - s.on) * -0.7;
+      s.turn.position.y = 0.29 + 0.012;
+      if (s.car) s.car.position.y = (s.base || 0) + s.hover * 0.42 + (1 - s.on) * -0.7;
       // etiqueta HTML bajo la plataforma
       v.set(0, 0, R + 0.3).add(s.g.position).project(camera);
       const t = tags[i];
