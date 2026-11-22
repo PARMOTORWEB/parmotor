@@ -12,12 +12,13 @@
   const bar = sec.querySelector('.cine-bar i');
   const credit = sec.querySelector('.cine-cred');
   const N = frames.length, Z = 0.62;
+  const B = Math.max(0, frames.findIndex(f => f.classList.contains('base'))); // la fachada: ahí deja de llover
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
 
   // carga progresiva: los dos primeros fotogramas ya vienen en el HTML; el resto, después
   const load = f => { const img = f.querySelector('img[data-src]'); if (img) { img.src = img.dataset.src; img.removeAttribute('data-src'); } };
-  const loadRest = () => frames.slice(2).forEach(load);
+  const loadRest = () => { frames.slice(2).forEach(load); sec.querySelectorAll('.tl-img').forEach(load); };
   if (document.readyState === 'complete') setTimeout(loadRest, 300); else addEventListener('load', () => setTimeout(loadRest, 300));
 
   // ---------- lluvia ----------
@@ -71,6 +72,7 @@
       c.style.opacity = o.toFixed(3);
       c.style.transform = `translate3d(0,${((1 - o) * (d < 0.2 ? 26 : -26)).toFixed(1)}px,0)`;
       c.style.pointerEvents = o > 0.6 ? 'auto' : 'none';
+      if (last) c.classList.toggle('on', o > 0.6);
       c.setAttribute('aria-hidden', o > 0.5 ? 'false' : 'true');
     });
     const idx = clamp(Math.round(u), 0, N - 1);
@@ -80,7 +82,7 @@
       if (credit) credit.innerHTML = frames[idx].dataset.cred || '';
     }
     bar && (bar.style.transform = `scaleX(${p.toFixed(4)})`);
-    wet = 1 - smooth(1.7, 2.6, u); // llueve fuera; dentro, no
+    wet = 1 - smooth(B - 0.3, B + 0.6, u); // llueve fuera; dentro, no
     cv.style.opacity = wet.toFixed(3);
     sec.style.setProperty('--p', p.toFixed(4));
     sec.style.setProperty('--dim', smooth(N - 1.45, N - 0.95, u).toFixed(3));
@@ -91,7 +93,8 @@
   const moveCinta = () => { if (!cinta) return; const r = cinta.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) cinta.style.setProperty('--c', ((innerHeight - r.top) * 0.55).toFixed(1)); };
   let queued = false;
   const onScroll = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; tick(); moveCinta(); }); } };
-  if (RM.matches) { root.classList.add('cine-quieto'); frames.forEach(load); return; }
+  if (RM.matches) { root.classList.add('cine-quieto'); frames.forEach(load); sec.querySelectorAll('.tl-img').forEach(load); return; }
+  sec.classList.add('vivo');
   resize(); tick();
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', () => { resize(); tick(); });
