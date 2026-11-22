@@ -5,8 +5,9 @@ Formato: una línea por caso comprobado. Los «Pendientes» se vuelven a comprob
 
 ## Pendientes
 - Dacia Sandero III: k 0,85 → 0,65 en todas las versiones el 21/11/2026 (coches.net 2022: 117 anuncios, media 12.893 €, 58.283 km; antes ≈ −17 %, ahora ≈ −7 %). Falta la versión «Stepway 1.0 TCe 90» (la más anunciada); añadirla cuando haya PVP fiable.
-- Toyota C-HR I 1.8 Hybrid 2019: solo 4 anuncios ≤100.000 km (−17 % a +6 %). La página /toyota/chr/segunda-mano/2019/ dio error; repetir.
-- Enlace coches.net de Mercedes Clase C: la web usa /mercedes-benz/clase_c/ y el asesor genera /clase-c/. Comprobar si redirige.
+- Enlace coches.net con modelos de dos palabras: la web usa guion bajo (/mercedes-benz/clase_c/, /bmw/serie_1/, /citroen/c3_aircross/) y el asesor genera guion (/clase-c/, /serie-1/). El 22/11/2026 no se pudo abrir la versión con guion (permiso de WebFetch). Hay indicios de que coches.net acepta variantes (Google indexa /toyota/c-hr/ y /toyota/ch-r/ como listas del CHR). Comprobar antes de tocar shopLinks.
+- Renault Zoe II: k 1,2 → 1,3 el 22/11/2026 (2020: +16 % → +8 %). Confirmar con 2021 o 2022.
+- Cupra Formentor VZ 2.0 TSI 310 CV 2021: +16 % con solo 3 anuncios (≈32.000 € a 43.000–64.500 km). Repetir con más datos (no tocar sin error claro: calibración VW/Cupra).
 
 ## Historial
 - 19/11/2026 · Opel Corsa, Kia Sportage, Audi A3, Skoda Octavia, Mazda MX-5, Tesla Model 3 · sin cambios.
@@ -21,9 +22,16 @@ Formato: una línea por caso comprobado. Los «Pendientes» se vuelven a comprob
 - 21/11/2026 · Peugeot 3008 II 1.5 BlueHDi 2020 (coches.net, 157 anuncios, 15.401 €, 100.173 km): +1 % · sin cambios.
 - 21/11/2026 · Mercedes Clase C W205 2019 (coches.net, 209 anuncios, media 125.000 km, mezcla con AMG): anuncios sueltos C 220 d/C 200/C 200 d −7 % a −1 % · sin cambios.
 - 21/11/2026 · Seat León IV 2021 (coches.net, 300 anuncios, 16.429 €, 113.460 km >100.000): TDI 115/150 ≈ −5 % · sin cambios.
+- 22/11/2026 · Cupra Formentor 2021 (coches.net, 185 anuncios, 24.322 €, 83.303 km, 196 CV medios): 1.5 TSI 150 a ~70.000 km ≈ +3 %; VZ 310 ≈ +16 % (3 anuncios) · sin cambios.
+- 22/11/2026 · Toyota C-HR 1.8 Hybrid 2019 (coches.net, 106 anuncios, 19.463 €, 97.288 km): −12 % · sin cambios (cierra el pendiente).
+- 22/11/2026 · BMW Serie 1 F40 2020 (coches.net, 228 anuncios, 20.350 €, 103.927 km >100.000, 63 % diésel): mezcla ≈ −14 %; 118i 59.790 km +9 %, 97.000 km −20 % · sin cambios.
+- 22/11/2026 · Ford Mustang 5.0 GT 2018 (coches.net, anuncios sueltos): 450 CV +7 % (36.999 € a 63.500 km; 38.499 € a 73.500 km), 418 CV ≈ −2 % · sin cambios.
+- 22/11/2026 · Renault Zoe II 2020 (coches.net, 22 anuncios, 13.033 €, 63.024 km, 114 CV medios): R110 +14 %, mezcla +16 % · k 1,3 en Zoe II.
+- 22/11/2026 · Citroën C3 III 2019 (coches.net, 148 anuncios, 8.677 €, 100.217 km): mezcla ≈ −9 % (PureTech 82 a 120.000 km −12 %, 110 a 40.000 km +5 %, BlueHDi 100 −8 %) · sin cambios.
 
 ## Fuentes que funcionan
 - coches.net /marca/modelo/segunda-mano/AAAA/ (por año): el bloque de preguntas frecuentes da precio medio, km medio, nº de anuncios, CV medio y % de combustible. Es la mejor fuente.
 - motor.es /segunda-mano/marca/modelo/: anuncios sueltos (año, CV, km, precio).
 - autouncle.es: el 20 y 21/11/2026 bloqueó la mayoría de páginas al leerlas.
+- WebSearch con allowed_domains ["coches.net"] y «Marca Modelo AAAA segunda mano» devuelve directamente la página por año (22/11/2026).
 - Las URL de coches.net por año solo se pueden leer si antes salen en un WebSearch (p. ej. «coches.net Marca Modelo año AAAA de segunda mano»); construirlas a mano da error de permiso. Toyota C-HR es /toyota/chr/.
