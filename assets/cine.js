@@ -12,13 +12,14 @@
   const bar = sec.querySelector('.cine-bar i');
   const credit = sec.querySelector('.cine-cred');
   const N = frames.length, Z = 0.62;
+  const room = sec.querySelector('.showroom');
   const B = Math.max(0, frames.findIndex(f => f.classList.contains('base'))); // la fachada: ahí deja de llover
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
 
   // carga progresiva: los dos primeros fotogramas ya vienen en el HTML; el resto, después
   const load = f => { const img = f.querySelector('img[data-src]'); if (img) { img.src = img.dataset.src; img.removeAttribute('data-src'); } };
-  const loadRest = () => { frames.slice(2).forEach(load); sec.querySelectorAll('.tl-img').forEach(load); };
+  const loadRest = () => frames.slice(2).forEach(load);
   if (document.readyState === 'complete') setTimeout(loadRest, 300); else addEventListener('load', () => setTimeout(loadRest, 300));
 
   // ---------- lluvia ----------
@@ -57,7 +58,7 @@
     frames.forEach((f, i) => {
       const d = u - i;
       let s, o, b = 0;
-      if (i === N - 1 && d >= 0) { s = 1 + Math.min(d, 0.6) * 0.06; o = 1; }
+      if (i === N - 1 && d >= 0) { s = 1; o = 1; }
       else if (d >= 0) { s = 1 + d * Z; o = 1 - smooth(0.5, 1, d); b = smooth(0.55, 1, d) * 6; }
       else { s = 0.9 + (1 + d) * 0.1; o = d > -1 ? 1 : 0; }
       f.style.opacity = o.toFixed(3);
@@ -71,8 +72,8 @@
       const o = last ? smooth(-0.35, 0.05, d) : smooth(-0.3, 0.02, d) * (1 - smooth(0.42, 0.7, d));
       c.style.opacity = o.toFixed(3);
       c.style.transform = `translate3d(0,${((1 - o) * (d < 0.2 ? 26 : -26)).toFixed(1)}px,0)`;
-      c.style.pointerEvents = o > 0.6 ? 'auto' : 'none';
-      if (last) c.classList.toggle('on', o > 0.6);
+      c.style.pointerEvents = last ? 'none' : (o > 0.6 ? 'auto' : 'none');
+      if (last && room) { room.style.opacity = o.toFixed(3); room.style.visibility = o > 0.02 ? 'visible' : 'hidden'; room.classList.toggle('on', o > 0.6); }
       c.setAttribute('aria-hidden', o > 0.5 ? 'false' : 'true');
     });
     const idx = clamp(Math.round(u), 0, N - 1);
@@ -93,11 +94,24 @@
   const moveCinta = () => { if (!cinta) return; const r = cinta.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) cinta.style.setProperty('--c', ((innerHeight - r.top) * 0.55).toFixed(1)); };
   let queued = false;
   const onScroll = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; tick(); moveCinta(); }); } };
-  if (RM.matches) { root.classList.add('cine-quieto'); frames.forEach(load); sec.querySelectorAll('.tl-img').forEach(load); return; }
+  if (RM.matches) { root.classList.add('cine-quieto'); frames.forEach(load); return; }
   sec.classList.add('vivo');
   resize(); tick();
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', () => { resize(); tick(); });
+  // sala 3D del final: se carga aparte (three.js + el modelo) cuando la página ya ha terminado de cargar
+  if (room) {
+    let pedida = false;
+    const sala3d = () => {
+      if (pedida) return; pedida = true;
+      import('./sala3d/sala3d.js')
+        .then(m => { if (!m.iniciarSala(room, 'assets/sala3d/')) room.classList.add('sin3d'); })
+        .catch(() => room.classList.add('sin3d'));
+    };
+    const pronto = () => (window.requestIdleCallback || setTimeout)(sala3d, { timeout: 2500 });
+    if (document.readyState === 'complete') pronto(); else addEventListener('load', pronto);
+    addEventListener('scroll', () => { if (sec.getBoundingClientRect().top < -innerHeight) sala3d(); }, { passive: true });
+  }
   // los capítulos de la derecha llevan a su momento del vuelo
   chapters.forEach((li, i) => li.addEventListener('click', () => {
     const top = sec.offsetTop + (sec.offsetHeight - innerHeight) * (i / ((N - 1) * 1.08));
