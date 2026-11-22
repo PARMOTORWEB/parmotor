@@ -1,0 +1,522 @@
+{
+ "titulo": "SEAT: la historia completa",
+ "serie": "HISTORIA DEL MOTOR",
+ "horizontal": true,
+ "claves": [
+  "SEAT",
+  "FIAT",
+  "600",
+  "IBIZA",
+  "PORSCHE",
+  "VOLKSWAGEN",
+  "MARTORELL",
+  "CUPRA",
+  "LEÓN"
+ ],
+ "imagenes": {
+  "born": "../porsche/img_noche/born.jpg",
+  "formentor": "../porsche/img_noche/formentor.jpg",
+  "ibiza": "../porsche/img_noche/ibiza.jpg",
+  "kitcar": "../porsche/img_noche/kitcar.jpg",
+  "leon": "../porsche/img_noche/leon.jpg",
+  "martorell": "../porsche/img_noche/martorell.jpg",
+  "ronda": "../porsche/img_noche/ronda.jpg",
+  "seat127": "../porsche/img_noche/seat127.jpg",
+  "seat1400": "../porsche/img_noche/seat1400.jpg",
+  "seat600": "../porsche/img_noche/seat600.jpg",
+  "toledo": "../porsche/img_noche/toledo.jpg",
+  "zonafranca": "../porsche/img_noche/zonafranca.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "v": {
+    "titulo": "SEAT: la historia completa",
+    "foto": "seat600",
+    "etiqueta": "SEAT 600",
+    "cred": "Foto: Matti Blume · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Este es el SEAT 600.",
+    "Para muchas familias españolas, su primer coche."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UNA FÁBRICA EN BARCELONA"
+   },
+   "frases": [
+    "Detrás de él hay una marca nacida en una fábrica de Barcelona hace más de setenta años."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "FIAT · VOLKSWAGEN · PORSCHE · CUPRA"
+   },
+   "frases": [
+    "Una marca que empezó copiando a Fiat, se separó de ella, se unió a Volkswagen, llevó motores con la firma de Porsche…",
+    "y acabó creando otra marca: Cupra."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA HISTORIA COMPLETA DE SEAT"
+   },
+   "frases": [
+    "Esta es la historia completa de SEAT.",
+    "Como siempre, cada imagen lleva su fuente en la esquina."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1950",
+   "v": {
+    "valor": "1950",
+    "antes": "",
+    "texto": "S · E · A · T"
+   },
+   "frases": [
+    "En 1950 nace la Sociedad Española de Automóviles de Turismo.",
+    "Sus iniciales: S, E, A, T."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL ESTADO, LOS BANCOS Y FIAT"
+   },
+   "frases": [
+    "La empresa la crean el Estado, a través del Instituto Nacional de Industria, varios bancos españoles…",
+    "y Fiat, que aporta la licencia para fabricar sus coches."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "ESPAÑA, CASI SIN COCHES"
+   },
+   "frases": [
+    "La España de entonces apenas tiene coches.",
+    "La mayoría de la gente se mueve en tren, en autobús, en moto o andando."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "zonafranca",
+    "etiqueta": "Antigua fábrica de SEAT en la Zona Franca de Barcelona",
+    "texto": "",
+    "cred": "Foto: Enfo · CC BY-SA 3.0 (Wikimedia Commons)",
+    "sello": "ZONA FRANCA"
+   },
+   "frases": [
+    "La fábrica se levanta en la Zona Franca de Barcelona."
+   ],
+   "clave": "Franca"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "seat1400",
+    "etiqueta": "SEAT 1400 B · 1958",
+    "texto": "",
+    "cred": "Foto: Spanish Coches · CC BY 2.0 (Wikimedia Commons)",
+    "sello": "1953"
+   },
+   "frases": [
+    "Y en 1953 sale de allí el primer SEAT: el 1400.",
+    "Un coche grande y caro, al alcance de muy pocos."
+   ],
+   "clave": "1953"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UN COCHE PARA POCOS"
+   },
+   "frases": [
+    "Para hacerse una idea: costaba muchísimo más de lo que ganaba un trabajador en un año entero."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "seat600",
+    "etiqueta": "SEAT 600",
+    "texto": "",
+    "cred": "Foto: Matti Blume · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1957"
+   },
+   "frases": [
+    "Todo cambia en 1957 con el SEAT 600.",
+    "Pequeño, con motor trasero y, sobre todo, asequible."
+   ],
+   "clave": "1957",
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL «SEISCIENTOS»"
+   },
+   "frases": [
+    "Se convierte en el símbolo de una época: la del desarrollismo, cuando España empieza a crecer y muchas familias se compran su primer coche."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LISTAS DE ESPERA"
+   },
+   "frases": [
+    "La demanda es tan grande que hay listas de espera de meses para conseguir uno.",
+    "Y quien lo tiene, lo cuida como un tesoro."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "VACACIONES, BACAS Y CARRETERAS"
+   },
+   "frases": [
+    "Con él llegan las primeras vacaciones en coche, las maletas en la baca y los viajes de cientos de kilómetros a sesenta por hora."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "ochocientos",
+   "v": {
+    "valor": "≈800.000",
+    "antes": "",
+    "texto": "SEAT 600 · 1957-1973"
+   },
+   "frases": [
+    "Hasta 1973 se fabrican cerca de ochocientos mil."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿Y EN TU FAMILIA?"
+   },
+   "frases": [
+    "Seguramente alguien en tu familia tuvo uno.",
+    "Si es así, cuéntanoslo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "seat127",
+    "etiqueta": "SEAT 127 · 1972",
+    "texto": "",
+    "cred": "Foto: Spanish Coches · CC BY 2.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Durante los sesenta y setenta, SEAT fabrica sobre todo versiones de modelos Fiat: el 850, el 124, el 127…"
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LÍDER EN ESPAÑA"
+   },
+   "frases": [
+    "Y se convierte en el fabricante que más coches vende en España."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "CRISIS"
+   },
+   "frases": [
+    "Pero a finales de los setenta llega la crisis.",
+    "Las ventas caen, la empresa pierde dinero y Fiat decide marcharse."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1982",
+   "v": {
+    "valor": "1982",
+    "antes": "",
+    "texto": "ADIÓS, FIAT"
+   },
+   "frases": [
+    "En 1982, Fiat y SEAT rompen definitivamente."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "ronda",
+    "etiqueta": "SEAT Ronda",
+    "texto": "",
+    "cred": "Foto: Pandalia · CC BY-SA 3.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "SEAT tiene que demostrar que puede ir sola.",
+    "Su primer modelo de esta etapa es el Ronda, muy parecido al Fiat Ritmo."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿UNA COPIA?"
+   },
+   "frases": [
+    "Tan parecido que Fiat lo lleva a los tribunales.",
+    "SEAT llega a enseñar en público un Ronda con las piezas diferentes pintadas de otro color, para demostrar los cambios."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "SEAT GANA"
+   },
+   "frases": [
+    "Al final, la justicia da la razón a SEAT.",
+    "El Ronda puede seguir vendiéndose."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "ibiza",
+    "etiqueta": "SEAT Ibiza · 1.ª generación",
+    "texto": "",
+    "cred": "Foto: Thesupermat · CC BY-SA 3.0 (Wikimedia Commons)",
+    "sello": "1984"
+   },
+   "frases": [
+    "Y en 1984 llega su gran apuesta: el Ibiza."
+   ],
+   "clave": "1984"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "GIUGIARO · KARMANN · PORSCHE"
+   },
+   "frases": [
+    "Lo diseña Giorgetto Giugiaro, colabora la alemana Karmann…",
+    "y los motores se desarrollan con ayuda de Porsche: los famosos «System Porsche»."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL IBIZA SALVA A SEAT"
+   },
+   "frases": [
+    "El Ibiza funciona muy bien, en España y fuera.",
+    "Y demuestra que SEAT puede hacer sus propios coches."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1986",
+   "v": {
+    "valor": "1986",
+    "antes": "",
+    "texto": "LLEGA VOLKSWAGEN"
+   },
+   "frases": [
+    "En 1986, el grupo Volkswagen compra la mayoría de SEAT.",
+    "Y pocos años después, la compañía entera."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "toledo",
+    "etiqueta": "SEAT Toledo · 1991",
+    "texto": "",
+    "cred": "Foto: Niels de Wit · CC BY 2.0 (Wikimedia Commons)",
+    "sello": "1991"
+   },
+   "frases": [
+    "Con Volkswagen llegan nuevos modelos, como el Toledo, en 1991."
+   ],
+   "clave": "1991"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "BARCELONA 92"
+   },
+   "frases": [
+    "Y en 1992, SEAT es el coche oficial de los Juegos Olímpicos de Barcelona."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UNA MARCA, UNA CIUDAD"
+   },
+   "frases": [
+    "Para una empresa nacida en Barcelona, aquellos Juegos fueron un escaparate ante todo el mundo."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "martorell",
+    "etiqueta": "Sede de SEAT en Martorell",
+    "texto": "",
+    "cred": "Foto: SEAT · CC BY-SA 3.0 (Wikimedia Commons)",
+    "sello": "1993"
+   },
+   "frases": [
+    "En 1993 se inaugura la nueva fábrica de Martorell, una de las más modernas de Europa.",
+    "Allí se fabrican todavía hoy."
+   ],
+   "clave": "1993"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "kitcar",
+    "etiqueta": "SEAT Ibiza Kit Car · 1999",
+    "texto": "",
+    "cred": "Foto: Calreyn88 · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "3 TÍTULOS"
+   },
+   "frases": [
+    "En los rallies, el Ibiza Kit Car gana tres años seguidos la Copa del Mundo de dos litros, de 1996 a 1998."
+   ],
+   "clave": "1998"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "leon",
+    "etiqueta": "SEAT León · 1.ª generación",
+    "texto": "",
+    "cred": "Foto: Charles from Port Chester · CC BY 2.0 (Wikimedia Commons)",
+    "sello": "1999"
+   },
+   "frases": [
+    "Y en 1999 nace el León, que con los años se convertirá en uno de los modelos más importantes de la marca."
+   ],
+   "clave": "1999"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LLEGAN LOS SUV"
+   },
+   "frases": [
+    "Más tarde, en 2016, llega el Ateca, el primer SUV de la marca.",
+    "Después vendrán el Arona y el Tarraco, todos con nombres de lugares de España."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "CUPRA = CUP RACING"
+   },
+   "frases": [
+    "Por el camino aparece una palabra en algunas versiones deportivas: Cupra.",
+    "Viene de Cup Racing, carreras de copa."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2018",
+   "v": {
+    "valor": "2018",
+    "antes": "",
+    "texto": "CUPRA, MARCA PROPIA"
+   },
+   "frases": [
+    "Y en 2018, Cupra se convierte en una marca propia, separada de SEAT."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "formentor",
+    "etiqueta": "Cupra Formentor",
+    "texto": "",
+    "cred": "Foto: Alexander-93 · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Su primer modelo exclusivo, el Formentor, es un éxito de ventas."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "born",
+    "etiqueta": "Cupra Born",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "ELÉCTRICO"
+   },
+   "frases": [
+    "Y con el Born llega su primer coche cien por cien eléctrico."
+   ],
+   "clave": "eléctrico"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DE APELLIDO A MARCA"
+   },
+   "frases": [
+    "Lo que empezó como un apellido para las versiones más rápidas de SEAT se ha convertido en una marca con vida propia."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "SEAT, HOY"
+   },
+   "frases": [
+    "Hoy SEAT y Cupra siguen fabricando en Martorell y forman parte del grupo Volkswagen."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DEL 600 A CUPRA"
+   },
+   "frases": [
+    "Así que, del 600 que puso a España sobre ruedas a una marca deportiva y eléctrica, SEAT ha recorrido un camino muy largo."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿CUÁL FUE TU SEAT?"
+   },
+   "frases": [
+    "Y ahora, te pregunto a ti: ¿cuál es el SEAT más importante de la historia?",
+    "¿El 600, el Ibiza o el León?",
+    "Te leo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "SUSCRÍBETE"
+   },
+   "frases": [
+    "Si te ha gustado, suscríbete.",
+    "Cada domingo contamos la historia de una marca.",
+    "Nos vemos en el próximo vídeo."
+   ]
+  }
+ ]
+}

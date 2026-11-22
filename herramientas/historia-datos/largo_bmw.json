@@ -1,0 +1,409 @@
+{
+ "titulo": "BMW: la historia completa",
+ "serie": "HISTORIA DEL MOTOR",
+ "horizontal": true,
+ "claves": [
+  "BMW",
+  "QUANDT",
+  "ISETTA",
+  "M3",
+  "MINI",
+  "2002",
+  "BAVIERA"
+ ],
+ "imagenes": {
+  "bmw2002": "../porsche/img_noche/bmw2002.jpg",
+  "m3": "../porsche/img_noche/m3.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "v": {
+    "titulo": "BMW: la historia completa",
+    "foto": "bmw2002",
+    "etiqueta": "BMW 2002 tii",
+    "cred": "Foto: Ermell · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Este es el BMW 2002.",
+    "El coche que convirtió a BMW en la marca de las berlinas deportivas."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "ANTES DE LOS COCHES… AVIONES"
+   },
+   "frases": [
+    "Pero BMW no empezó haciendo coches.",
+    "Empezó fabricando motores de avión."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "CASI DESAPARECE"
+   },
+   "frases": [
+    "Además, en 1959 estuvo a punto de desaparecer, absorbida por su gran rival."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA HISTORIA COMPLETA DE BMW"
+   },
+   "frases": [
+    "Esta es la historia completa de BMW.",
+    "Como siempre, cada imagen lleva su fuente en la esquina."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1916",
+   "v": {
+    "valor": "1916",
+    "antes": "",
+    "texto": "MOTORES DE AVIÓN"
+   },
+   "frases": [
+    "La historia arranca en 1916, en Múnich, en plena Primera Guerra Mundial.",
+    "Allí nacen las empresas que darán lugar a BMW: Bayerische Motoren Werke."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿UNA HÉLICE EN EL LOGO?"
+   },
+   "frases": [
+    "Mucha gente cree que su logo es una hélice girando.",
+    "En realidad, el azul y el blanco son los colores de la bandera bávara."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA HÉLICE: UN ANUNCIO DE 1929"
+   },
+   "frases": [
+    "La idea de la hélice nació después, en un anuncio de 1929.",
+    "Y la marca la aprovechó durante décadas."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PROHIBIDO HACER MOTORES DE AVIÓN",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Al acabar la guerra, el Tratado de Versalles prohíbe a Alemania fabricar motores de avión.",
+    "BMW tiene que reinventarse."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1923",
+   "v": {
+    "valor": "1923",
+    "antes": "",
+    "texto": "PRIMERA MOTO · R32"
+   },
+   "frases": [
+    "En 1923 presenta su primera moto, la R32, con motor bóxer.",
+    "Las motos BMW siguen fabricándose hoy."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DIXI: UN COCHE CON LICENCIA"
+   },
+   "frases": [
+    "Y en 1928 compra una fábrica de coches en Eisenach.",
+    "Su primer coche, el Dixi, era en realidad un pequeño Austin británico fabricado con licencia."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "BMW 328 · 1936"
+   },
+   "frases": [
+    "En 1936 llega el BMW 328, un deportivo ligero que gana carreras por toda Europa."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "GUERRA Y TRABAJO FORZADO",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Durante la Segunda Guerra Mundial, BMW vuelve a los motores de avión",
+    "y utiliza trabajadores forzados, algo que la empresa reconoce hoy."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1945",
+   "v": {
+    "valor": "1945",
+    "antes": "",
+    "texto": "EMPEZAR DE CERO"
+   },
+   "frases": [
+    "En 1945 la fábrica de Múnich está bombardeada.",
+    "Y la de Eisenach queda en la Alemania del Este."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "OLLAS Y BICICLETAS"
+   },
+   "frases": [
+    "Para sobrevivir, BMW fabrica de todo: ollas, bicicletas, maquinaria agrícola…"
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL «ÁNGEL BARROCO»"
+   },
+   "frases": [
+    "En 1951 vuelve a los coches con el 501, una berlina grande y elegante a la que llamaron el ángel barroco.",
+    "Preciosa, pero carísima de fabricar."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "ISETTA: EL «HUEVO»"
+   },
+   "frases": [
+    "Paradójicamente, lo que la mantiene a flote es un coche diminuto: el Isetta,",
+    "con una sola puerta en el frontal. Lo llamaban el huevo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "BMW 507: ELVIS TENÍA UNO"
+   },
+   "frases": [
+    "Y en 1955 sale el 507, un descapotable espectacular.",
+    "Elvis Presley tuvo uno… pero BMW perdía dinero con cada unidad."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1959",
+   "v": {
+    "valor": "1959",
+    "antes": "",
+    "texto": "AL BORDE DE LA QUIEBRA"
+   },
+   "frases": [
+    "En 1959, BMW está prácticamente en quiebra.",
+    "Y se propone venderla a Daimler-Benz, su gran rival."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LOS ACCIONISTAS DICEN QUE NO",
+    "fondo": "negro"
+   },
+   "frases": [
+    "En una junta tensísima, los pequeños accionistas se rebelan y bloquean la venta."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "HERBERT QUANDT"
+   },
+   "frases": [
+    "Entonces aparece un empresario, Herbert Quandt, que invierte en la marca y la salva.",
+    "Su familia sigue siendo hoy la principal accionista."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«NEUE KLASSE»"
+   },
+   "frases": [
+    "En 1962 llega la clave del éxito: la llamada Nueva Clase.",
+    "Berlinas medianas, deportivas y bien hechas."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "bmw2002",
+    "etiqueta": "BMW 2002 tii",
+    "texto": "",
+    "cred": "Foto: Ermell · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1968"
+   },
+   "frases": [
+    "De ahí nace la serie cero dos, y en 1968 el 2002.",
+    "En 1973, el 2002 turbo será el primer coche europeo de serie con turbo."
+   ],
+   "clave": "1968"
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1972",
+   "v": {
+    "valor": "1972",
+    "antes": "",
+    "texto": "NACE LA DIVISIÓN M"
+   },
+   "frases": [
+    "En 1972 se crea BMW Motorsport, la famosa división M."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "SERIE 5 · SERIE 3"
+   },
+   "frases": [
+    "Ese mismo año llega la Serie 5, y en 1975 la Serie 3,",
+    "que se convertirá en su modelo más importante."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "m3",
+    "etiqueta": "BMW M3 (E30)",
+    "texto": "",
+    "cred": "Foto: Handelsgeselschaft · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "M3"
+   },
+   "frases": [
+    "En 1986 nace el M3, un Serie 3 preparado para correr en turismos.",
+    "Hoy es una leyenda."
+   ],
+   "clave": "1986"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "CAMPEONES DE FÓRMULA 1"
+   },
+   "frases": [
+    "Y en 1983, Nelson Piquet gana el Mundial de Fórmula 1 con un motor turbo BMW.",
+    "El primer campeón de la historia con motor turbo."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1994",
+   "v": {
+    "valor": "1994",
+    "antes": "",
+    "texto": "COMPRA ROVER"
+   },
+   "frases": [
+    "En 1994, BMW compra el grupo británico Rover.",
+    "Con él, marcas como Land Rover y Mini."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UN DESASTRE CARÍSIMO",
+    "fondo": "negro"
+   },
+   "frases": [
+    "La operación sale fatal y pierde muchísimo dinero.",
+    "En el año 2000 lo vende casi todo… pero se queda con Mini."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL NUEVO MINI"
+   },
+   "frases": [
+    "En 2001 lanza el nuevo Mini, que se convierte en un éxito mundial."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "ROLLS-ROYCE"
+   },
+   "frases": [
+    "Y desde 2003 también fabrica los Rolls-Royce,",
+    "después de quedarse con los derechos de la marca."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "i3: ELÉCTRICO Y DE CARBONO"
+   },
+   "frases": [
+    "En 2013 presenta el i3, un coche eléctrico con habitáculo de fibra de carbono.",
+    "Un adelantado a su tiempo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "BMW HOY"
+   },
+   "frases": [
+    "Hoy BMW fabrica coches, motos, Mini y Rolls-Royce,",
+    "y es uno de los grandes fabricantes de coches premium del mundo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DEL AVIÓN A LA CARRETERA"
+   },
+   "frases": [
+    "Así que la marca que empezó fabricando motores de avión, y que casi desaparece en 1959,",
+    "se convirtió en sinónimo de conducción deportiva."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿2002, M3 O SERIE 3?"
+   },
+   "frases": [
+    "Ahora te pregunto a ti: ¿cuál es el BMW más importante de la historia?",
+    "¿El 2002, el M3 o el Serie 3?",
+    "Te leo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PRÓXIMO DOMINGO: MERCEDES-BENZ"
+   },
+   "frases": [
+    "Si te ha gustado, suscríbete.",
+    "Cada domingo contamos la historia de una marca.",
+    "El próximo domingo, la marca que inventó el automóvil: Mercedes-Benz.",
+    "Nos vemos en el próximo vídeo."
+   ]
+  }
+ ]
+}

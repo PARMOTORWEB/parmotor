@@ -1,0 +1,287 @@
+{
+ "titulo": "Ford: la historia completa",
+ "serie": "HISTORIA DEL MOTOR",
+ "horizontal": true,
+ "claves": [
+  "FORD",
+  "HENRY",
+  "MODELO",
+  "MUSTANG",
+  "GT40",
+  "DETROIT",
+  "ALMUSSAFES"
+ ],
+ "imagenes": {
+  "gt40": "../porsche/img_noche/gt40.jpg",
+  "modelt": "../porsche/img_noche/modelt.jpg",
+  "mustang": "../porsche/img_noche/mustang.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "v": {
+    "titulo": "Ford: la historia completa",
+    "foto": "mustang",
+    "etiqueta": "Ford Mustang · 1965",
+    "cred": "Foto: John Robert McPherson · CC0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Este es el Ford Mustang.",
+    "Pero Ford hizo algo todavía más grande que este coche."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PONER EL MUNDO SOBRE RUEDAS"
+   },
+   "frases": [
+    "Inventó la forma de fabricar coches baratos para todo el mundo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LUCES Y SOMBRAS"
+   },
+   "frases": [
+    "Y detrás estaba un hombre genial… y muy polémico: Henry Ford."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA HISTORIA COMPLETA DE FORD"
+   },
+   "frases": [
+    "Esta es la historia completa de Ford.",
+    "Como siempre, cada imagen lleva su fuente en la esquina."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "HENRY FORD"
+   },
+   "frases": [
+    "Henry Ford nace en 1863 en una granja del estado de Michigan.",
+    "Desde niño le fascinan las máquinas: desmonta relojes para ver cómo funcionan."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "TRABAJANDO PARA EDISON"
+   },
+   "frases": [
+    "De joven trabaja como ingeniero en la compañía eléctrica de Thomas Edison.",
+    "En sus ratos libres construye su primer vehículo, en 1896."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1903",
+   "v": {
+    "valor": "1903",
+    "antes": "",
+    "texto": "FORD MOTOR COMPANY"
+   },
+   "frases": [
+    "En 1903 funda la Ford Motor Company, en Detroit."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "modelt",
+    "etiqueta": "Ford Modelo T",
+    "texto": "",
+    "cred": "Foto: Ermell · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1908"
+   },
+   "frases": [
+    "En 1908 lanza el coche que lo cambia todo: el Modelo T.",
+    "Sencillo, resistente y pensado para la gente corriente."
+   ],
+   "clave": "1908",
+   "cap": true
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1913",
+   "v": {
+    "valor": "1913",
+    "antes": "",
+    "texto": "CADENA DE MONTAJE"
+   },
+   "frases": [
+    "En 1913 pone en marcha la cadena de montaje móvil.",
+    "Montar un coche pasa de más de doce horas a una hora y media."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL SALARIO DE CINCO DÓLARES"
+   },
+   "frases": [
+    "En 1914 duplica el sueldo de sus obreros: cinco dólares al día.",
+    "Así reduce las bajas… y sus trabajadores pueden comprarse un Ford."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "MÁS DE 15 MILLONES"
+   },
+   "frases": [
+    "Hasta 1927 se fabrican más de quince millones de Modelo T."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL LADO OSCURO",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Pero Henry Ford también tuvo un lado muy oscuro.",
+    "Publicó en su propio periódico escritos antisemitas que hoy la empresa condena."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "V8 PARA TODOS"
+   },
+   "frases": [
+    "En 1932 lanza un coche barato con motor V8, algo reservado hasta entonces a coches caros."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UN BOMBARDERO CADA HORA"
+   },
+   "frases": [
+    "En la Segunda Guerra Mundial, su fábrica de Willow Run llega a producir un bombardero por hora."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "mustang",
+    "etiqueta": "Ford Mustang · 1965",
+    "texto": "",
+    "cred": "Foto: John Robert McPherson · CC0 (Wikimedia Commons)",
+    "sello": "1964"
+   },
+   "frases": [
+    "En 1964 llega el Mustang: veintidós mil pedidos en un solo día.",
+    "Y nace una categoría nueva, los pony cars."
+   ],
+   "clave": "1964",
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "gt40",
+    "etiqueta": "Ford GT40",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "LE MANS"
+   },
+   "frases": [
+    "Y tras intentar comprar Ferrari sin éxito, Ford se venga en Le Mans:",
+    "el GT40 gana cuatro años seguidos, de 1966 a 1969."
+   ],
+   "clave": "1966"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "FORD EN ESPAÑA: ALMUSSAFES"
+   },
+   "frases": [
+    "En 1976 abre su fábrica de Almussafes, en Valencia, para fabricar el Fiesta.",
+    "Desde allí han salido millones de coches."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA FURGONETA F-150"
+   },
+   "frases": [
+    "En Estados Unidos, su pick-up de la serie F lleva décadas siendo el vehículo más vendido del país."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2008",
+   "v": {
+    "valor": "2008",
+    "antes": "",
+    "texto": "CRISIS"
+   },
+   "frases": [
+    "En la crisis de 2008, General Motors y Chrysler necesitan un rescate del gobierno."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "FORD AGUANTA SOLA"
+   },
+   "frases": [
+    "Ford es la única de las tres grandes de Detroit que sale adelante sin ese rescate."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "MUSTANG MACH-E"
+   },
+   "frases": [
+    "Y hoy apuesta por el eléctrico, con modelos como el Mustang Mach-E o la F-150 eléctrica."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL COCHE PARA TODOS"
+   },
+   "frases": [
+    "Así que, con sus luces y sus sombras, Henry Ford convirtió el coche en algo que cualquiera podía tener.",
+    "Y cambió para siempre la forma de fabricar."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿MODELO T, MUSTANG O GT40?"
+   },
+   "frases": [
+    "Ahora te pregunto a ti: ¿cuál es el Ford más importante de la historia?",
+    "¿El Modelo T, el Mustang o el GT40?",
+    "Te leo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "CADA DOMINGO, UNA MARCA"
+   },
+   "frases": [
+    "Si te ha gustado, suscríbete.",
+    "Cada domingo contamos la historia de una marca.",
+    "Nos vemos en el próximo vídeo."
+   ]
+  }
+ ]
+}

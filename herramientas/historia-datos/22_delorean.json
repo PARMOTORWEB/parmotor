@@ -1,0 +1,99 @@
+{
+ "titulo": "4 cosas que no sabías del DeLorean DMC-12",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "DELOREAN",
+  "BELFAST",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "delorean": "../porsche/img_noche/delorean.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del DeLorean!",
+    "¡Un fracaso que se volvió inmortal!"
+   ],
+   "v": {
+    "foto": "delorean",
+    "etiqueta": "DeLorean DMC-12",
+    "numero": "4",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "INOXIDABLE",
+   "frases": [
+    "¡Uno! Su carrocería era de acero inoxidable,",
+    "y salía de fábrica sin pintar."
+   ],
+   "v": {
+    "titulo": "Carrocería sin pintar",
+    "sello": "ACERO INOXIDABLE"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "BELFAST",
+   "frases": [
+    "¡Dos! Se fabricaba en Irlanda del Norte, cerca de Belfast,",
+    "con ayudas del gobierno británico."
+   ],
+   "v": {
+    "titulo": "Hecho cerca de Belfast",
+    "texto": "Irlanda del Norte",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "9.000",
+   "frases": [
+    "¡Tres! La empresa quebró en 1982,",
+    "después de fabricar unos 9.000 coches."
+   ],
+   "v": {
+    "antes": "UNIDADES",
+    "valor": "≈9.000",
+    "texto": "Quiebra en 1982"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "FUTURO",
+   "frases": [
+    "¡Cuatro! Pero en 1985, Regreso al futuro lo convirtió en una máquina del tiempo…",
+    "y en una leyenda."
+   ],
+   "v": {
+    "titulo": "1985: una máquina del tiempo",
+    "size": 96
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

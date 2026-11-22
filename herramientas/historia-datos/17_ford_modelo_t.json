@@ -1,0 +1,101 @@
+{
+ "titulo": "4 cosas que no sabías del Ford Modelo T",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "FORD",
+  "NEGRO",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "modelt": "../porsche/img_noche/modelt.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Ford Modelo T!",
+    "¡Y no siempre fue negro!"
+   ],
+   "v": {
+    "foto": "modelt",
+    "etiqueta": "Ford Modelo T",
+    "numero": "4",
+    "cred": "Foto: Ermell · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1908",
+   "frases": [
+    "¡Uno! Salió a la venta en 1908",
+    "y puso a medio Estados Unidos sobre ruedas."
+   ],
+   "v": {
+    "antes": "A LA VENTA",
+    "valor": "1908",
+    "texto": "El coche para todos"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1913",
+   "frases": [
+    "¡Dos! En 1913 Ford estrenó la cadena de montaje móvil:",
+    "montar un coche pasó de más de doce horas a una hora y media."
+   ],
+   "v": {
+    "antes": "MONTAR UN COCHE",
+    "valor": "≈1,5 h",
+    "texto": "Antes, más de 12 horas"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "NEGRO",
+   "frases": [
+    "¡Tres! La frase «cualquier color, siempre que sea negro» es famosa,",
+    "pero al principio se vendía en otros colores."
+   ],
+   "v": {
+    "titulo": "«Cualquier color… siempre que sea negro»",
+    "texto": "Solo negro de 1914 a 1925",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "QUINCE",
+   "frases": [
+    "¡Cuatro! Hasta 1927",
+    "se fabricaron más de quince millones."
+   ],
+   "v": {
+    "antes": "UNIDADES",
+    "valor": "+15 millones",
+    "texto": "1908-1927"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

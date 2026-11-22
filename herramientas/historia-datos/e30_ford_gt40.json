@@ -1,0 +1,103 @@
+{
+ "titulo": "4 cosas que no sabías del Ford GT40",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "GT40",
+  "FORD",
+  "FERRARI",
+  "LE MANS",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "gt40": "../porsche/img_noche/gt40.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Ford GT40!",
+    "¡La venganza de Ford contra Ferrari!"
+   ],
+   "v": {
+    "foto": "gt40",
+    "etiqueta": "Ford GT40",
+    "numero": "4",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "COMPRAR",
+   "frases": [
+    "¡Uno! En 1963, Ford intentó comprar Ferrari,",
+    "pero Enzo Ferrari se echó atrás en el último momento."
+   ],
+   "v": {
+    "titulo": "Ford intentó comprar Ferrari",
+    "texto": "Enzo dijo que no en el último momento",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "VENGANZA",
+   "frases": [
+    "¡Dos! Henry Ford Segundo decidió entonces vencerle",
+    "donde más le dolía: en Le Mans."
+   ],
+   "v": {
+    "titulo": "La respuesta: ganarle en Le Mans",
+    "size": 96
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1969",
+   "frases": [
+    "Tres. Y lo consiguió: el GT40 ganó Le Mans",
+    "cuatro años seguidos, de 1966 a 1969."
+   ],
+   "v": {
+    "antes": "LE MANS",
+    "valor": "1966-1969",
+    "texto": "Cuatro victorias seguidas"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "CUARENTA",
+   "frases": [
+    "¡Cuatro! Su nombre viene de su altura: cuarenta pulgadas,",
+    "poco más de un metro.",
+    "Y este domingo, la historia completa de Ford."
+   ],
+   "v": {
+    "antes": "ALTURA",
+    "valor": "40 pulgadas",
+    "texto": "Unos 102 centímetros"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

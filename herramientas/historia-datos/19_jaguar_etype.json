@@ -1,0 +1,102 @@
+{
+ "titulo": "4 cosas que no sabías del Jaguar E-Type",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "E-TYPE",
+  "JAGUAR",
+  "MOMA",
+  "FERRARI",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "etype": "../porsche/img_noche/etype.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Jaguar E-Type!",
+    "¿El coche más bonito jamás fabricado?"
+   ],
+   "v": {
+    "foto": "etype",
+    "etiqueta": "Jaguar E-Type Serie 1 · 1961",
+    "numero": "4",
+    "cred": "Foto: DeFacto · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1961",
+   "frases": [
+    "¡Uno! Se presentó en 1961, en el Salón del Automóvil de Ginebra.",
+    "Hubo tanta expectación que trajeron otro conduciendo toda la noche desde Inglaterra."
+   ],
+   "v": {
+    "antes": "SALÓN DE GINEBRA",
+    "valor": "1961",
+    "texto": "Otro más, conducido toda la noche"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "BONITO",
+   "frases": [
+    "¡Dos! Se atribuye a Enzo Ferrari una frase sobre él:",
+    "«el coche más bonito jamás fabricado»."
+   ],
+   "v": {
+    "titulo": "«El coche más bonito jamás fabricado»",
+    "texto": "Frase atribuida a Enzo Ferrari",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "240",
+   "frases": [
+    "Tres. El E-Type prometía unos 240 kilómetros por hora,",
+    "y costaba mucho menos que un Ferrari o un Aston Martin."
+   ],
+   "v": {
+    "antes": "VELOCIDAD PROMETIDA",
+    "valor": "240 km/h",
+    "texto": "Y mucho más barato que sus rivales"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "MOMA",
+   "frases": [
+    "¡Cuatro! Un E-Type forma parte de la colección del MoMA,",
+    "el Museo de Arte Moderno de Nueva York."
+   ],
+   "v": {
+    "titulo": "Museo de Arte Moderno · Nueva York",
+    "sello": "MoMA"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

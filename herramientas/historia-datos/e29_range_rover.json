@@ -1,0 +1,100 @@
+{
+ "titulo": "4 cosas que no sabías del Range Rover",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "RANGE",
+  "ROVER",
+  "LOUVRE",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "rangerover": "../porsche/img_noche/rangerover.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Range Rover!",
+    "¡Lo expusieron en el Louvre!"
+   ],
+   "v": {
+    "foto": "rangerover",
+    "etiqueta": "Range Rover (primera generación)",
+    "numero": "4",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1970",
+   "frases": [
+    "¡Uno! Llegó en 1970",
+    "y creó una categoría nueva: el todoterreno de lujo."
+   ],
+   "v": {
+    "antes": "LANZAMIENTO",
+    "valor": "1970",
+    "texto": "El primer todoterreno de lujo"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "LOUVRE",
+   "frases": [
+    "¡Dos! En 1971 se expuso en el Museo del Louvre",
+    "como ejemplo de diseño industrial."
+   ],
+   "v": {
+    "titulo": "Museo del Louvre · 1971",
+    "sello": "OBRA DE DISEÑO"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "MANGUERA",
+   "frases": [
+    "Tres. Curiosamente, al principio su interior era tan sencillo",
+    "que se podía limpiar con una manguera."
+   ],
+   "v": {
+    "titulo": "Interior lavable con manguera",
+    "texto": "Al principio, nada de lujo",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "CUATRO",
+   "frases": [
+    "¡Cuatro! Durante sus primeros once años",
+    "solo tuvo tres puertas. Las cinco puertas llegaron en 1981."
+   ],
+   "v": {
+    "titulo": "Las cinco puertas llegaron en 1981",
+    "size": 96
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

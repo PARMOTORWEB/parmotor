@@ -1,0 +1,751 @@
+{
+ "titulo": "Ferrari: la historia completa",
+ "serie": "HISTORIA DEL MOTOR",
+ "horizontal": true,
+ "claves": [
+  "FERRARI",
+  "ENZO",
+  "MARANELLO",
+  "FORD",
+  "LE MANS",
+  "F40",
+  "SCHUMACHER",
+  "LAUDA",
+  "MÓDENA",
+  "ALFA"
+ ],
+ "imagenes": {
+  "enzo": "../porsche/img_noche/enzo.jpg",
+  "gt40": "../porsche/img_noche/gt40.jpg",
+  "f40": "../porsche/img_noche/f40.jpg",
+  "f125s": "../porsche/img_noche/f125s.jpg",
+  "f250gto": "../porsche/img_noche/f250gto.jpg",
+  "testarossa": "../porsche/img_noche/testarossa.jpg",
+  "laferrari": "../porsche/img_noche/laferrari.jpg",
+  "lauda312t": "../porsche/img_noche/lauda312t.jpg",
+  "escudo": "../porsche/img_noche/escudo.jpg",
+  "enzo1933": "../porsche/img_noche/enzo1933.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "v": {
+    "titulo": "Ferrari: la historia completa",
+    "numero": "",
+    "foto": "escudo",
+    "etiqueta": "El Cavallino Rampante",
+    "cred": "Foto: Valder137 · CC BY 2.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Este es el escudo más famoso del automovilismo.",
+    "Un caballo negro sobre fondo amarillo."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "enzo1933",
+    "etiqueta": "Enzo Ferrari (derecha) · 1933",
+    "texto": "",
+    "cred": "Foto: autor desconocido · Dominio público (Wikimedia Commons)"
+   },
+   "frases": [
+    "Y este es el hombre que lo creó: Enzo Ferrari.",
+    "Un hombre que, en realidad, no quería vender coches."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "Los fabricaba solo para una cosa",
+    "size": 90
+   },
+   "frases": [
+    "Los fabricaba solo para una cosa: pagar sus carreras."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "gt40",
+    "etiqueta": "Ford GT40 (1966)",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Un hombre que dejó plantado a Henry Ford Segundo cuando quiso comprarle la empresa, y que desató una de las mayores rivalidades de la historia."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "f40",
+    "etiqueta": "Ferrari F40 · 1987",
+    "texto": "",
+    "cred": "Foto: Will ainsworth · CC BY-SA 3.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Esta es la historia de cómo un niño de Módena que soñaba con ser piloto acabó creando la marca de coches más famosa del mundo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "FERRARI: LA HISTORIA COMPLETA",
+    "fondo": "negro",
+    "size": 96
+   },
+   "frases": [
+    "Ferrari: la historia completa.",
+    "Y como siempre, cada imagen lleva su fuente en la esquina."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1898",
+   "v": {
+    "valor": "1898",
+    "antes": "",
+    "texto": "MÓDENA"
+   },
+   "frases": [
+    "Enzo Ferrari nace en 1898 en Módena, en el norte de Italia.",
+    "Su padre tiene un pequeño taller de piezas metálicas."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "BOLONIA · 1908",
+    "sello": null
+   },
+   "frases": [
+    "Con diez años, su padre lo lleva a ver una carrera en Bolonia.",
+    "Ese día decide lo que quiere ser: piloto."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "Pero llega la Primera Guerra Mundial",
+    "size": 90
+   },
+   "frases": [
+    "Pero llega la Primera Guerra Mundial.",
+    "En 1916 pierde a su padre y a su hermano, y él mismo cae gravemente enfermo durante el servicio militar."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "TURÍN · FIAT: «NO»",
+    "sello": null
+   },
+   "frases": [
+    "Al terminar la guerra pide trabajo en Fiat, en Turín.",
+    "Le dicen que no."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1920",
+   "v": {
+    "valor": "1920",
+    "antes": "",
+    "texto": "ALFA ROMEO"
+   },
+   "frases": [
+    "Pero no se rinde.",
+    "Trabaja probando coches, empieza a correr y en 1920 entra en Alfa Romeo como piloto."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "No es el piloto más rápido",
+    "size": 90
+   },
+   "frases": [
+    "No es el piloto más rápido, pero es listo, tiene don de gentes y sabe convencer a los mejores mecánicos para que trabajen con él."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "FRANCESCO BARACCA",
+    "sello": null
+   },
+   "frases": [
+    "En 1923 gana una carrera en Rávena.",
+    "Allí conoce a los padres de Francesco Baracca, el gran as de la aviación italiana, que había muerto en la guerra."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "Baracca llevaba pintado en su avión…",
+    "size": 90
+   },
+   "frases": [
+    "Baracca llevaba pintado en su avión un caballo negro encabritado.",
+    "Según cuenta la historia, su madre le dijo a Enzo: ponga este caballo en sus coches, le dará suerte."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "CAVALLINO RAMPANTE",
+    "sello": null
+   },
+   "frases": [
+    "Enzo le añadió un fondo amarillo, el color de Módena.",
+    "Así nace el 'Cavallino Rampante'."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1929",
+   "v": {
+    "valor": "1929",
+    "antes": "",
+    "texto": "SCUDERIA FERRARI"
+   },
+   "frases": [
+    "En 1929 funda en Módena la Scuderia Ferrari.",
+    "Todavía no fabrica coches: es un equipo que prepara y hace correr los Alfa Romeo."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "TAZIO NUVOLARI",
+    "sello": null
+   },
+   "frases": [
+    "Con pilotos como Tazio Nuvolari, la Scuderia gana carreras por toda Europa.",
+    "En 1935, Nuvolari gana el Gran Premio de Alemania por delante de las potentísimas Flechas de Plata alemanas."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1932",
+   "v": {
+    "valor": "1932",
+    "antes": "",
+    "texto": ""
+   },
+   "frases": [
+    "En 1932 nace su hijo Dino, y Enzo deja de pilotar.",
+    "A partir de ahí su talento será otro: elegir a los mejores pilotos e ingenieros y sacarles el máximo."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1939",
+   "v": {
+    "valor": "1939",
+    "antes": "",
+    "texto": ""
+   },
+   "frases": [
+    "En 1939 rompe con Alfa Romeo.",
+    "El acuerdo de salida le prohíbe usar su nombre en coches de carreras durante cuatro años."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "AAC 815",
+    "sello": null
+   },
+   "frases": [
+    "Así que crea otra empresa y construye su primer coche sin su nombre: el Auto Avio Costruzioni 815."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "MARANELLO",
+    "sello": null
+   },
+   "frases": [
+    "Durante la Segunda Guerra Mundial traslada la fábrica a Maranello, un pueblo cercano.",
+    "La bombardean, y la vuelve a levantar."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "f125s",
+    "etiqueta": "Ferrari 125 S · 1947",
+    "texto": "",
+    "cred": "Foto: Unknown photographer · Public domain (Wikimedia Commons)"
+   },
+   "frases": [
+    "Y en 1947, por fin, arranca el primer coche con su nombre: el Ferrari 125 S, con un motor V12."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "«LA AERODINÁMICA ES PARA QUIEN NO SABE HACER MOTORES»",
+    "sello": null
+   },
+   "frases": [
+    "A Enzo se le atribuye una frase famosa: la aerodinámica es para quien no sabe hacer motores."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "ROMA · 1947",
+    "sello": null
+   },
+   "frases": [
+    "Ese mismo año gana su primera carrera, en Roma."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "LE MANS · 1949",
+    "sello": null
+   },
+   "frases": [
+    "En 1949 gana las 24 Horas de Le Mans con el 166 MM."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "SILVERSTONE · 1951",
+    "sello": null
+   },
+   "frases": [
+    "Y en 1951 llega el momento más simbólico: en el Gran Premio de Gran Bretaña, un Ferrari gana por primera vez en Fórmula 1…",
+    "y lo hace por delante de los Alfa Romeo, el equipo donde Enzo se había formado."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«HE MATADO A MI MADRE»",
+    "fondo": "negro",
+    "size": 96
+   },
+   "frases": [
+    "Se cuenta que Enzo, emocionado, dijo que sentía como si hubiera matado a su propia madre."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1952",
+   "v": {
+    "valor": "1952",
+    "antes": "",
+    "texto": "ASCARI CAMPEÓN"
+   },
+   "frases": [
+    "Al año siguiente, Alberto Ascari gana el campeonato del mundo con Ferrari."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "Pero las carreras cuestan una fortuna",
+    "size": 90
+   },
+   "frases": [
+    "Pero las carreras cuestan una fortuna.",
+    "Y Enzo encuentra la solución: vender coches de calle a clientes ricos."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": null,
+    "etiqueta": "Ferrari 250 GTO",
+    "texto": "",
+    "cred": ""
+   },
+   "frases": [
+    "Para él eran casi un mal necesario.",
+    "Pero de ahí salieron joyas como la familia 250 y el 250 GTO, hoy uno de los coches más caros jamás subastados."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "Enzo era duro y distante",
+    "size": 90
+   },
+   "frases": [
+    "Enzo era duro y distante, y casi nunca iba a ver las carreras en persona.",
+    "Siempre con sus gafas oscuras."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "MILLE MIGLIA · 1957",
+    "sello": null
+   },
+   "frases": [
+    "También hubo tragedias.",
+    "En la Mille Miglia de 1957, el accidente del Ferrari del piloto español Alfonso de Portago causó la muerte de su copiloto, la suya y la de varios espectadores.",
+    "La carrera desapareció."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "DINO FERRARI · 1932-1956",
+    "sello": null
+   },
+   "frases": [
+    "Y en 1956, Enzo sufre el golpe más duro de su vida: muere su hijo Dino, con solo veinticuatro años, a causa de una enfermedad."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DINO",
+    "sello": null
+   },
+   "frases": [
+    "Enzo le dedicará su nombre a una serie de motores y de coches: los Dino."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1963",
+   "v": {
+    "valor": "1963",
+    "antes": "",
+    "texto": ""
+   },
+   "frases": [
+    "1963.",
+    "Ford quiere ganar en las carreras y decide que lo más rápido es comprar Ferrari.",
+    "Las negociaciones están muy avanzadas."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "Pero cuando Enzo descubre que perdería…",
+    "size": 90
+   },
+   "frases": [
+    "Pero cuando Enzo descubre que perdería el control de su equipo de carreras, rompe el acuerdo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "Henry Ford Segundo se lo toma…",
+    "size": 90
+   },
+   "frases": [
+    "Henry Ford Segundo se lo toma como algo personal y ordena construir un coche capaz de derrotar a Ferrari en Le Mans."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "6",
+   "v": {
+    "valor": "6",
+    "antes": "",
+    "texto": "VICTORIAS SEGUIDAS"
+   },
+   "frases": [
+    "No era fácil: Ferrari había ganado Le Mans seis años seguidos, de 1960 a 1965."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "gt40",
+    "etiqueta": "Ford GT40 (1966)",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Ford gasta millones y fracasa en 1964 y en 1965."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "gt40",
+    "etiqueta": "Ford GT40 (1966)",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Pero en 1966 los Ford GT40 terminan primero, segundo y tercero.",
+    "Es la historia que cuenta la película 'Le Mans 66'."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1969",
+   "v": {
+    "valor": "1969",
+    "antes": "",
+    "texto": "FIAT 50 %"
+   },
+   "frases": [
+    "En 1969, Enzo encuentra un socio que sí acepta sus condiciones: Fiat compra la mitad de la empresa y él conserva el control de las carreras."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": null,
+    "etiqueta": "Niki Lauda · 1975 y 1977",
+    "texto": "",
+    "cred": ""
+   },
+   "frases": [
+    "En los setenta, Niki Lauda devuelve a Ferrari a lo más alto con los títulos de 1975 y 1977."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "NÜRBURGRING · 1976",
+    "sello": null
+   },
+   "frases": [
+    "Entre medias sufre un terrible accidente en Nürburgring, en 1976.",
+    "Unas seis semanas después vuelve a subirse al coche."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "testarossa",
+    "etiqueta": "Ferrari Testarossa · 1984",
+    "texto": "",
+    "cred": "Foto: TTTNIS · Public domain (Wikimedia Commons)"
+   },
+   "frases": [
+    "En los ochenta, el Testarossa se convierte en el póster de toda una generación, gracias en parte a la serie 'Corrupción en Miami'."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "f40",
+    "etiqueta": "Ferrari F40 · 1987",
+    "texto": "",
+    "cred": "Foto: Will ainsworth · CC BY-SA 3.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "En 1987 Ferrari cumple cuarenta años, y para celebrarlo presenta el F40: biturbo, ligerísimo y sin ayudas electrónicas."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "f40",
+    "etiqueta": "Ferrari F40 · 1987",
+    "texto": "",
+    "cred": "Foto: Will ainsworth · CC BY-SA 3.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Es el último Ferrari que aprueba el propio Enzo."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "14 · 08 · 1988",
+    "sello": null
+   },
+   "frases": [
+    "Enzo Ferrari muere el catorce de agosto de 1988, con noventa años."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "MONZA 1988 · 1-2",
+    "sello": null
+   },
+   "frases": [
+    "Pocas semanas después, en el Gran Premio de Italia, en Monza, los Ferrari terminan primero y segundo.",
+    "Es la única carrera de aquel año que no gana McLaren."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "20",
+   "v": {
+    "valor": "20",
+    "antes": "",
+    "texto": "AÑOS SIN TÍTULO"
+   },
+   "frases": [
+    "Pero llegan años difíciles: Ferrari pasa veinte años sin un campeón del mundo de pilotos."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1996",
+   "v": {
+    "valor": "1996",
+    "antes": "",
+    "texto": "SCHUMACHER"
+   },
+   "frases": [
+    "En 1996 ficha a Michael Schumacher y, con Jean Todt y Ross Brawn, construye un equipo imparable."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2000",
+   "v": {
+    "valor": "2000",
+    "antes": "",
+    "texto": "-2004 · 5 TÍTULOS"
+   },
+   "frases": [
+    "Del 2000 al 2004, cinco títulos de pilotos seguidos.",
+    "La época más dorada de su historia."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2007",
+   "v": {
+    "valor": "2007",
+    "antes": "",
+    "texto": "RÄIKKÖNEN"
+   },
+   "frases": [
+    "Después llegó el título de Kimi Räikkönen en 2007, el último de pilotos de Ferrari hasta hoy."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2002",
+   "v": {
+    "valor": "2002",
+    "antes": "",
+    "texto": "ENZO"
+   },
+   "frases": [
+    "En 2002 lanza un superdeportivo que lleva el nombre del fundador: el Enzo."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "laferrari",
+    "etiqueta": "LaFerrari · 2013",
+    "texto": "",
+    "cred": "Foto: Alexander-93 · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "En 2013 llega LaFerrari, su primer superdeportivo híbrido."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2015",
+   "v": {
+    "valor": "2015",
+    "antes": "",
+    "texto": "BOLSA DE NUEVA YORK"
+   },
+   "frases": [
+    "En 2015 Ferrari sale a bolsa en Nueva York y después se separa del grupo Fiat.",
+    "La marca que Enzo creó para pagar sus carreras es hoy una de las empresas de lujo más valiosas del mundo."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2025",
+   "v": {
+    "valor": "2025",
+    "antes": "",
+    "texto": "HAMILTON"
+   },
+   "frases": [
+    "En 2025 ficha a Lewis Hamilton, siete veces campeón del mundo, para volver a ganar."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EN TODAS LAS TEMPORADAS DE F1 DESDE 1950",
+    "fondo": "negro",
+    "size": 96
+   },
+   "frases": [
+    "Además, es el único equipo que ha disputado todas las temporadas del Mundial de Fórmula 1 desde 1950."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "f40",
+    "etiqueta": "Ferrari F40 · 1987",
+    "texto": "",
+    "cred": "Foto: Will ainsworth · CC BY-SA 3.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "De un chico al que Fiat no quiso contratar…",
+    "a una marca que Fiat acabó comprando y que hoy vale más que muchos fabricantes enteros."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«EL MEJOR FERRARI ES EL PRÓXIMO»",
+    "fondo": "negro",
+    "size": 96
+   },
+   "frases": [
+    "Enzo decía, según se cuenta, que el mejor Ferrari es siempre el siguiente."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "f40",
+    "etiqueta": "Ferrari F40 · 1987",
+    "texto": "",
+    "cred": "Foto: Will ainsworth · CC BY-SA 3.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Y ahora te toca a ti: ¿cuál es para ti el mejor Ferrari de la historia?",
+    "¿El F40, el 250 GTO, el Enzo…?",
+    "Te leo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "PRÓXIMO DOMINGO: PORSCHE",
+    "sello": null
+   },
+   "frases": [
+    "Si te ha gustado, suscríbete: cada domingo contamos la historia de una marca.",
+    "Y el próximo domingo toca Porsche, una historia que va de los tanques…",
+    "al Taycan.",
+    "Nos vemos."
+   ]
+  }
+ ]
+}

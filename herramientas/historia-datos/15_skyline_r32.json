@@ -1,0 +1,106 @@
+{
+ "titulo": "4 cosas que no sabías del Nissan Skyline GT-R R32",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "GT-R",
+  "GODZILLA",
+  "NISSAN",
+  "ATTESA",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "r32": "../porsche/img_noche/r32.jpg",
+  "r32_carreras": "../porsche/img_noche/r32_carreras.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Nissan Skyline GT-R R32!",
+    "¿Por qué lo llaman Godzilla?"
+   ],
+   "v": {
+    "foto": "r32",
+    "etiqueta": "Nissan Skyline GT-R (R32)",
+    "numero": "4",
+    "cred": "Foto: Calreyn88 · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "foto",
+   "cap": true,
+   "clave": "GODZILLA",
+   "frases": [
+    "¡Uno! La prensa australiana lo apodó Godzilla,",
+    "el monstruo de Japón, después de arrasar en sus carreras."
+   ],
+   "v": {
+    "foto": "r32_carreras",
+    "etiqueta": "Skyline GT-R R32 de carreras (Grupo A)",
+    "texto": "",
+    "cred": "Foto: Calreyn88 · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "GODZILLA"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "RB26",
+   "frases": [
+    "¡Dos! Su motor, el RB26,",
+    "era un seis cilindros en línea biturbo de 2,6 litros."
+   ],
+   "v": {
+    "antes": "MOTOR RB26",
+    "valor": "2,6 L",
+    "texto": "Seis cilindros biturbo"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "280",
+   "frases": [
+    "¡Tres! Oficialmente daba 280 caballos:",
+    "el límite que pactaron entre ellos los fabricantes japoneses."
+   ],
+   "v": {
+    "antes": "POTENCIA OFICIAL",
+    "valor": "280 CV",
+    "texto": "El «pacto de caballeros»"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "ATTESA",
+   "frases": [
+    "¡Cuatro! Su tracción total, llamada ATTESA,",
+    "mandaba fuerza a las ruedas delanteras solo cuando hacía falta."
+   ],
+   "v": {
+    "titulo": "Tracción total ATTESA",
+    "texto": "Delante, solo cuando hace falta",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

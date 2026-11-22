@@ -1,0 +1,104 @@
+{
+ "titulo": "4 cosas que no sabías del BMW M3 E30",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "M3",
+  "BMW",
+  "DTM",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "m3": "../porsche/img_noche/m3.jpg",
+  "m3dtm": "../porsche/img_noche/m3dtm.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del BMW M3 E30!",
+    "¡Nació solo para poder correr!"
+   ],
+   "v": {
+    "foto": "m3",
+    "etiqueta": "BMW M3 (E30)",
+    "numero": "4",
+    "cred": "Foto: Handelsgeselschaft · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "5.000",
+   "frases": [
+    "¡Uno! Para correr en turismos, BMW tenía que vender al menos 5.000 coches de calle.",
+    "Así nació el M3, en 1986."
+   ],
+   "v": {
+    "antes": "HOMOLOGACIÓN",
+    "valor": "5.000",
+    "texto": "Coches de calle obligatorios"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "CUATRO",
+   "frases": [
+    "¡Dos! Su motor era de cuatro cilindros,",
+    "basado en un seis cilindros de BMW… con dos cilindros menos."
+   ],
+   "v": {
+    "antes": "MOTOR S14",
+    "valor": "4 cilindros",
+    "texto": "Un seis cilindros… con dos menos"
+   }
+  },
+  {
+   "tipo": "foto",
+   "cap": true,
+   "clave": "1989",
+   "frases": [
+    "¡Tres! Ganó el DTM, el campeonato alemán de turismos, en 1987 y 1989.",
+    "Y el Mundial de Turismos de 1987."
+   ],
+   "v": {
+    "foto": "m3dtm",
+    "etiqueta": "BMW M3 (E30) de competición",
+    "texto": "",
+    "cred": "Foto: Calreyn88 · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "CAMPEÓN"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "LAUREADOS",
+   "frases": [
+    "¡Cuatro! Hoy se considera uno de los turismos más laureados",
+    "de la historia de las carreras."
+   ],
+   "v": {
+    "titulo": "Uno de los turismos más laureados",
+    "size": 96
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

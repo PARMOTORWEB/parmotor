@@ -1,0 +1,114 @@
+{
+ "titulo": "4 cosas que no sabías del Mercedes 300 SL",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "300",
+  "SL",
+  "GAVIOTA",
+  "HOFFMAN",
+  "INYECCIÓN",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "landrover1": "../porsche/img_noche/landrover1.jpg",
+  "willys": "../porsche/img_noche/willys.jpg",
+  "mb300sl": "../porsche/img_noche/mb300sl.jpg",
+  "w194": "../porsche/img_noche/w194.jpg",
+  "slpuertas": "../porsche/img_noche/slpuertas.jpg",
+  "escarabajo": "../porsche/img_noche/escarabajo.jpg",
+  "fiat500": "../porsche/img_noche/fiat500.jpg",
+  "citroen2cv": "../porsche/img_noche/citroen2cv.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Mercedes 300 SL!",
+    "¡Y sus puertas no eran por estética!"
+   ],
+   "v": {
+    "foto": "mb300sl",
+    "etiqueta": "Mercedes-Benz 300 SL · «alas de gaviota»",
+    "numero": "4",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "foto",
+   "cap": true,
+   "clave": "MANS",
+   "frases": [
+    "¡Uno! Nació en las carreras:",
+    "en 1952, el 300 SL de competición hizo doblete en Le Mans."
+   ],
+   "v": {
+    "foto": "w194",
+    "etiqueta": "300 SL de carreras (W194) · 1952",
+    "texto": "",
+    "cred": "Foto: MrWalkr · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "DOBLETE"
+   }
+  },
+  {
+   "tipo": "foto",
+   "cap": true,
+   "clave": "ARRIBA",
+   "frases": [
+    "¡Dos! Su chasis de tubos tenía los laterales tan altos que no cabía una puerta normal.",
+    "La solución: abrirlas hacia arriba."
+   ],
+   "v": {
+    "foto": "slpuertas",
+    "etiqueta": "Puertas «alas de gaviota»",
+    "texto": "",
+    "cred": "Foto: Pedro Ribeiro Simões · CC BY 2.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "HOFFMAN",
+   "frases": [
+    "¡Tres! La versión de calle la pidió Max Hoffman,",
+    "el importador de Mercedes en Estados Unidos."
+   ],
+   "v": {
+    "titulo": "Max Hoffman · Nueva York 1954",
+    "texto": "Fue uno de los primeros coches de serie con inyección directa de gasolina",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1.400",
+   "frases": [
+    "¡Cuatro! Solo se fabricaron unas 1.400 unidades del coupé.",
+    "Hoy valen millones."
+   ],
+   "v": {
+    "antes": "UNIDADES DEL COUPÉ",
+    "valor": "≈1.400",
+    "texto": "Hoy valen millones"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

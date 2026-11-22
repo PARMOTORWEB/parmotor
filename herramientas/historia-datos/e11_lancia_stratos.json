@@ -1,0 +1,101 @@
+{
+ "titulo": "4 cosas que no sabías del Lancia Stratos",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "STRATOS",
+  "LANCIA",
+  "FERRARI",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "stratos": "../porsche/img_noche/stratos.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Lancia Stratos!",
+    "¡El primer coche creado solo para ganar en los rallies!"
+   ],
+   "v": {
+    "foto": "stratos",
+    "etiqueta": "Lancia Stratos HF",
+    "numero": "4",
+    "cred": "Foto: Ermell · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "CERO",
+   "frases": [
+    "¡Uno! Fue el primer coche diseñado desde cero para ganar rallies,",
+    "no un coche de calle adaptado."
+   ],
+   "v": {
+    "titulo": "Diseñado desde cero para rallies",
+    "texto": "No era un coche de calle adaptado",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "FERRARI",
+   "frases": [
+    "¡Dos! Llevaba el motor V6 del Ferrari Dino,",
+    "colocado detrás del piloto."
+   ],
+   "v": {
+    "titulo": "Motor V6 del Ferrari Dino",
+    "sello": "CORAZÓN FERRARI"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "QUINIENTOS",
+   "frases": [
+    "Tres. Para poder correr, la norma exigía fabricar unos quinientos coches de calle.",
+    "Por eso hoy existen unos pocos."
+   ],
+   "v": {
+    "antes": "HOMOLOGACIÓN",
+    "valor": "≈500",
+    "texto": "Unidades de calle"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1976",
+   "frases": [
+    "¡Cuatro! Lancia ganó con él el Mundial de Rallies de marcas",
+    "en 1974, 1975 y 1976."
+   ],
+   "v": {
+    "antes": "MUNDIAL DE MARCAS",
+    "valor": "1974-1976",
+    "texto": "Tres títulos seguidos"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

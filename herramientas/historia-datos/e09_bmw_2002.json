@@ -1,0 +1,101 @@
+{
+ "titulo": "4 cosas que no sabías del BMW 2002",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "2002",
+  "BMW",
+  "TURBO",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "bmw2002": "../porsche/img_noche/bmw2002.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del BMW 2002!",
+    "¡El coche que hizo deportiva a la marca bávara!"
+   ],
+   "v": {
+    "foto": "bmw2002",
+    "etiqueta": "BMW 2002 tii",
+    "numero": "4",
+    "cred": "Foto: Ermell · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "HOFFMAN",
+   "frases": [
+    "¡Uno! Este coche nació en 1968, en parte por petición de Max Hoffman,",
+    "el mismo importador que pidió el Mercedes 300 SL."
+   ],
+   "v": {
+    "titulo": "Nació por un importador",
+    "texto": "Max Hoffman, otra vez",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "DOS",
+   "frases": [
+    "¡Dos! Su fórmula era sencilla:",
+    "un motor de dos litros en una carrocería pequeña y ligera."
+   ],
+   "v": {
+    "titulo": "Motor de dos litros en una carrocería pequeña",
+    "sello": "2.0"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1973",
+   "frases": [
+    "Tres. En 1973 llegó el 2002 turbo,",
+    "el primer coche europeo de serie con turbo."
+   ],
+   "v": {
+    "antes": "2002 TURBO",
+    "valor": "1973",
+    "texto": "El primer turbo europeo de serie"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "ESPEJO",
+   "frases": [
+    "¡Cuatro! Llevaba la palabra turbo escrita al revés en el frontal,",
+    "para que se leyera bien en el retrovisor del coche de delante."
+   ],
+   "v": {
+    "titulo": "«turbo» escrito al revés",
+    "texto": "Para leerlo por el retrovisor",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

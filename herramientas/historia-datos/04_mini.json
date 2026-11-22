@@ -1,0 +1,102 @@
+{
+ "titulo": "4 cosas que no sabías del Mini",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "MINI",
+  "SUEZ",
+  "ISSIGONIS",
+  "MONTECARLO",
+  "TRANSVERSAL",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "mini": "../porsche/img_noche/mini.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Mini!",
+    "¡Y la cuarta parece imposible!"
+   ],
+   "v": {
+    "foto": "mini",
+    "etiqueta": "Mini · 1959",
+    "numero": "4",
+    "cred": "Foto: DeFacto · CC BY-SA 2.5 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "SUEZ",
+   "frases": [
+    "¡Uno! Nació por una crisis del petróleo.",
+    "En 1956, con la crisis de Suez, en Reino Unido se racionó la gasolina."
+   ],
+   "v": {
+    "titulo": "Cupón de gasolina, 1956",
+    "sello": "RACIONADA"
+   }
+  },
+  {
+   "tipo": "coche",
+   "cap": true,
+   "clave": "TRANSVERSAL",
+   "frases": [
+    "¡Dos! Su creador, Alec Issigonis, puso el motor de lado:",
+    "en transversal, para dejar casi todo el espacio a las personas."
+   ],
+   "v": {
+    "titulo": "PLANO · ALEC ISSIGONIS",
+    "texto": "MOTOR TRANSVERSAL"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "3",
+   "frases": [
+    "¡Tres! Medía unos 3 metros…",
+    "y aun así cabían cuatro adultos."
+   ],
+   "v": {
+    "antes": "LARGO TOTAL",
+    "valor": "3 metros",
+    "texto": "Y cuatro adultos dentro"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "MONTECARLO",
+   "frases": [
+    "¡Cuatro! En 1964, un Mini Cooper S ganó el Rally de Montecarlo,",
+    "¡contra coches mucho más potentes!"
+   ],
+   "v": {
+    "titulo": "Montecarlo 1964",
+    "texto": "Un Mini Cooper S gana el rally",
+    "sello": "¡GANA!"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

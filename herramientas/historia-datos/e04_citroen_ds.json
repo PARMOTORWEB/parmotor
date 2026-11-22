@@ -1,0 +1,101 @@
+{
+ "titulo": "4 cosas que no sabías del Citroën DS",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "DS",
+  "CITROËN",
+  "GAULLE",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "ds": "../porsche/img_noche/ds.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Citroën DS!",
+    "¡Le salvó la vida a un presidente!"
+   ],
+   "v": {
+    "foto": "ds",
+    "etiqueta": "Citroën DS",
+    "numero": "4",
+    "cred": "Foto: Dllu · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1955",
+   "frases": [
+    "¡Uno! Se presentó en el Salón de París de 1955,",
+    "y recibió miles de pedidos en el primer día."
+   ],
+   "v": {
+    "antes": "SALÓN DE PARÍS",
+    "valor": "1955",
+    "texto": "Miles de pedidos el primer día"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "SUSPENSIÓN",
+   "frases": [
+    "¡Dos! Su suspensión hidroneumática",
+    "hacía que pareciera flotar sobre la carretera."
+   ],
+   "v": {
+    "titulo": "Suspensión hidroneumática",
+    "sello": "FLOTABA"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "GAULLE",
+   "frases": [
+    "¡Tres! En 1962, el presidente Charles de Gaulle sufrió un atentado.",
+    "Con las ruedas tiroteadas, su DS siguió rodando y escapó."
+   ],
+   "v": {
+    "titulo": "1962: atentado contra De Gaulle",
+    "texto": "Con las ruedas tiroteadas, siguió",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "DIOSA",
+   "frases": [
+    "¡Cuatro! En francés, sus siglas suenan",
+    "igual que la palabra «diosa»."
+   ],
+   "v": {
+    "titulo": "DS = «déesse»",
+    "texto": "«Diosa» en francés",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

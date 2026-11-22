@@ -1,0 +1,101 @@
+{
+ "titulo": "4 cosas que no sabías del Bugatti Veyron",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "VEYRON",
+  "BUGATTI",
+  "W16",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "veyron": "../porsche/img_noche/veyron.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Bugatti Veyron!",
+    "¡Más de mil caballos en un coche de calle!"
+   ],
+   "v": {
+    "foto": "veyron",
+    "etiqueta": "Bugatti Veyron 16.4",
+    "numero": "4",
+    "cred": "Foto: M 93 · CC BY-SA 3.0 de (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "MIL",
+   "frases": [
+    "¡Uno! Llegó en 2005 con más de mil caballos,",
+    "una cifra impensable para un coche de calle."
+   ],
+   "v": {
+    "antes": "POTENCIA",
+    "valor": "1.001 CV",
+    "texto": "Año 2005"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "DIECISÉIS",
+   "frases": [
+    "¡Dos! Su motor W16 tenía dieciséis cilindros",
+    "y cuatro turbos."
+   ],
+   "v": {
+    "antes": "MOTOR W16",
+    "valor": "16 cilindros",
+    "texto": "Y cuatro turbos"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "407",
+   "frases": [
+    "¡Tres! Superaba los 400 kilómetros por hora:",
+    "407, en las pruebas de la época."
+   ],
+   "v": {
+    "antes": "VELOCIDAD MÁXIMA",
+    "valor": "407 km/h",
+    "texto": "Pruebas de 2005"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "RADIADORES",
+   "frases": [
+    "¡Cuatro! Para no recalentarse,",
+    "llevaba nada menos que diez radiadores."
+   ],
+   "v": {
+    "titulo": "Refrigeración extrema",
+    "sello": "10 RADIADORES"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

@@ -1,0 +1,514 @@
+{
+ "titulo": "Volkswagen: la historia completa",
+ "serie": "HISTORIA DEL MOTOR",
+ "horizontal": true,
+ "claves": [
+  "VOLKSWAGEN",
+  "ESCARABAJO",
+  "GOLF",
+  "WOLFSBURGO",
+  "HIRST",
+  "PORSCHE",
+  "GTI",
+  "DIESELGATE"
+ ],
+ "imagenes": {
+  "beetle49": "../porsche/img_noche/beetle49.jpg",
+  "escarabajo": "../porsche/img_noche/escarabajo.jpg",
+  "golf1": "../porsche/img_noche/golf1.jpg",
+  "golfgti": "../porsche/img_noche/golfgti.jpg",
+  "hirst": "../porsche/img_noche/hirst.jpg",
+  "id3": "../porsche/img_noche/id3.jpg",
+  "idbuzz": "../porsche/img_noche/idbuzz.jpg",
+  "kubel": "../porsche/img_noche/kubel.jpg",
+  "passat": "../porsche/img_noche/passat.jpg",
+  "vwbus": "../porsche/img_noche/vwbus.jpg",
+  "vwsparen": "../porsche/img_noche/vwsparen.jpg",
+  "wolfsburg": "../porsche/img_noche/wolfsburg.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "v": {
+    "titulo": "Volkswagen: la historia completa",
+    "foto": "escarabajo",
+    "etiqueta": "Volkswagen Escarabajo",
+    "cred": "Foto: Charles01 · CC BY-SA 3.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Este es el Volkswagen Escarabajo.",
+    "El coche más fabricado de la historia con un mismo diseño básico."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UN NACIMIENTO INCÓMODO"
+   },
+   "frases": [
+    "Pero la marca que lo creó tuvo un nacimiento muy incómodo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DE LA RUINA A GIGANTE"
+   },
+   "frases": [
+    "Y aun así acabó convertida en uno de los mayores fabricantes de coches del mundo.",
+    "Dueña de SEAT, Audi, Porsche, Lamborghini, Bentley o Bugatti."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA HISTORIA COMPLETA DE VOLKSWAGEN"
+   },
+   "frases": [
+    "Esta es la historia completa de Volkswagen.",
+    "Como siempre, cada imagen lleva su fuente en la esquina."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1937",
+   "v": {
+    "valor": "1937",
+    "antes": "",
+    "texto": "«COCHE DEL PUEBLO»"
+   },
+   "frases": [
+    "Volkswagen nace en 1937, en la Alemania nazi.",
+    "Su nombre significa literalmente «coche del pueblo»."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "FERDINAND PORSCHE"
+   },
+   "frases": [
+    "El encargo de diseñarlo lo recibe Ferdinand Porsche.",
+    "Debía ser barato, para cuatro personas y capaz de ir por las nuevas autopistas."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "vwsparen",
+    "etiqueta": "Cartilla de sellos de ahorro para el coche del pueblo",
+    "texto": "",
+    "cred": "Foto: autor desconocido · Dominio público (Wikimedia Commons)"
+   },
+   "frases": [
+    "Cientos de miles de alemanes empiezan a pagarlo por adelantado con cartillas de sellos de ahorro."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "NINGUNO LO RECIBIÓ",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Pero casi ninguno llegó a recibirlo.",
+    "En 1939 estalla la Segunda Guerra Mundial."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "kubel",
+    "etiqueta": "Volkswagen Kübelwagen (Typ 82)",
+    "texto": "",
+    "cred": "Foto: Fiver, der Hellseher · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "La fábrica se dedica a vehículos militares, como el Kübelwagen."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "TRABAJO FORZADO",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Y utiliza miles de trabajadores forzados.",
+    "Volkswagen lo reconoce hoy públicamente y ha indemnizado a supervivientes."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1945",
+   "v": {
+    "valor": "1945",
+    "antes": "",
+    "texto": "FÁBRICA EN RUINAS"
+   },
+   "frases": [
+    "Cuando termina la guerra, en 1945, la fábrica está medio destruida.",
+    "Y queda en la zona controlada por el ejército británico."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "MAYOR IVAN HIRST",
+    "texto": "El oficial británico que salvó la fábrica",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Allí aparece un oficial británico, el mayor Ivan Hirst.",
+    "En lugar de desmontar la fábrica, decide ponerla en marcha."
+   ],
+   "clave": "Hirst"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "20.000 COCHES PARA EL EJÉRCITO"
+   },
+   "frases": [
+    "Convence al ejército británico para que encargue veinte mil coches.",
+    "Y así salva la fábrica y miles de empleos."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«ESTE COCHE NO TIENE FUTURO»"
+   },
+   "frases": [
+    "Curiosamente, los expertos británicos que lo analizaron dijeron que aquel coche no tenía futuro."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "wolfsburg",
+    "etiqueta": "Fábrica de Volkswagen en Wolfsburgo",
+    "texto": "",
+    "cred": "Foto: Vanellus Foto · CC BY-SA 3.0 (Wikimedia Commons)",
+    "sello": "WOLFSBURGO"
+   },
+   "frases": [
+    "La ciudad que había crecido alrededor de la fábrica pasa a llamarse Wolfsburgo.",
+    "Allí sigue hoy la sede de la marca."
+   ],
+   "clave": "Wolfsburgo"
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1948",
+   "v": {
+    "valor": "1948",
+    "antes": "",
+    "texto": "HEINRICH NORDHOFF"
+   },
+   "frases": [
+    "En 1948 llega un nuevo director, Heinrich Nordhoff.",
+    "Y empieza el gran milagro."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "beetle49",
+    "etiqueta": "Volkswagen Escarabajo · 1949",
+    "texto": "",
+    "cred": "Foto: nakhon100 · CC BY 2.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "El Escarabajo se exporta a todo el mundo.",
+    "Barato, fiable y fácil de reparar."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "vwbus",
+    "etiqueta": "Volkswagen Tipo 2 «Samba» · 1967",
+    "texto": "",
+    "cred": "Foto: Ank Kumar · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1950"
+   },
+   "frases": [
+    "En 1950 llega su hermano: la furgoneta Tipo 2, que muchos conocen como el Bulli.",
+    "Con los años se convertirá en un símbolo de los viajes y del movimiento hippie."
+   ],
+   "clave": "1950"
+  },
+  {
+   "tipo": "cifra",
+   "clave": "millón",
+   "v": {
+    "valor": "1955",
+    "antes": "",
+    "texto": "UN MILLÓN DE ESCARABAJOS"
+   },
+   "frases": [
+    "En 1955 sale de la fábrica el Escarabajo un millón."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«THINK SMALL»"
+   },
+   "frases": [
+    "En Estados Unidos, una campaña de publicidad con un mensaje sencillo, «piensa en pequeño», lo convierte en un coche de culto."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "AUTO UNION → AUDI"
+   },
+   "frases": [
+    "A mediados de los sesenta, Volkswagen compra Auto Union, la empresa de la que nacerá la Audi moderna."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "CRISIS"
+   },
+   "frases": [
+    "Pero a principios de los setenta el Escarabajo se ha quedado viejo.",
+    "Las ventas caen y Volkswagen pierde dinero."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿Y DESPUÉS DEL ESCARABAJO?"
+   },
+   "frases": [
+    "La gran pregunta es qué viene después de un coche tan exitoso."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "passat",
+    "etiqueta": "Volkswagen Passat (B1)",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1973"
+   },
+   "frases": [
+    "La respuesta llega en cadena: el Passat, en 1973…"
+   ],
+   "clave": "1973"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "golf1",
+    "etiqueta": "Volkswagen Golf (primera generación)",
+    "texto": "",
+    "cred": "Foto: Charles · CC BY 2.0 (Wikimedia Commons)",
+    "sello": "1974"
+   },
+   "frases": [
+    "…y en 1974 el Golf, diseñado por Giorgetto Giugiaro.",
+    "Motor delante, tracción delantera y un éxito inmediato."
+   ],
+   "clave": "1974"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "golfgti",
+    "etiqueta": "Volkswagen Golf GTI (Mk1)",
+    "texto": "",
+    "cred": "Foto: Riley · CC BY 2.0 (Wikimedia Commons)",
+    "sello": "GTI"
+   },
+   "frases": [
+    "Dos años después nace el Golf GTI.",
+    "Y con él, una categoría nueva: el compacto deportivo."
+   ],
+   "clave": "GTI"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "ADIÓS AL ESCARABAJO… EN ALEMANIA"
+   },
+   "frases": [
+    "En 1978 deja de fabricarse el Escarabajo en Alemania.",
+    "Pero sigue en México durante veinticinco años más."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2003",
+   "v": {
+    "valor": "2003",
+    "antes": "",
+    "texto": "EL ÚLTIMO, EN PUEBLA"
+   },
+   "frases": [
+    "El último sale de Puebla en 2003.",
+    "En total, más de veintiún millones de unidades."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "COMPRAR MARCAS"
+   },
+   "frases": [
+    "Desde los ochenta, Volkswagen hace algo que la convertirá en un gigante: comprar marcas."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "SEAT · ŠKODA"
+   },
+   "frases": [
+    "En 1986 entra en SEAT, y en 1991 en la checa Škoda."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "BENTLEY · BUGATTI · LAMBORGHINI"
+   },
+   "frases": [
+    "En 1998, de golpe, Bentley, Bugatti y Lamborghini."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "Y PORSCHE"
+   },
+   "frases": [
+    "Y años después, Porsche.",
+    "La empresa que diseñó el Escarabajo acabó dentro de la familia del Escarabajo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UNO DE LOS MAYORES DEL MUNDO"
+   },
+   "frases": [
+    "Hoy el grupo Volkswagen es uno de los mayores fabricantes de coches del mundo, compitiendo con Toyota por el primer puesto."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2015",
+   "v": {
+    "valor": "2015",
+    "antes": "",
+    "texto": "DIESELGATE"
+   },
+   "frases": [
+    "Pero en 2015 estalla el mayor escándalo de su historia."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "SOFTWARE TRAMPOSO",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Se descubre que millones de coches diésel llevaban un programa que detectaba las pruebas de emisiones…",
+    "y contaminaba mucho menos solo mientras lo estaban examinando."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "MULTAS MILLONARIAS"
+   },
+   "frases": [
+    "Le cuesta a la empresa miles de millones en multas e indemnizaciones, y su presidente dimite."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "GIRO ELÉCTRICO"
+   },
+   "frases": [
+    "Después del escándalo, Volkswagen apuesta fuerte por el coche eléctrico."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "id3",
+    "etiqueta": "Volkswagen ID.3",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "2019"
+   },
+   "frases": [
+    "En 2019 presenta el ID.3, su primer modelo eléctrico diseñado desde cero."
+   ],
+   "clave": "2019"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "idbuzz",
+    "etiqueta": "Volkswagen ID. Buzz",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "ELÉCTRICA"
+   },
+   "frases": [
+    "Y luego el ID. Buzz: un homenaje eléctrico a aquella furgoneta Tipo 2 de los años cincuenta."
+   ],
+   "clave": "Buzz"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DEL «COCHE DEL PUEBLO» AL GIGANTE"
+   },
+   "frases": [
+    "Así que el coche del pueblo nació en una época oscura, lo salvó un militar británico…",
+    "y acabó levantando uno de los mayores imperios del automóvil."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿ESCARABAJO, GOLF O BULLI?"
+   },
+   "frases": [
+    "Ahora te pregunto a ti: ¿cuál es el Volkswagen más importante de la historia?",
+    "¿El Escarabajo, el Golf o la furgoneta?",
+    "Te leo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PRÓXIMO DOMINGO: BMW"
+   },
+   "frases": [
+    "Si te ha gustado, suscríbete.",
+    "Cada domingo contamos la historia de una marca.",
+    "El próximo domingo, BMW: una empresa que empezó fabricando motores de avión.",
+    "Nos vemos en el próximo vídeo."
+   ]
+  }
+ ]
+}

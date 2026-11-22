@@ -1,0 +1,100 @@
+{
+ "titulo": "4 cosas que no sabías del Audi TT",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "AUDI",
+  "TT",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "audittt": "../porsche/img_noche/audittt.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Audi TT!",
+    "¡Un prototipo que llegó a la calle casi igual!"
+   ],
+   "v": {
+    "foto": "audittt",
+    "etiqueta": "Audi TT (primera generación)",
+    "numero": "4",
+    "cred": "Foto: Tokumeigakarinoaoshima · CC0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1995",
+   "frases": [
+    "¡Uno! Se presentó como prototipo en 1995,",
+    "y el coche de serie llegó en 1998 casi idéntico."
+   ],
+   "v": {
+    "antes": "PROTOTIPO",
+    "valor": "1995",
+    "texto": "Salón de Fráncfort"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "TOURIST",
+   "frases": [
+    "¡Dos! Su nombre viene de la Tourist Trophy,",
+    "una famosa carrera de la isla de Man."
+   ],
+   "v": {
+    "titulo": "TT = Tourist Trophy",
+    "texto": "La carrera de la isla de Man",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "ALERÓN",
+   "frases": [
+    "Tres. Tras varios accidentes a alta velocidad,",
+    "Audi le añadió un alerón trasero y control de estabilidad."
+   ],
+   "v": {
+    "titulo": "Llamada a revisión: alerón y control de estabilidad",
+    "sello": "SEGURIDAD"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "2023",
+   "frases": [
+    "¡Cuatro! Tras veinticinco años y tres versiones,",
+    "dejó de fabricarse en 2023."
+   ],
+   "v": {
+    "antes": "FIN",
+    "valor": "2023",
+    "texto": "Tres generaciones"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

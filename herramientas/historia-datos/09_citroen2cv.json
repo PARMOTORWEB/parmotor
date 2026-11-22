@@ -1,0 +1,113 @@
+{
+ "titulo": "4 cosas que no sabías del Citroën 2CV",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "2CV",
+  "HUEVOS",
+  "SOMBRERO",
+  "PARAGUAS",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "landrover1": "../porsche/img_noche/landrover1.jpg",
+  "willys": "../porsche/img_noche/willys.jpg",
+  "mb300sl": "../porsche/img_noche/mb300sl.jpg",
+  "w194": "../porsche/img_noche/w194.jpg",
+  "slpuertas": "../porsche/img_noche/slpuertas.jpg",
+  "escarabajo": "../porsche/img_noche/escarabajo.jpg",
+  "fiat500": "../porsche/img_noche/fiat500.jpg",
+  "citroen2cv": "../porsche/img_noche/citroen2cv.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Citroën 2CV!",
+    "¡Y la primera es sobre unos huevos!"
+   ],
+   "v": {
+    "foto": "citroen2cv",
+    "etiqueta": "Citroën 2CV A · 1950",
+    "numero": "4",
+    "cred": "Foto: Thesupermat · CC BY-SA 3.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "HUEVOS",
+   "frases": [
+    "¡Uno! Tenía que cruzar un campo arado con una cesta de huevos…",
+    "¡sin romper ni uno!"
+   ],
+   "v": {
+    "titulo": "Prueba del campo arado",
+    "sello": "NI UN HUEVO ROTO"
+   }
+  },
+  {
+   "tipo": "lista",
+   "cap": true,
+   "clave": "SOMBRERO",
+   "frases": [
+    "¡Dos! Debía llevar a dos campesinos y cincuenta kilos de patatas a sesenta por hora.",
+    "Y su jefe quería poder conducirlo sin quitarse el sombrero."
+   ],
+   "v": {
+    "titulo": "EL ENCARGO",
+    "items": [
+     "2 campesinos y 50 kg de patatas",
+     "60 km/h",
+     "Conducir con sombrero"
+    ]
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "ESCONDE",
+   "frases": [
+    "¡Tres! Durante la Segunda Guerra Mundial, Citroën esconde los prototipos",
+    "para que no caigan en manos alemanas."
+   ],
+   "v": {
+    "titulo": "Prototipos escondidos",
+    "texto": "1939-1945",
+    "sello": "SECRETO"
+   }
+  },
+  {
+   "tipo": "linea",
+   "cap": true,
+   "clave": "1990",
+   "frases": [
+    "¡Cuatro! Se presentó en el Salón de París de 1948…",
+    "¡y se fabricó hasta 1990!"
+   ],
+   "v": {
+    "desde": "1948",
+    "hasta": "1990",
+    "texto": "«Cuatro ruedas bajo un paraguas»",
+    "sello": "42 AÑOS"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

@@ -39,6 +39,9 @@ for (const m of html.matchAll(/@font-face\{font-family:"([^"]+)";font-style:(\w+
 }
 if (!faces.length) throw new Error("No encuentro las fuentes de la portada");
 
+// Artículos de /historia/ que hablan de cada modelo (los genera herramientas/generar-historia.py)
+const HIST = fs.existsSync(path.join(ROOT, "historia", "enlaces.json")) ? JSON.parse(fs.readFileSync(path.join(ROOT, "historia", "enlaces.json"), "utf8")) : {};
+
 // ---------- 3. Utilidades ----------
 const NF = new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0, useGrouping: "always" });
 const eur = n => NF.format(Math.round(n / 100) * 100) + " €";
@@ -201,6 +204,7 @@ for (const m of DB) {
   ].filter(Boolean);
 
   const otros = porMarca[m.mk].filter(x => x !== m);
+  const hist = HIST[modelSlug(m)] || [];
   const body = `<p class="crumbs"><a href="../../">Par Motor</a> › <a href="../">Precios por modelo</a> › ${esc(n)}</p>
 <span class="tag">Precio de segunda mano · ${MES}</span>
 <h1>¿Cuánto vale un ${esc(n)} de segunda mano?</h1>
@@ -213,7 +217,7 @@ ${bloques}
 <p class="note">Kilómetros normales: 15.000 al año en gasolina, híbridos y eléctricos, y 20.000 en diésel, con un máximo de 100.000 km (por encima no tasamos: el precio depende demasiado del historial de cada coche). Cifras redondeadas a 100 €.</p>
 <h2>Preguntas frecuentes</h2>
 <div class="faq">${faqs.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div>
-${otros.length ? `<h2>Otros ${esc(m.mk)}</h2><ul class="rel">${otros.map(x => `<li><a href="../${modelSlug(x)}/">${esc(x.md)}</a></li>`).join("")}</ul>` : ""}
+${hist.length ? `<h2>Historia y curiosidades</h2><ul class="rel">${hist.map(h => `<li><a href="../../${h.url}">${esc(h.titulo)}</a></li>`).join("")}</ul>` : ""}${otros.length ? `<h2>Otros ${esc(m.mk)}</h2><ul class="rel">${otros.map(x => `<li><a href="../${modelSlug(x)}/">${esc(x.md)}</a></li>`).join("")}</ul>` : ""}
 <h2>Compara su coste real</h2>
 <p class="lead">El precio de compra es solo una parte. Mira cuánto te costaría al mes con combustible, seguro, neumáticos, mantenimiento y lo que pierde de valor.</p>
 <a class="btn" href="../../#calculadora">Abrir el comparador →</a>`;
@@ -253,7 +257,9 @@ urls.unshift(SITE + "tasar/");
 
 // ---------- 6. Sitemap ----------
 const extra = fs.existsSync(path.join(ROOT, "radar")) ? fs.readdirSync(path.join(ROOT, "radar")).filter(d => /^\d+$/.test(d)).sort().map(d => `${SITE}radar/${d}/`) : [];
-const all = [SITE, ...urls, ...extra];
+const hDir = path.join(ROOT, "historia");
+const historia = fs.existsSync(hDir) ? [SITE + "historia/", ...fs.readdirSync(hDir).filter(x => fs.existsSync(path.join(hDir, x, "index.html"))).sort().map(x => `${SITE}historia/${x}/`)] : [];
+const all = [SITE, ...urls, ...extra, ...historia];
 fs.writeFileSync(path.join(ROOT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${all.map(u => `  <url><loc>${u}</loc><lastmod>${HOY}</lastmod></url>`).join("\n")}

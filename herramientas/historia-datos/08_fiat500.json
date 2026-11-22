@@ -1,0 +1,109 @@
+{
+ "titulo": "4 cosas que no sabías del Fiat 500",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "FIAT",
+  "GIACOSA",
+  "LONA",
+  "VESPA",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "landrover1": "../porsche/img_noche/landrover1.jpg",
+  "willys": "../porsche/img_noche/willys.jpg",
+  "mb300sl": "../porsche/img_noche/mb300sl.jpg",
+  "w194": "../porsche/img_noche/w194.jpg",
+  "slpuertas": "../porsche/img_noche/slpuertas.jpg",
+  "escarabajo": "../porsche/img_noche/escarabajo.jpg",
+  "fiat500": "../porsche/img_noche/fiat500.jpg",
+  "citroen2cv": "../porsche/img_noche/citroen2cv.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Fiat 500!",
+    "¡Menos de tres metros que motorizaron Italia!"
+   ],
+   "v": {
+    "foto": "fiat500",
+    "etiqueta": "Fiat Nuova 500 · 1960",
+    "numero": "4",
+    "cred": "Foto: order_242 · CC BY-SA 2.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "GIACOSA",
+   "frases": [
+    "¡Uno! Lo diseñó el ingeniero Dante Giacosa,",
+    "y se presentó en julio de 1957."
+   ],
+   "v": {
+    "titulo": "Dante Giacosa · 1957",
+    "texto": "Nace el Fiat Nuova 500",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "13",
+   "frases": [
+    "¡Dos! Llevaba detrás un motor de dos cilindros, refrigerado por aire,",
+    "con unos 13 caballos."
+   ],
+   "v": {
+    "antes": "MOTOR TRASERO · 479 CC",
+    "valor": "13 CV",
+    "texto": "Dos cilindros refrigerados por aire"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "LONA",
+   "frases": [
+    "¡Tres! Su techo de lona no era solo cuestión de estilo:",
+    "ahorraba metal y peso."
+   ],
+   "v": {
+    "titulo": "Techo de lona",
+    "sello": "MENOS METAL"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "4",
+   "frases": [
+    "¡Cuatro! Se fabricó hasta 1975: casi 4 millones de unidades.",
+    "Y en 2007 volvió con un diseño moderno."
+   ],
+   "v": {
+    "antes": "1957-1975",
+    "valor": "≈4 millones",
+    "texto": "Y vuelve en 2007"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy un 500 de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Fiat",
+     "500",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

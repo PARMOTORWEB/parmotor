@@ -1,0 +1,100 @@
+{
+ "titulo": "4 cosas que no sabías del Volkswagen Golf GTI",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "GOLF",
+  "GTI",
+  "VOLKSWAGEN",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "golfgti": "../porsche/img_noche/golfgti.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Volkswagen Golf GTI!",
+    "¡Lo hicieron casi en secreto!"
+   ],
+   "v": {
+    "foto": "golfgti",
+    "etiqueta": "Volkswagen Golf GTI (Mk1)",
+    "numero": "4",
+    "cred": "Foto: Riley · CC BY 2.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "SECRETO",
+   "frases": [
+    "Uno. Unos ingenieros de la marca lo empezaron casi a escondidas,",
+    "fuera de su horario de trabajo."
+   ],
+   "v": {
+    "titulo": "Un proyecto casi secreto",
+    "texto": "Ingenieros fuera de su horario",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "5.000",
+   "frases": [
+    "¡Dos! La marca pensaba fabricar solo unos cinco mil.",
+    "La primera generación superó con creces los cuatrocientos mil."
+   ],
+   "v": {
+    "antes": "PREVISIÓN INICIAL",
+    "valor": "5.000",
+    "texto": "Y se vendieron cientos de miles"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "GOLF",
+   "frases": [
+    "¡Tres! El pomo del cambio tenía forma de pelota de golf.",
+    "Un guiño a su nombre que todavía conserva."
+   ],
+   "v": {
+    "titulo": "Pomo de cambio con forma de pelota de golf",
+    "sello": "UN GUIÑO"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "COMPACTO",
+   "frases": [
+    "¡Cuatro! Con él nació una categoría entera: el compacto deportivo.",
+    "Y este domingo, la historia completa de Volkswagen."
+   ],
+   "v": {
+    "titulo": "Inventó el compacto deportivo",
+    "size": 96
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

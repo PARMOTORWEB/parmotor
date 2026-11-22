@@ -1,0 +1,321 @@
+{
+ "titulo": "Toyota: la historia completa",
+ "serie": "HISTORIA DEL MOTOR",
+ "horizontal": true,
+ "claves": [
+  "TOYOTA",
+  "TOYODA",
+  "COROLLA",
+  "PRIUS",
+  "LEXUS",
+  "KAIZEN",
+  "LE MANS"
+ ],
+ "imagenes": {
+  "corolla_e10": "../porsche/img_noche/corolla_e10.jpg",
+  "supra": "../porsche/img_noche/supra.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "v": {
+    "titulo": "Toyota: la historia completa",
+    "foto": "corolla_e10",
+    "etiqueta": "Toyota Corolla (primera generación)",
+    "cred": "Foto: Coolalabright · CC BY 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Este es el Toyota Corolla.",
+    "El coche más vendido de la historia."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿TELARES?"
+   },
+   "frases": [
+    "Lo curioso es que la empresa que lo fabrica empezó haciendo… telares."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UN MÉTODO QUE COPIÓ TODO EL MUNDO"
+   },
+   "frases": [
+    "Y que inventó una forma de fabricar que hoy copian fábricas de todo el planeta."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA HISTORIA COMPLETA DE TOYOTA"
+   },
+   "frases": [
+    "Esta es la historia completa de Toyota.",
+    "Como siempre, cada imagen lleva su fuente en la esquina."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "SAKICHI TOYODA"
+   },
+   "frases": [
+    "Todo empieza con Sakichi Toyoda, un inventor japonés hijo de un carpintero.",
+    "Su obsesión: mejorar los telares con los que trabajaba su madre."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1924",
+   "v": {
+    "valor": "1924",
+    "antes": "",
+    "texto": "TELAR AUTOMÁTICO"
+   },
+   "frases": [
+    "En 1924 crea un telar automático que se detenía solo si se rompía un hilo.",
+    "Así un trabajador podía vigilar muchas máquinas a la vez."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA PATENTE QUE PAGÓ LOS COCHES"
+   },
+   "frases": [
+    "Vende la patente a una empresa británica.",
+    "Y con ese dinero, su hijo Kiichiro empieza a fabricar coches."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1936",
+   "v": {
+    "valor": "1936",
+    "antes": "",
+    "texto": "MODELO AA"
+   },
+   "frases": [
+    "En 1936 sale su primer coche de serie, el Modelo AA."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "TOYODA → TOYOTA"
+   },
+   "frases": [
+    "Y la marca cambia una letra: de Toyoda a Toyota.",
+    "En japonés se escribe con ocho trazos, un número que da buena suerte."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "CASI QUIEBRA · 1950",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Tras la guerra, en 1950, Toyota está al borde de la quiebra.",
+    "Kiichiro dimite, y la salvan los pedidos de camiones para la guerra de Corea."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL SISTEMA DE PRODUCCIÓN TOYOTA"
+   },
+   "frases": [
+    "Para competir sin dinero, Toyota inventa una nueva forma de fabricar."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«JUST IN TIME»"
+   },
+   "frases": [
+    "La idea: fabricar solo lo que se necesita, cuando se necesita,",
+    "sin almacenes llenos de piezas."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "KAIZEN: MEJORA CONTINUA"
+   },
+   "frases": [
+    "Y cualquier trabajador puede parar la línea si ve un fallo.",
+    "Este método, el de la mejora continua, lo copiarán fábricas de todo el mundo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LAND CRUISER"
+   },
+   "frases": [
+    "En los años cincuenta nace también el Land Cruiser,",
+    "un todoterreno que hoy sigue recorriendo desiertos y selvas de medio planeta."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "corolla_e10",
+    "etiqueta": "Toyota Corolla (primera generación)",
+    "texto": "",
+    "cred": "Foto: Coolalabright · CC BY 4.0 (Wikimedia Commons)",
+    "sello": "1966"
+   },
+   "frases": [
+    "En 1966 llega el Corolla.",
+    "Barato, fiable y fácil de mantener."
+   ],
+   "clave": "1966"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "MÁS DE 50 MILLONES"
+   },
+   "frases": [
+    "Con los años se convertirá en el nombre de coche más vendido de la historia, con más de cincuenta millones."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "2000GT: UN TOYOTA PARA JAMES BOND"
+   },
+   "frases": [
+    "Y en 1967 sorprende con el 2000GT, un deportivo precioso que aparece en una película de James Bond."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA CRISIS DEL PETRÓLEO"
+   },
+   "frases": [
+    "Con la crisis del petróleo de los setenta, sus coches pequeños y que gastaban poco conquistan Estados Unidos y Europa."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1989",
+   "v": {
+    "valor": "1989",
+    "antes": "",
+    "texto": "NACE LEXUS"
+   },
+   "frases": [
+    "En 1989 lanza una marca de lujo: Lexus.",
+    "Su primer modelo, el LS 400, compite de tú a tú con Mercedes y BMW."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PRIUS · 1997"
+   },
+   "frases": [
+    "Y en 1997 presenta el Prius, el primer coche híbrido fabricado en gran serie.",
+    "Combina un motor de gasolina y uno eléctrico."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL MAYOR FABRICANTE DEL MUNDO"
+   },
+   "frases": [
+    "En 2008 supera a General Motors y se convierte en el mayor fabricante de coches del mundo.",
+    "Un puesto que hoy sigue disputando con Volkswagen."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "supra",
+    "etiqueta": "Toyota Supra (JZA80) · 1993",
+    "texto": "",
+    "cred": "Foto: Coolalabright · CC BY 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Por el camino, deportivos de leyenda como el Supra o el GR Yaris."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LE MANS 2016: TRES MINUTOS",
+    "fondo": "negro"
+   },
+   "frases": [
+    "En 2016, Toyota va líder en las 24 Horas de Le Mans… y su coche se para a tres minutos del final.",
+    "Una de las imágenes más tristes del automovilismo."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA REVANCHA"
+   },
+   "frases": [
+    "Pero no se rinde: desde 2018 gana Le Mans cinco años seguidos."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "HÍBRIDOS, ELÉCTRICOS… E HIDRÓGENO"
+   },
+   "frases": [
+    "Hoy Toyota apuesta por todo a la vez: híbridos, eléctricos y hasta coches de hidrógeno."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DEL TELAR AL NÚMERO UNO"
+   },
+   "frases": [
+    "Así que una empresa que empezó con un telar que se paraba solo",
+    "acabó enseñando al mundo cómo se fabrican los coches."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿COROLLA, SUPRA O LAND CRUISER?"
+   },
+   "frases": [
+    "Ahora te pregunto a ti: ¿cuál es el Toyota más importante de la historia?",
+    "¿El Corolla, el Supra o el Land Cruiser?",
+    "Te leo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PRÓXIMO DOMINGO: FORD"
+   },
+   "frases": [
+    "Si te ha gustado, suscríbete.",
+    "Cada domingo contamos la historia de una marca.",
+    "El próximo domingo, el hombre que puso el mundo sobre ruedas: Henry Ford.",
+    "Nos vemos en el próximo vídeo."
+   ]
+  }
+ ]
+}

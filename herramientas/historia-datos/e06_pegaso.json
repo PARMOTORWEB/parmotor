@@ -1,0 +1,102 @@
+{
+ "titulo": "4 cosas que no sabías del Pegaso Z-102",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "PEGASO",
+  "ENASA",
+  "RICART",
+  "FERRARI",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "pegaso": "../porsche/img_noche/pegaso.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Pegaso Z-102!",
+    "¡El superdeportivo español que asustó a Ferrari!"
+   ],
+   "v": {
+    "foto": "pegaso",
+    "etiqueta": "Pegaso Z-102 Berlinetta · 1951",
+    "numero": "4",
+    "cred": "Foto: Charles · CC BY 2.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "CAMIONES",
+   "frases": [
+    "¡Uno! Lo fabricaba ENASA, la empresa de los camiones Pegaso,",
+    "en Barcelona."
+   ],
+   "v": {
+    "titulo": "Lo hacía una fábrica de camiones",
+    "texto": "ENASA · Barcelona",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "RICART",
+   "frases": [
+    "¡Dos! Lo diseñó el ingeniero Wifredo Ricart,",
+    "que había coincidido con Enzo Ferrari en Alfa Romeo. Y no se llevaban nada bien."
+   ],
+   "v": {
+    "titulo": "Wifredo Ricart",
+    "texto": "Rival de Enzo Ferrari en Alfa Romeo",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "RÁPIDOS",
+   "frases": [
+    "Tres. En 1953 logró varios récords de velocidad en Bélgica,",
+    "entre los coches de producción más rápidos de su época."
+   ],
+   "v": {
+    "titulo": "Récord de velocidad · 1953",
+    "sello": "DE LOS MÁS RÁPIDOS"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "CIEN",
+   "frases": [
+    "¡Cuatro! Se fabricaron menos de cien,",
+    "casi a mano."
+   ],
+   "v": {
+    "antes": "UNIDADES",
+    "valor": "<100",
+    "texto": "Hechos casi a mano"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

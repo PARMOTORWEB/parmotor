@@ -1,0 +1,104 @@
+{
+ "titulo": "4 cosas que no sabías del Audi Quattro",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "QUATTRO",
+  "AUDI",
+  "ILTIS",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "quattro": "../porsche/img_noche/quattro.jpg",
+  "quattro_rally": "../porsche/img_noche/quattro_rally.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Audi Quattro!",
+    "¡El coche que cambió los rallies para siempre!"
+   ],
+   "v": {
+    "foto": "quattro",
+    "etiqueta": "Audi Quattro",
+    "numero": "4",
+    "cred": "Foto: kieranwhite599 · CC BY 2.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1980",
+   "frases": [
+    "¡Uno! Se presentó en 1980 en el Salón de Ginebra,",
+    "con tracción total y un motor turbo."
+   ],
+   "v": {
+    "antes": "SALÓN DE GINEBRA",
+    "valor": "1980",
+    "texto": "Tracción total + turbo"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "ILTIS",
+   "frases": [
+    "¡Dos! La idea nació probando el Iltis, un todoterreno militar,",
+    "que iba sorprendentemente rápido sobre la nieve."
+   ],
+   "v": {
+    "titulo": "Todo empezó con un todoterreno militar",
+    "texto": "El Volkswagen Iltis, sobre nieve",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "foto",
+   "cap": true,
+   "clave": "1984",
+   "frases": [
+    "¡Tres! En los rallies arrasó:",
+    "Audi ganó el Mundial de marcas en 1982 y en 1984."
+   ],
+   "v": {
+    "foto": "quattro_rally",
+    "etiqueta": "Audi Quattro de rally",
+    "texto": "",
+    "cred": "Foto: Calreyn88 · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1982 · 1984"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "MINÚSCULA",
+   "frases": [
+    "¡Cuatro! Desde entonces, quattro, con minúscula,",
+    "es el nombre de la tracción total de Audi."
+   ],
+   "v": {
+    "titulo": "quattro = tracción total",
+    "sello": "HASTA HOY"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

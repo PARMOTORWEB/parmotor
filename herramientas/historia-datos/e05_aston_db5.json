@@ -1,0 +1,101 @@
+{
+ "titulo": "4 cosas que no sabías del Aston Martin DB5",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "DB5",
+  "ASTON",
+  "BOND",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "db5": "../porsche/img_noche/db5.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Aston Martin DB5!",
+    "¡El coche más famoso del cine!"
+   ],
+   "v": {
+    "foto": "db5",
+    "etiqueta": "Aston Martin DB5 · 1964",
+    "numero": "4",
+    "cred": "Foto: Vauxford · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "BROWN",
+   "frases": [
+    "¡Uno! Las letras DB son las iniciales de David Brown,",
+    "el empresario dueño de Aston Martin."
+   ],
+   "v": {
+    "titulo": "DB = David Brown",
+    "texto": "El dueño de la marca",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1964",
+   "frases": [
+    "¡Dos! Se hizo famoso en 1964,",
+    "como el coche de James Bond en la película Goldfinger."
+   ],
+   "v": {
+    "antes": "GOLDFINGER",
+    "valor": "1964",
+    "texto": "James Bond"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "EYECTABLE",
+   "frases": [
+    "¡Tres! En la película llevaba ametralladoras, matrículas giratorias…",
+    "y un asiento eyectable."
+   ],
+   "v": {
+    "titulo": "Ametralladoras, matrículas giratorias…",
+    "sello": "ASIENTO EYECTABLE"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "MIL",
+   "frases": [
+    "¡Cuatro! Solo se fabricaron poco más de mil.",
+    "Hoy valen millones."
+   ],
+   "v": {
+    "antes": "UNIDADES",
+    "valor": "≈1.000",
+    "texto": "Hoy valen millones"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

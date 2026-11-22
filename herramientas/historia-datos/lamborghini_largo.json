@@ -1,0 +1,635 @@
+{
+ "titulo": "Lamborghini: la historia completa",
+ "serie": "HISTORIA DEL MOTOR",
+ "horizontal": true,
+ "claves": [
+  "LAMBORGHINI",
+  "FERRUCCIO",
+  "FERRARI",
+  "MIURA",
+  "COUNTACH",
+  "DIABLO",
+  "AUDI",
+  "URUS",
+  "V12"
+ ],
+ "imagenes": {
+  "aventador": "../porsche/img_noche/aventador.jpg",
+  "countach": "../porsche/img_noche/countach.jpg",
+  "diablo": "../porsche/img_noche/diablo.jpg",
+  "espada": "../porsche/img_noche/espada.jpg",
+  "ferruccio": "../porsche/img_noche/ferruccio.jpg",
+  "ferruccio350": "../porsche/img_noche/ferruccio350.jpg",
+  "gallardo": "../porsche/img_noche/gallardo.jpg",
+  "lm002": "../porsche/img_noche/lm002.jpg",
+  "miura": "../porsche/img_noche/miura.jpg",
+  "murcielago": "../porsche/img_noche/murcielago.jpg",
+  "p350gt": "../porsche/img_noche/p350gt.jpg",
+  "revuelto": "../porsche/img_noche/revuelto.jpg",
+  "trattori": "../porsche/img_noche/trattori.jpg",
+  "urus": "../porsche/img_noche/urus.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "v": {
+    "titulo": "Lamborghini: la historia completa",
+    "foto": "countach",
+    "etiqueta": "Lamborghini Countach LP400 · 1974",
+    "cred": "Foto: Ank Kumar · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Este es el Lamborghini Countach.",
+    "Durante años, el póster que colgaba en la habitación de medio mundo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿UN FABRICANTE DE TRACTORES?"
+   },
+   "frases": [
+    "Lo curioso es que la marca que lo creó empezó fabricando tractores."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "…Y UNA DISCUSIÓN CON ENZO FERRARI"
+   },
+   "frases": [
+    "Y, según la leyenda, todo arrancó por una discusión con Enzo Ferrari."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "QUIEBRAS · CINCO DUEÑOS · AUDI"
+   },
+   "frases": [
+    "Por el camino habrá quiebras, cambios de dueño y algunos de los coches más locos jamás fabricados."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA HISTORIA COMPLETA DE LAMBORGHINI"
+   },
+   "frases": [
+    "Esta es la historia completa de Lamborghini.",
+    "Como siempre, cada imagen lleva su fuente en la esquina."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "ferruccio",
+    "etiqueta": "Ferruccio Lamborghini (1916-1993)",
+    "texto": "",
+    "cred": "Foto: autor desconocido · Dominio público (Wikimedia Commons)",
+    "sello": "1916"
+   },
+   "frases": [
+    "Ferruccio Lamborghini nace en 1916 en Renazzo, un pueblo cerca de Ferrara, en Italia.",
+    "Es hijo de agricultores."
+   ],
+   "clave": "1916",
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LE FASCINAN LAS MÁQUINAS"
+   },
+   "frases": [
+    "Pero a él no le interesa el campo: le fascinan los motores y las máquinas."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "ISLA DE RODAS"
+   },
+   "frases": [
+    "Durante la Segunda Guerra Mundial sirve como mecánico en la isla de Rodas.",
+    "Allí aprende a arreglar casi cualquier cosa con muy pocas piezas."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "TAURO ♉"
+   },
+   "frases": [
+    "Un detalle: Ferruccio era del signo Tauro.",
+    "Por eso, años después, su marca llevará un toro en el escudo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UN TORO EN EL ESCUDO"
+   },
+   "frases": [
+    "Este toro."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "TRACTORES CON RESTOS MILITARES"
+   },
+   "frases": [
+    "Al volver de la guerra, Italia necesita tractores para trabajar el campo.",
+    "Y Ferruccio tiene una idea: construirlos con los restos de vehículos militares."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1948",
+   "v": {
+    "valor": "1948",
+    "antes": "",
+    "texto": "LAMBORGHINI TRATTORI"
+   },
+   "frases": [
+    "En 1948 funda Lamborghini Trattori.",
+    "El negocio funciona tan bien que pronto se convierte en uno de los grandes fabricantes de tractores del país."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "TAMBIÉN CALEFACCIONES"
+   },
+   "frases": [
+    "Después abre otra empresa de calefacciones y aire acondicionado.",
+    "Y se hace muy rico."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "FERRARI, MASERATI, JAGUAR…"
+   },
+   "frases": [
+    "Con el dinero llegan los coches de lujo.",
+    "Tiene deportivos de varias marcas, entre ellos varios Ferrari."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "EL EMBRAGUE"
+   },
+   "frases": [
+    "Y aquí viene la famosa historia.",
+    "Sus Ferrari le dan problemas con el embrague."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«LA MISMA PIEZA QUE MIS TRACTORES»"
+   },
+   "frases": [
+    "Según contaba el propio Ferruccio, al desmontarlo descubrió que la pieza era muy parecida a la de sus tractores…",
+    "pero mucho más cara."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "VA A VER A ENZO FERRARI"
+   },
+   "frases": [
+    "Así que va a quejarse a Enzo Ferrari."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«TÚ DEDÍCATE A LOS TRACTORES»",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Y la leyenda dice que Enzo le respondió algo así como: «Tú dedícate a los tractores, que de coches ya me encargo yo».",
+    "Nunca se ha podido comprobar que lo dijera con esas palabras."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "LEYENDA ≠ HECHOS"
+   },
+   "frases": [
+    "Lo que sí sabemos es que Ferruccio decidió hacer su propio gran turismo.",
+    "Y también que vio un buen negocio: cobrar caro por coches mejor hechos."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1963",
+   "v": {
+    "valor": "1963",
+    "antes": "",
+    "texto": "SANT'AGATA BOLOGNESE"
+   },
+   "frases": [
+    "En 1963 funda Automobili Ferruccio Lamborghini, en Sant'Agata Bolognese,",
+    "a pocos kilómetros de Maranello, la casa de Ferrari."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "GIOTTO BIZZARRINI"
+   },
+   "frases": [
+    "Para el motor contrata a Giotto Bizzarrini, un ingeniero que había trabajado en Ferrari.",
+    "Le encarga un V12."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "ferruccio350",
+    "etiqueta": "Ferruccio Lamborghini y el 350 GTV · 1963",
+    "texto": "",
+    "cred": "Foto: autor desconocido · Dominio público (Wikimedia Commons)"
+   },
+   "frases": [
+    "Ese mismo año presenta un prototipo en el Salón de Turín: el 350 GTV."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "p350gt",
+    "etiqueta": "Lamborghini 350 GT · 1964",
+    "texto": "",
+    "cred": "Foto: Simon Davison · CC BY 2.0 (Wikimedia Commons)",
+    "sello": "1964"
+   },
+   "frases": [
+    "Y en 1964 llega su primer coche de serie, el 350 GT.",
+    "Elegante, cómodo y con un V12. Exactamente lo que Ferruccio quería."
+   ],
+   "clave": "1964"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UN EQUIPO MUY JOVEN"
+   },
+   "frases": [
+    "Pero en la fábrica hay un equipo de ingenieros jovencísimos, con veintitantos años, que quieren algo mucho más radical."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "miura",
+    "etiqueta": "Lamborghini Miura P400 S",
+    "texto": "",
+    "cred": "Foto: Alexander-93 · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1966"
+   },
+   "frases": [
+    "Lo diseñan casi a escondidas, en su tiempo libre.",
+    "Y en 1966, en el Salón de Ginebra, presentan el Miura."
+   ],
+   "clave": "1966",
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "V12 EN EL CENTRO… Y DE LADO"
+   },
+   "frases": [
+    "Su gran novedad: un motor V12 colocado detrás de los asientos, en posición transversal.",
+    "Una configuración de coche de carreras en un coche de calle."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "MARCELLO GANDINI · BERTONE"
+   },
+   "frases": [
+    "La carrocería la dibuja Marcello Gandini, del estudio Bertone, con poco más de veinte años."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿EL PRIMER SUPERDEPORTIVO?"
+   },
+   "frases": [
+    "Para muchos, este es el primer superdeportivo de la historia moderna."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "TOROS DE LIDIA"
+   },
+   "frases": [
+    "El nombre viene de Miura, una famosa ganadería de toros de lidia.",
+    "Desde entonces, muchos Lamborghini llevan nombres relacionados con toros."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "espada",
+    "etiqueta": "Lamborghini Espada · 1970",
+    "texto": "",
+    "cred": "Foto: MrWalkr · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "En 1968 llega el Espada, un gran turismo de cuatro plazas que se convierte en uno de sus coches más vendidos de la época."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1971",
+   "v": {
+    "valor": "1971",
+    "antes": "",
+    "texto": "PROTOTIPO LP500"
+   },
+   "frases": [
+    "Y en 1971, en Ginebra, Lamborghini enseña un prototipo que parece una nave espacial."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "countach",
+    "etiqueta": "Lamborghini Countach LP400 · 1974",
+    "texto": "",
+    "cred": "Foto: Ank Kumar · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1974"
+   },
+   "frases": [
+    "Es el Countach.",
+    "Otra vez de Marcello Gandini: todo ángulos y puertas que se abren hacia arriba."
+   ],
+   "clave": "Countach"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«COUNTACH!»"
+   },
+   "frases": [
+    "Su nombre es una exclamación del dialecto del Piamonte.",
+    "Algo así como un «¡madre mía!» al ver algo increíble."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PÓSTERS EN LAS HABITACIONES"
+   },
+   "frases": [
+    "En los años ochenta se convierte en el coche de los pósters.",
+    "Muchos niños nunca vieron uno en persona… pero lo tenían en la pared."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "CRISIS DEL PETRÓLEO"
+   },
+   "frases": [
+    "Pero mientras tanto, las cosas van mal.",
+    "Llega la crisis del petróleo y nadie quiere coches que gastan muchísimo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "FERRUCCIO VENDE"
+   },
+   "frases": [
+    "A principios de los setenta, Ferruccio vende el negocio de tractores y, poco a poco, también la marca de coches."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "VIÑEDOS EN UMBRÍA"
+   },
+   "frases": [
+    "Se retira a una finca en Umbría, junto al lago Trasimeno, donde se dedica al vino.",
+    "Muere en 1993."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1978",
+   "v": {
+    "valor": "1978",
+    "antes": "",
+    "texto": "QUIEBRA"
+   },
+   "frases": [
+    "Sin su fundador, Lamborghini va de crisis en crisis.",
+    "En 1978 entra en quiebra."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DE MANO EN MANO"
+   },
+   "frases": [
+    "En los años siguientes cambia varias veces de dueño.",
+    "Unos empresarios suizos, la familia Mimran, Chrysler, un grupo indonesio…"
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "lm002",
+    "etiqueta": "Lamborghini LM002",
+    "texto": "",
+    "cred": "Foto: MrWalkr · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Por el camino salen cosas tan raras como el LM002, un todoterreno gigante con el motor V12 del Countach.",
+    "Lo apodaron el «Rambo Lambo»."
+   ],
+   "clave": "Rambo"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "diablo",
+    "etiqueta": "Lamborghini Diablo",
+    "texto": "",
+    "cred": "Foto: Rutger van der Maar · CC BY 2.0 (Wikimedia Commons)",
+    "sello": "1990"
+   },
+   "frases": [
+    "Y en 1990, ya con Chrysler, llega el Diablo: el sucesor del Countach.",
+    "Uno de los primeros coches de serie capaces de superar los 320 kilómetros por hora."
+   ],
+   "clave": "1990"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿Y AHORA QUÉ?"
+   },
+   "frases": [
+    "Pero los problemas económicos siguen.",
+    "Lamborghini necesita a alguien con mucho dinero y mucha paciencia."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1998",
+   "v": {
+    "valor": "1998",
+    "antes": "",
+    "texto": "AUDI · GRUPO VOLKSWAGEN"
+   },
+   "frases": [
+    "Y en 1998 llega Audi, del grupo Volkswagen.",
+    "Y esta vez, sí, la marca se estabiliza."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "murcielago",
+    "etiqueta": "Lamborghini Murciélago LP640",
+    "texto": "",
+    "cred": "Foto: MrWalkr · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "2001"
+   },
+   "frases": [
+    "En 2001 sale el Murciélago, que lleva el nombre de un toro de lidia muy famoso."
+   ],
+   "clave": "2001"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "gallardo",
+    "etiqueta": "Lamborghini Gallardo LP560-4",
+    "texto": "",
+    "cred": "Foto: Ermell · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "V10"
+   },
+   "frases": [
+    "Y en 2003 el Gallardo, un Lamborghini más pequeño, con motor V10.",
+    "Se convierte en el más vendido de su historia hasta ese momento."
+   ],
+   "clave": "V10"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "aventador",
+    "etiqueta": "Lamborghini Aventador LP700-4",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "V12"
+   },
+   "frases": [
+    "En 2011 llega el Aventador: el nuevo gran V12 de la marca."
+   ],
+   "clave": "2011"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "urus",
+    "etiqueta": "Lamborghini Urus",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "2018"
+   },
+   "frases": [
+    "Y en 2018, el más polémico: el Urus, un todoterreno.",
+    "Los puristas protestan… y se convierte en el Lamborghini más vendido."
+   ],
+   "clave": "2018"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "revuelto",
+    "etiqueta": "Lamborghini Revuelto · 2023",
+    "texto": "",
+    "cred": "Foto: MrWalkr · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "HÍBRIDO"
+   },
+   "frases": [
+    "Hoy, el buque insignia es el Revuelto: un V12 híbrido enchufable.",
+    "El primero de la marca."
+   ],
+   "clave": "híbrido"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "trattori",
+    "etiqueta": "Tractores Lamborghini actuales",
+    "texto": "",
+    "cred": "Foto: Gabriele Bellotti · Dominio público (Wikimedia Commons)",
+    "sello": "HOY"
+   },
+   "frases": [
+    "Por cierto: los tractores Lamborghini siguen fabricándose.",
+    "Pero hoy son de otra empresa distinta a la de los coches."
+   ],
+   "clave": "siguen"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UNA VENGANZA… QUE SALIÓ BIEN"
+   },
+   "frases": [
+    "Así que, sea verdad o no la discusión con Enzo Ferrari,",
+    "de aquel enfado salió una de las marcas más espectaculares del mundo."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿MIURA O COUNTACH?"
+   },
+   "frases": [
+    "Ahora te pregunto a ti: ¿cuál es el Lamborghini más bonito de la historia?",
+    "¿El Miura o el Countach?",
+    "Te leo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PRÓXIMO DOMINGO: SEAT"
+   },
+   "frases": [
+    "Si te ha gustado, suscríbete.",
+    "Cada domingo contamos la historia de una marca.",
+    "El próximo domingo, una muy nuestra: SEAT.",
+    "Nos vemos en el próximo vídeo."
+   ]
+  }
+ ]
+}

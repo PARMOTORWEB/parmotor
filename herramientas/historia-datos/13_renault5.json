@@ -1,0 +1,107 @@
+{
+ "titulo": "4 cosas que no sabías del Renault 5",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "R5",
+  "RENAULT",
+  "TURBO",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "r5": "../porsche/img_noche/r5.jpg",
+  "r5etech": "../porsche/img_noche/r5etech.jpg",
+  "r5turbo": "../porsche/img_noche/r5turbo.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Renault 5!",
+    "¡Y la última es que ha vuelto!"
+   ],
+   "v": {
+    "foto": "r5",
+    "etiqueta": "Renault 5 · 1972",
+    "numero": "4",
+    "cred": "Foto: Matti Blume · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1972",
+   "frases": [
+    "¡Uno! Nació en 1972 con algo poco habitual entonces:",
+    "paragolpes de plástico en lugar de cromados."
+   ],
+   "v": {
+    "antes": "PRESENTACIÓN",
+    "valor": "1972",
+    "texto": "Paragolpes de plástico"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "BOUÉ",
+   "frases": [
+    "¡Dos! Lo diseñó Michel Boué,",
+    "que murió antes de verlo a la venta."
+   ],
+   "v": {
+    "titulo": "Michel Boué · diseñador",
+    "sello": "SU OBRA"
+   }
+  },
+  {
+   "tipo": "foto",
+   "cap": true,
+   "clave": "DETRÁS",
+   "frases": [
+    "¡Tres! El 5 Turbo de rally llevaba el motor detrás,",
+    "justo donde iban los asientos traseros."
+   ],
+   "v": {
+    "foto": "r5turbo",
+    "etiqueta": "Renault 5 Turbo · 1981",
+    "texto": "",
+    "cred": "Foto: MrWalkr · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "MOTOR CENTRAL"
+   }
+  },
+  {
+   "tipo": "foto",
+   "cap": true,
+   "clave": "2024",
+   "frases": [
+    "¡Cuatro! Medio siglo después, en 2024,",
+    "volvió… cien por cien eléctrico."
+   ],
+   "v": {
+    "foto": "r5etech",
+    "etiqueta": "Renault 5 E-Tech · 2024",
+    "texto": "",
+    "cred": "Foto: Alexander-93 · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "ELÉCTRICO"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

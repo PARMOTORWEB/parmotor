@@ -1,0 +1,105 @@
+{
+ "titulo": "4 cosas que no sabías del Subaru Impreza",
+ "serie": "HISTORIA DEL MOTOR",
+ "claves": [
+  "IMPREZA",
+  "SUBARU",
+  "MCRAE",
+  "BÓXER",
+  "GRATIS",
+  "PAR",
+  "MOTOR"
+ ],
+ "imagenes": {
+  "impreza": "../porsche/img_noche/impreza.jpg",
+  "impreza_calle": "../porsche/img_noche/impreza_calle.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "frases": [
+    "¡4 cosas que no sabías del Subaru Impreza!",
+    "¡Azul, dorado y una leyenda escocesa!"
+   ],
+   "v": {
+    "foto": "impreza",
+    "etiqueta": "Subaru Impreza de rally (Grupo A)",
+    "numero": "4",
+    "cred": "Foto: Cs-wolves · CC BY-SA 4.0 (Wikimedia Commons)"
+   }
+  },
+  {
+   "tipo": "cifra",
+   "cap": true,
+   "clave": "1995",
+   "frases": [
+    "¡Uno! En 1995, el escocés Colin McRae fue campeón del mundo de rallies con un Impreza.",
+    "Fue el primer británico en conseguirlo."
+   ],
+   "v": {
+    "antes": "COLIN MCRAE, CAMPEÓN",
+    "valor": "1995",
+    "texto": "El primer británico"
+   }
+  },
+  {
+   "tipo": "sello",
+   "cap": true,
+   "clave": "1997",
+   "frases": [
+    "¡Dos! Subaru ganó además tres títulos de marcas seguidos:",
+    "en 1995, 1996 y 1997."
+   ],
+   "v": {
+    "titulo": "Mundial de marcas · 1995-1997",
+    "sello": "3 TÍTULOS"
+   }
+  },
+  {
+   "tipo": "titular",
+   "cap": true,
+   "clave": "DORADO",
+   "frases": [
+    "¡Tres! Ese famoso azul con llantas doradas",
+    "venía de los colores de su patrocinador de entonces."
+   ],
+   "v": {
+    "titulo": "Azul y dorado",
+    "texto": "Los colores del patrocinador",
+    "fondo": "negro"
+   }
+  },
+  {
+   "tipo": "foto",
+   "cap": true,
+   "clave": "BÓXER",
+   "frases": [
+    "¡Cuatro! Su motor bóxer, con los cilindros tumbados,",
+    "deja el centro de gravedad muy bajo. Y va unido a la tracción total."
+   ],
+   "v": {
+    "foto": "impreza_calle",
+    "etiqueta": "Subaru Impreza WRX STi (GC8)",
+    "texto": "",
+    "cred": "Foto: Tokumeigakarinoaoshima · CC0 (Wikimedia Commons)",
+    "sello": "BÓXER"
+   }
+  },
+  {
+   "tipo": "cierre",
+   "clave": "MÍRALO",
+   "frases": [
+    "¿Y cuánto vale hoy tu coche de segunda mano?",
+    "¡Míralo gratis en Par Motor! Enlace en el perfil."
+   ],
+   "v": {
+    "lineas": [
+     "Marca",
+     "Modelo",
+     "Año y kilómetros"
+    ],
+    "pregunta": "¿Y EL TUYO?"
+   }
+  }
+ ]
+}

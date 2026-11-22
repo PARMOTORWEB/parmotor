@@ -1,0 +1,358 @@
+{
+ "titulo": "Mercedes-Benz: la historia completa",
+ "serie": "HISTORIA DEL MOTOR",
+ "horizontal": true,
+ "claves": [
+  "MERCEDES",
+  "BENZ",
+  "DAIMLER",
+  "BERTHA",
+  "JELLINEK",
+  "300",
+  "ABS",
+  "HAMILTON"
+ ],
+ "imagenes": {
+  "mb300sl": "../porsche/img_noche/mb300sl.jpg",
+  "motorwagen": "../porsche/img_noche/motorwagen.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "v": {
+    "titulo": "Mercedes-Benz: la historia completa",
+    "foto": "mb300sl",
+    "etiqueta": "Mercedes-Benz 300 SL",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Este es el Mercedes-Benz 300 SL.",
+    "Uno de los coches más deseados de la historia."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA MARCA QUE INVENTÓ EL COCHE"
+   },
+   "frases": [
+    "Pero la marca que lo fabricó tiene un récord que nadie le puede quitar:",
+    "inventó el automóvil."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UN NOMBRE DE NIÑA"
+   },
+   "frases": [
+    "Y su nombre, Mercedes, era el de una niña de diez años."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA HISTORIA COMPLETA DE MERCEDES-BENZ"
+   },
+   "frases": [
+    "Esta es la historia completa de Mercedes-Benz.",
+    "Como siempre, cada imagen lleva su fuente en la esquina."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1886",
+   "v": {
+    "valor": "1886",
+    "antes": "",
+    "texto": "EL PRIMER AUTOMÓVIL"
+   },
+   "frases": [
+    "En enero de 1886, el ingeniero Karl Benz patenta en Alemania un vehículo de tres ruedas con motor de gasolina.",
+    "Es considerado el primer automóvil de la historia."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "motorwagen",
+    "etiqueta": "Benz Patent-Motorwagen (réplica)",
+    "texto": "",
+    "cred": "Foto: Stas Kozlovskiy · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1886"
+   },
+   "frases": [
+    "El Benz Patent-Motorwagen."
+   ],
+   "clave": "Motorwagen"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "BERTHA BENZ"
+   },
+   "frases": [
+    "Pero el primer gran viaje en coche lo hace su mujer, Bertha Benz.",
+    "En 1888 coge el coche, sin avisar a su marido, y recorre más de cien kilómetros con sus dos hijos."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA PRIMERA GASOLINERA: UNA FARMACIA"
+   },
+   "frases": [
+    "Por el camino se queda sin combustible y lo compra… en una farmacia.",
+    "Aquella farmacia es considerada la primera gasolinera de la historia."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DAIMLER Y MAYBACH"
+   },
+   "frases": [
+    "Mientras tanto, a unos cien kilómetros, Gottlieb Daimler y Wilhelm Maybach construyen su propio vehículo a motor.",
+    "Dos empresas rivales que acabarán siendo una sola."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1901",
+   "v": {
+    "valor": "1901",
+    "antes": "",
+    "texto": "EMIL JELLINEK"
+   },
+   "frases": [
+    "En 1901, un rico empresario austriaco, Emil Jellinek, encarga a Daimler un coche de carreras."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«MERCEDES»"
+   },
+   "frases": [
+    "Pone una condición: que lleve el nombre de su hija, Mercedes.",
+    "El coche gana carreras y el nombre se queda para siempre."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1926",
+   "v": {
+    "valor": "1926",
+    "antes": "",
+    "texto": "DAIMLER + BENZ"
+   },
+   "frases": [
+    "En 1926 se fusionan las empresas de Daimler y de Benz.",
+    "Nace Daimler-Benz, y sus coches se llamarán Mercedes-Benz."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA ESTRELLA: TIERRA, MAR Y AIRE"
+   },
+   "frases": [
+    "Su estrella de tres puntas representa los motores Daimler por tierra, por mar y por aire."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "FLECHAS DE PLATA"
+   },
+   "frases": [
+    "En los años treinta, sus coches de carreras arrasan.",
+    "Los llaman las Flechas de Plata."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA LEYENDA DE LA PINTURA"
+   },
+   "frases": [
+    "Según la leyenda, en 1934 un coche pesaba un kilo de más.",
+    "Lijaron la pintura blanca, quedó el aluminio a la vista… y nació el color plateado."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "GUERRA Y TRABAJO FORZADO",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Durante la Segunda Guerra Mundial, la empresa fabrica para el ejército y usa trabajadores forzados.",
+    "Hoy lo reconoce públicamente."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "mb300sl",
+    "etiqueta": "Mercedes-Benz 300 SL «alas de gaviota»",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1954"
+   },
+   "frases": [
+    "Tras la guerra, en 1954, presenta el 300 SL, con sus famosas puertas de alas de gaviota."
+   ],
+   "clave": "1954"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LE MANS 1955",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Pero en 1955 llega la peor tragedia del automovilismo: en las 24 Horas de Le Mans, un Mercedes vuela hacia el público.",
+    "Mueren más de ochenta personas, y la marca abandona las carreras durante décadas."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "OBSESIÓN: LA SEGURIDAD"
+   },
+   "frases": [
+    "Desde entonces, Mercedes se obsesiona con algo: la seguridad."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "BÉLA BARÉNYI: LA ZONA DE DEFORMACIÓN"
+   },
+   "frases": [
+    "Su ingeniero Béla Barényi inventa la zona de deformación programada:",
+    "la parte delantera y trasera se aplastan para proteger el habitáculo. Llega a la calle en 1959."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "ABS · 1978"
+   },
+   "frases": [
+    "En 1978, la Clase S es de los primeros coches de serie con frenos ABS, desarrollados con Bosch."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "AIRBAG · 1981"
+   },
+   "frases": [
+    "Y en 1981 llega el airbag para el conductor."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA PRUEBA DEL ALCE"
+   },
+   "frases": [
+    "En 1997, el nuevo Clase A vuelca en una prueba de esquiva en Suecia, la famosa prueba del alce.",
+    "Mercedes reacciona poniendo control de estabilidad de serie. Y acaba extendiéndose a todos los coches."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1998",
+   "v": {
+    "valor": "1998",
+    "antes": "",
+    "texto": "DAIMLERCHRYSLER"
+   },
+   "frases": [
+    "En 1998 se fusiona con la estadounidense Chrysler.",
+    "Iba a ser la boda del siglo."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "UN DIVORCIO CARO",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Fue un fracaso: en 2007 se separan, después de perder miles de millones."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "CLASE G · AMG · MAYBACH"
+   },
+   "frases": [
+    "Hoy Mercedes fabrica desde el Clase G hasta los deportivos AMG y los lujosos Maybach,",
+    "que recuperan el apellido de aquel ingeniero de 1886."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "OCHO TÍTULOS SEGUIDOS"
+   },
+   "frases": [
+    "Y en Fórmula 1 vuelve por la puerta grande: ocho títulos de constructores seguidos, de 2014 a 2021,",
+    "seis de ellos con Lewis Hamilton al volante."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EQ: LA ERA ELÉCTRICA"
+   },
+   "frases": [
+    "Ahora apuesta por el coche eléctrico con su gama EQ."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DEL MOTORWAGEN A HOY"
+   },
+   "frases": [
+    "Así que la marca que inventó el automóvil, y que debe su nombre a una niña,",
+    "sigue siendo, casi ciento cuarenta años después, una de las más prestigiosas del mundo."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿300 SL, CLASE G O CLASE S?"
+   },
+   "frases": [
+    "Ahora te pregunto a ti: ¿cuál es el Mercedes más importante de la historia?",
+    "¿El 300 SL, el Clase G o la Clase S?",
+    "Te leo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PRÓXIMO DOMINGO: TOYOTA"
+   },
+   "frases": [
+    "Si te ha gustado, suscríbete.",
+    "Cada domingo contamos la historia de una marca.",
+    "El próximo domingo, una empresa que empezó fabricando telares: Toyota.",
+    "Nos vemos en el próximo vídeo."
+   ]
+  }
+ ]
+}

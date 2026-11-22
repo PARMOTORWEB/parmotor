@@ -1,0 +1,875 @@
+{
+ "titulo": "Porsche: de los tanques al Taycan",
+ "serie": "HISTORIA DEL MOTOR",
+ "horizontal": true,
+ "claves": [
+  "PORSCHE",
+  "FERDINAND",
+  "TAYCAN",
+  "TIGER",
+  "MAUS",
+  "ESCARABAJO",
+  "356",
+  "911",
+  "LE MANS",
+  "CAYENNE"
+ ],
+ "imagenes": {
+  "lohner": "../porsche/img_noche/lohner.jpg",
+  "p356": "../porsche/img_noche/p356.jpg",
+  "p917": "../porsche/img_noche/p917.jpg",
+  "cayenne": "../porsche/img_noche/cayenne.jpg",
+  "taycan": "../porsche/img_noche/taycan.jpg",
+  "porsche911": "../porsche/img_noche/porsche911.jpg",
+  "ferdinand": "../porsche/img_noche/ferdinand.jpg",
+  "lohner1902": "../porsche/img_noche/lohner1902.jpg",
+  "semper": "../porsche/img_noche/semper.jpg",
+  "autounion": "../porsche/img_noche/autounion.jpg",
+  "vwsparen": "../porsche/img_noche/vwsparen.jpg",
+  "beetle49": "../porsche/img_noche/beetle49.jpg",
+  "kubel": "../porsche/img_noche/kubel.jpg",
+  "elefant": "../porsche/img_noche/elefant.jpg",
+  "maus": "../porsche/img_noche/maus.jpg",
+  "ferry": "../porsche/img_noche/ferry.jpg",
+  "cisitalia": "../porsche/img_noche/cisitalia.jpg",
+  "gmund": "../porsche/img_noche/gmund.jpg",
+  "p930": "../porsche/img_noche/p930.jpg",
+  "p959": "../porsche/img_noche/p959.jpg",
+  "boxster": "../porsche/img_noche/boxster.jpg",
+  "p918": "../porsche/img_noche/p918.jpg",
+  "p919": "../porsche/img_noche/p919.jpg",
+  "missione": "../porsche/img_noche/missione.jpg",
+  "zuffen": "../porsche/img_noche/zuffen.jpg"
+ },
+ "escenas": [
+  {
+   "tipo": "gancho",
+   "v": {
+    "titulo": "Porsche: de los tanques al Taycan",
+    "foto": "taycan",
+    "etiqueta": "Porsche Taycan",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Este es el Porsche Taycan.",
+    "Cien por cien eléctrico."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«ESO YA NO ES UN PORSCHE»"
+   },
+   "frases": [
+    "Cuando salió, mucha gente dijo que eso ya no era un Porsche."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1900",
+   "v": {
+    "valor": "1900",
+    "antes": "",
+    "texto": "TAMBIÉN ERA ELÉCTRICO"
+   },
+   "frases": [
+    "Lo curioso es que el primer coche que diseñó Ferdinand Porsche, hace más de ciento veinte años…",
+    "también era eléctrico."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "CARRERAS · TANQUES · CÁRCEL · BANCARROTA"
+   },
+   "frases": [
+    "Entre aquel coche y este hay carreras, un coche del pueblo, tanques de guerra, una cárcel en Francia y una casi bancarrota…"
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "…Y EL DEPORTIVO MÁS FAMOSO DEL MUNDO"
+   },
+   "frases": [
+    "…y el deportivo más famoso del mundo."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DE LOS TANQUES AL TAYCAN"
+   },
+   "frases": [
+    "Esta es la historia de Porsche: de los tanques al Taycan.",
+    "Por cierto, cada imagen del vídeo lleva su fuente en la esquina."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "1875",
+   "v": {
+    "foto": "ferdinand",
+    "etiqueta": "Ferdinand Porsche (1875-1951)",
+    "texto": "",
+    "cred": "Foto: Bundesarchiv · CC BY-SA 3.0 DE (Wikimedia Commons)",
+    "sello": "BOHEMIA · 1875"
+   },
+   "frases": [
+    "Ferdinand Porsche nace en 1875 en Maffersdorf, en Bohemia, la actual República Checa."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "HIJO DE HOJALATERO · OBSESIONADO CON LA ELECTRICIDAD"
+   },
+   "frases": [
+    "Es hijo de un hojalatero y nunca termina una carrera universitaria.",
+    "Pero tiene una obsesión: la electricidad."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LUZ ELÉCTRICA EN CASA… EN EL SIGLO XIX"
+   },
+   "frases": [
+    "De adolescente instala luz eléctrica en la casa familiar, algo casi de ciencia ficción en su pueblo."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "lohner",
+    "etiqueta": "Egger-Lohner C.2 · 1898 · primer diseño de Porsche",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "En 1900, con veinticuatro años, presenta en la Exposición Universal de París el Lohner-Porsche."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "MOTOR EN LA RUEDA"
+   },
+   "frases": [
+    "Un coche eléctrico con los motores dentro de las propias ruedas."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "híbridos",
+   "v": {
+    "foto": "semper",
+    "etiqueta": "Lohner-Porsche Semper Vivus · 1900 (réplica)",
+    "texto": "",
+    "cred": "Foto: Yannick Leclercq · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "HÍBRIDO"
+   },
+   "frases": [
+    "Poco después crea otra versión en la que un motor de gasolina genera electricidad para esos motores.",
+    "Uno de los primeros híbridos de la historia."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "AUSTRO-DAIMLER · DAIMLER"
+   },
+   "frases": [
+    "Su talento lo lleva a ser director técnico de Austro-Daimler y después de Daimler, en Stuttgart, donde trabaja en coches como el Mercedes-Benz SSK."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1931",
+   "v": {
+    "valor": "1931",
+    "antes": "",
+    "texto": "STUTTGART"
+   },
+   "frases": [
+    "En 1931 funda en Stuttgart su propia oficina de diseño.",
+    "Ojo: todavía no fabrica coches.",
+    "Los diseña para otros."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "autounion",
+    "etiqueta": "Auto Union Typ C · 1936",
+    "texto": "",
+    "cred": "Foto: Stahlkocher · CC BY-SA 3.0 (Wikimedia Commons)",
+    "sello": "FLECHAS DE PLATA"
+   },
+   "frases": [
+    "Por ejemplo, los Auto Union de carreras de los años treinta, unas de las famosas Flechas de Plata."
+   ],
+   "clave": "Plata"
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1934",
+   "v": {
+    "valor": "1934",
+    "antes": "",
+    "texto": ""
+   },
+   "frases": [
+    "En 1934 llega el encargo que lo cambia todo.",
+    "El régimen nazi quiere un 'coche del pueblo': barato, para cuatro personas y capaz de circular por las nuevas autopistas."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "beetle49",
+    "etiqueta": "Volkswagen Escarabajo · 1949",
+    "texto": "",
+    "cred": "Foto: nakhon100 · CC BY 2.0 (Wikimedia Commons)",
+    "sello": "VOLKSWAGEN"
+   },
+   "frases": [
+    "Porsche lo diseña.",
+    "Es el coche que el mundo conocerá como Volkswagen Escarabajo."
+   ],
+   "clave": "Escarabajo"
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "vwsparen",
+    "etiqueta": "Cartilla de sellos de ahorro para el coche del pueblo",
+    "texto": "",
+    "cred": "Foto: autor desconocido · Dominio público (Wikimedia Commons)"
+   },
+   "frases": [
+    "Miles de alemanes empiezan a pagarlo por adelantado con una cartilla de sellos de ahorro.",
+    "Pero casi ninguno lo recibirá."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "1939",
+   "v": {
+    "foto": "kubel",
+    "etiqueta": "Volkswagen Kübelwagen (Typ 82)",
+    "texto": "",
+    "cred": "Foto: Fiver, der Hellseher · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1939"
+   },
+   "frases": [
+    "En 1939 estalla la Segunda Guerra Mundial.",
+    "La fábrica deja de pensar en civiles y, con la misma mecánica, nacen vehículos militares como el Kübelwagen…"
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "…o el Schwimmwagen",
+    "size": 90
+   },
+   "frases": [
+    "…o el Schwimmwagen, un coche anfibio."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "LA PARTE OSCURA",
+    "fondo": "negro"
+   },
+   "frases": [
+    "Y aquí hay que contar la parte oscura."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "TRABAJADORES FORZADOS"
+   },
+   "frases": [
+    "En la fábrica de Volkswagen, y también en Porsche, se utilizaron trabajadores forzados: prisioneros de guerra y personas deportadas desde otros países."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "AMBAS EMPRESAS LO RECONOCEN HOY PÚBLICAMENTE",
+    "fondo": "negro",
+    "size": 96
+   },
+   "frases": [
+    "Hoy ambas empresas lo reconocen públicamente.",
+    "No se puede contar esta historia sin ello."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "TIGER (P)"
+   },
+   "frases": [
+    "Durante la guerra, Ferdinand Porsche también diseña tanques.",
+    "Y otra vez aparece su vieja obsesión: la electricidad."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "GASOLINA → ELECTRICIDAD → ORUGAS"
+   },
+   "frases": [
+    "Para el concurso del tanque Tiger propone un sistema en el que los motores de gasolina no mueven las orugas: generan electricidad para unos motores eléctricos."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1900",
+   "v": {
+    "valor": "1900",
+    "antes": "",
+    "texto": "= 1942"
+   },
+   "frases": [
+    "¿Te suena?",
+    "Es la misma idea que su híbrido de 1900."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "MUCHO COBRE · MUCHAS AVERÍAS"
+   },
+   "frases": [
+    "Pero el sistema era complicado, daba averías y necesitaba mucho cobre, un material escaso en plena guerra."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "GANA HENSCHEL"
+   },
+   "frases": [
+    "El ejército elige el diseño de la empresa rival, Henschel."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "elefant",
+    "etiqueta": "Cazacarros «Ferdinand» / «Elefant»",
+    "texto": "",
+    "cred": "Foto: DZGuymed · Dominio público (Wikimedia Commons)",
+    "sello": "ELEFANT"
+   },
+   "frases": [
+    "Porsche ya había fabricado decenas de chasis, así que no se desperdiciaron: se convirtieron en un cazacarros que llevaba su nombre, el 'Ferdinand', rebautizado después como 'Elefant'."
+   ],
+   "clave": "Elefant"
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "KURSK · 1943"
+   },
+   "frases": [
+    "Se estrenó en la batalla de Kursk, en 1943, con más problemas mecánicos que éxitos."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "toneladas",
+   "v": {
+    "foto": "maus",
+    "etiqueta": "Panzer VIII Maus",
+    "texto": "",
+    "cred": "Foto: DokiDotto · CC0 (Wikimedia Commons)",
+    "sello": "≈188 TONELADAS"
+   },
+   "frases": [
+    "Y luego está el Maus, 'ratón' en alemán.",
+    "El tanque más pesado jamás construido: unas ciento ochenta y ocho toneladas."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "DEMASIADO PESADO PARA LOS PUENTES"
+   },
+   "frases": [
+    "Era tan pesado que muchos puentes no lo habrían soportado.",
+    "Solo se llegaron a fabricar prototipos."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "«RATÓN»: PURA IRONÍA"
+   },
+   "frases": [
+    "El nombre, por supuesto, era una ironía."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1945",
+   "v": {
+    "valor": "1945",
+    "antes": "",
+    "texto": ""
+   },
+   "frases": [
+    "La guerra termina en 1945 y la familia Porsche lo pierde prácticamente todo."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "FRANCIA · ≈2 AÑOS DE PRISIÓN"
+   },
+   "frases": [
+    "A finales de ese año, Ferdinand es detenido en Francia.",
+    "Pasará cerca de dos años en prisión."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "gmund",
+    "etiqueta": "Porsche 356 «Gmünd» Coupé",
+    "texto": "",
+    "cred": "Foto: Ad Meskens · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "GMÜND · AUSTRIA"
+   },
+   "frases": [
+    "Mientras tanto, su hijo Ferry y su hija Louise mantienen viva la empresa en Gmünd, un pequeño pueblo de Austria, dentro de un antiguo aserradero."
+   ],
+   "clave": "Gmünd"
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "COCHES, TRACTORES… LO QUE HAGA FALTA"
+   },
+   "frases": [
+    "Reparan coches, tractores…",
+    "lo que haga falta para sobrevivir."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "cisitalia",
+    "etiqueta": "Cisitalia 360 · diseño Porsche · 1947",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Un encargo de la marca italiana Cisitalia, un coche de Gran Premio, aporta el dinero que ayuda a pagar la fianza de Ferdinand."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "ferry",
+    "etiqueta": "Ferry Porsche · 1958",
+    "texto": "",
+    "cred": "Foto: Lew Hine / Porsche Club of America · Dominio público (Wikimedia Commons)"
+   },
+   "frases": [
+    "Y entonces Ferry hace algo que su padre nunca había hecho: un coche con el apellido de la familia.",
+    "No encuentra el deportivo de sus sueños, así que decide construirlo."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "1948",
+   "v": {
+    "foto": "p356",
+    "etiqueta": "Porsche 356 «Nº 1» · 1948",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1948"
+   },
+   "frases": [
+    "En 1948 nace el Porsche 356 'Número 1'.",
+    "Motor trasero, piezas del Escarabajo y muy poco peso."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1875",
+   "v": {
+    "valor": "1875",
+    "antes": "",
+    "texto": "– 1951"
+   },
+   "frases": [
+    "Ferdinand llegó a verlo.",
+    "Murió en 1951, tras ver nacer la marca con su nombre."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "zuffen",
+    "etiqueta": "Porsche · Zuffenhausen (Stuttgart)",
+    "texto": "",
+    "cred": "Foto: Gunnar Klack · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "La empresa regresa a Stuttgart, al barrio de Zuffenhausen.",
+    "Donde sigue hoy."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "porsche911",
+    "etiqueta": "Porsche 911 · 1966",
+    "texto": "",
+    "cred": "Foto: MrWalkr · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "901"
+   },
+   "frases": [
+    "En 1963 Porsche presenta en Frankfurt al sustituto del 356.",
+    "Su nombre: 901."
+   ],
+   "cap": true,
+   "clave": "901"
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "901 → 911"
+   },
+   "frases": [
+    "Pero Peugeot tenía registrados en Francia los nombres de tres cifras con un cero en medio.",
+    "Así que el cero se convirtió en un uno."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "F. A. 'BUTZI' PORSCHE"
+   },
+   "frases": [
+    "Lo diseña el nieto del fundador, Ferdinand Alexander 'Butzi' Porsche."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1964",
+   "v": {
+    "valor": "1964",
+    "antes": "",
+    "texto": "↔ HOY"
+   },
+   "frases": [
+    "Seis cilindros bóxer detrás y una silueta que, más de sesenta años después, sigue siendo reconocible al instante."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "p917",
+    "etiqueta": "Porsche 917",
+    "texto": "",
+    "cred": "Foto: Felix König · CC BY 3.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Porsche quiere demostrar lo que vale en la pista, y su gran objetivo son las 24 Horas de Le Mans.",
+    "En 1970, por fin, gana en la general con el 917."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "RÉCORD DE VICTORIAS EN LE MANS"
+   },
+   "frases": [
+    "Desde entonces se ha convertido en la marca con más victorias absolutas en Le Mans."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "setenta",
+   "v": {
+    "foto": "p930",
+    "etiqueta": "Porsche 911 Turbo (930)",
+    "texto": "",
+    "cred": "Foto: Ermell · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1975"
+   },
+   "frases": [
+    "En los setenta llega el 911 Turbo…"
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "959",
+   "v": {
+    "foto": "p959",
+    "etiqueta": "Porsche 959 · 1986",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "1986"
+   },
+   "frases": [
+    "…y en los ochenta el 959, un superdeportivo con tracción total que parecía venir del futuro."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "Todo parecía perfecto",
+    "size": 90
+   },
+   "frases": [
+    "Todo parecía perfecto.",
+    "Hasta que dejó de serlo."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "VENTAS EN CAÍDA LIBRE"
+   },
+   "frases": [
+    "A principios de los noventa, Porsche está en serios problemas.",
+    "Sus coches son caros de fabricar, la gama se ha quedado anticuada y las ventas se hunden."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "¿PORSCHE EN VENTA?"
+   },
+   "frases": [
+    "Se llegó a especular con que alguien compraría la marca."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1993",
+   "v": {
+    "valor": "1993",
+    "antes": "",
+    "texto": "WENDELIN WIEDEKING"
+   },
+   "frases": [
+    "En 1993 llega a la dirección Wendelin Wiedeking.",
+    "Reorganiza las fábricas inspirándose en los métodos de producción japoneses y apuesta por dos coches."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "1996",
+   "v": {
+    "foto": "boxster",
+    "etiqueta": "Porsche Boxster (986) · 1996",
+    "texto": "",
+    "cred": "Foto: OWS Photography · CC BY 4.0 (Wikimedia Commons)",
+    "sello": "1996"
+   },
+   "frases": [
+    "El primero, el Boxster, en 1996.",
+    "Un Porsche más asequible que comparte muchas piezas con el nuevo 911."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2002",
+   "v": {
+    "valor": "2002",
+    "antes": "",
+    "texto": "CAYENNE"
+   },
+   "frases": [
+    "El segundo, el más polémico: el Cayenne, en 2002.",
+    "¿Un Porsche todoterreno?"
+   ]
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "cayenne",
+    "etiqueta": "Porsche Cayenne",
+    "texto": "",
+    "cred": "Foto: MB-one · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Los puristas se escandalizaron…",
+    "y el Cayenne se convirtió en uno de los Porsche más vendidos.",
+    "Su dinero financió los deportivos que esos mismos puristas adoran."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "2008",
+   "v": {
+    "valor": "2008",
+    "antes": "",
+    "texto": "-2012"
+   },
+   "frases": [
+    "Y llega otro giro de guion.",
+    "Hacia 2008, Porsche intenta hacerse con el control de Volkswagen…",
+    "y termina siendo al revés."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "GRUPO VOLKSWAGEN"
+   },
+   "frases": [
+    "Hoy Porsche forma parte del Grupo Volkswagen.",
+    "La empresa que diseñó el Escarabajo acabó dentro de la familia del Escarabajo."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "híbrido",
+   "v": {
+    "foto": "p918",
+    "etiqueta": "Porsche 918 Spyder",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "HÍBRIDO"
+   },
+   "frases": [
+    "En la década de 2010, Porsche vuelve a mirar a la electricidad.",
+    "Primero con el 918 Spyder, un superdeportivo híbrido."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "p919",
+    "etiqueta": "Porsche 919 Hybrid · Le Mans 2016",
+    "texto": "",
+    "cred": "Foto: MrWalkr · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "3 VICTORIAS"
+   },
+   "frases": [
+    "Después con el 919 Hybrid, que gana Le Mans tres años seguidos, de 2015 a 2017."
+   ],
+   "clave": "2017"
+  },
+  {
+   "tipo": "foto",
+   "clave": "2015",
+   "v": {
+    "foto": "missione",
+    "etiqueta": "Porsche Mission E · 2015",
+    "texto": "",
+    "cred": "Foto: Rutger van der Maar · CC BY 2.0 (Wikimedia Commons)",
+    "sello": "2015"
+   },
+   "frases": [
+    "En 2015 enseña un prototipo eléctrico, el Mission E."
+   ]
+  },
+  {
+   "tipo": "foto",
+   "clave": "2019",
+   "v": {
+    "foto": "taycan",
+    "etiqueta": "Porsche Taycan · 2019",
+    "texto": "",
+    "cred": "Foto: Alexander Migl · CC BY-SA 4.0 (Wikimedia Commons)",
+    "sello": "2019"
+   },
+   "frases": [
+    "Y en 2019 lo convierte en realidad: el Taycan, su primer deportivo cien por cien eléctrico."
+   ]
+  },
+  {
+   "tipo": "sello",
+   "v": {
+    "titulo": "800 V · 'JOVEN CABALLO ENÉRGICO'"
+   },
+   "frases": [
+    "Usa una arquitectura de 800 voltios para cargar más rápido.",
+    "Y su nombre viene a significar algo así como 'joven caballo lleno de energía', como el caballo de su escudo."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1900",
+   "v": {
+    "valor": "1900",
+    "antes": "",
+    "texto": "1942 · 2015 · 2019"
+   },
+   "frases": [
+    "Y aquí se cierra el círculo.",
+    "Un coche eléctrico en 1900.",
+    "Un tanque con propulsión eléctrica en la guerra.",
+    "Un híbrido ganando Le Mans.",
+    "Y un deportivo eléctrico de serie en 2019."
+   ]
+  },
+  {
+   "tipo": "cifra",
+   "clave": "1900",
+   "v": {
+    "valor": "1900",
+    "antes": "",
+    "texto": "→ 2019"
+   },
+   "frases": [
+    "La idea que obsesionaba a Ferdinand Porsche tardó más de un siglo en encontrar la tecnología que necesitaba."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "EL PRIMER PORSCHE YA ERA ELÉCTRICO"
+   },
+   "frases": [
+    "Así que la próxima vez que alguien diga que un Porsche eléctrico no es un Porsche de verdad…",
+    "recuerda que el primero que diseñó Ferdinand ya lo era."
+   ],
+   "cap": true
+  },
+  {
+   "tipo": "foto",
+   "v": {
+    "foto": "porsche911",
+    "etiqueta": "Porsche 911 · 1966",
+    "texto": "",
+    "cred": "Foto: MrWalkr · CC BY-SA 4.0 (Wikimedia Commons)"
+   },
+   "frases": [
+    "Ahora te pregunto a ti: ¿Porsche debería ser cien por cien eléctrico, o el 911 tiene que seguir sonando como siempre?",
+    "Te leo en los comentarios."
+   ]
+  },
+  {
+   "tipo": "titular",
+   "v": {
+    "titulo": "PRÓXIMO DOMINGO: LAMBORGHINI"
+   },
+   "frases": [
+    "Si te ha gustado, suscríbete.",
+    "Cada domingo contamos la historia de una marca.",
+    "La semana pasada, Ferrari.",
+    "El próximo domingo, Lamborghini: un fabricante de tractores que, según la leyenda, quiso vengarse de Enzo Ferrari.",
+    "Nos vemos en el próximo vídeo."
+   ]
+  }
+ ]
+}
