@@ -44,7 +44,7 @@ header.scrolled{background:rgba(12,11,10,.84)!important;-webkit-backdrop-filter:
 /* =====================================================================
    1. ENTRADA CINEMATOGRÁFICA
    ===================================================================== */
-.cine{--n:7;position:relative;height:calc(var(--n) * 100vh + 40vh);background:#0a0a0a;padding:0!important}
+.cine{--n:6;position:relative;height:calc(var(--n) * 100vh + 40vh);background:#0a0a0a;padding:0!important}
 .cine-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate}
 .cf{position:absolute;inset:0;margin:0;transform-origin:var(--fx,50%) var(--fy,50%);will-change:transform,opacity;backface-visibility:hidden}
 .cf img{width:100%;height:100%;object-fit:cover;display:block}
@@ -249,3 +249,16 @@ footer{padding-top:34px!important}
 .cine-quieto .showroom,html:not(.js) .showroom{position:relative;inset:auto;display:flex;flex-wrap:wrap;gap:10px;padding:0 clamp(18px,5vw,72px) 12vh}
 .cine-quieto .sr-canvas,.cine-quieto .sr-shade,html:not(.js) .sr-canvas,html:not(.js) .sr-shade{display:none}
 .cine-quieto .car,html:not(.js) .car{position:static}
+
+/* recorrido 3D: el lienzo sustituye al póster en cuanto pinta el primer fotograma */
+.cine-3d{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1;opacity:0;transition:opacity 1.2s;touch-action:pan-y}
+.cine.con3d .cine-3d{opacity:1}
+.cf.cine-poster{z-index:0;transition:opacity 1.2s;pointer-events:none}
+.cine.con3d .cf.cine-poster{opacity:0}
+.cine-quieto .cine-3d,.cine.sin3d .cine-3d,html:not(.js) .cine-3d{display:none}
+.cine.sin3d .sr-shade{display:none}
+.cine.sin3d .showroom{top:auto;bottom:clamp(70px,10vh,110px);left:clamp(18px,5vw,72px);right:clamp(18px,5vw,72px);display:flex;flex-wrap:wrap;gap:10px}
+.cine.sin3d .car{position:static;transform:none!important}
+.cine.vivo.sin3d .showroom.on .car-tag{opacity:1}
+.cine-grade{opacity:calc(1 - var(--dim,0) * .55)}
+@media (max-width:760px){.cine-cred{display:none}}
