@@ -53,6 +53,12 @@ const nombre = m => `${m.mk} ${m.md}`;
 const FOTOS = JSON.parse(fs.readFileSync(path.join(ROOT, "assets", "modelos", "creditos.json"), "utf8"));
 const fotoHtml = (m, rel) => { const f = FOTOS[modelSlug(m)]; if (!f) return "";
   return `<figure class="foto"><img src="${rel}assets/modelos/${modelSlug(m)}.webp" width="640" height="400" alt="${esc(nombre(m))}" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(f.file)}" rel="noopener">${esc(f.author || "Wikimedia Commons")}</a> · ${esc(f.license)}</figcaption></figure>`; };
+// Fotos por generación (assets/modelos/gen/<slug>--<generación>.webp); si no hay, se usa la del modelo
+const GPATH = path.join(ROOT, "assets", "modelos", "creditos-gen.json");
+const GFOTOS = fs.existsSync(GPATH) ? JSON.parse(fs.readFileSync(GPATH, "utf8")) : {};
+const genKey = (m, g) => `${modelSlug(m)}--${slug(g.g)}`;
+const fotoGen = (m, g, rel, cls = "foto") => { const k = genKey(m, g), f = GFOTOS[k]; if (!f) return "";
+  return `<figure class="${cls}"><img src="${rel}assets/modelos/gen/${k}.webp" width="640" height="400" alt="${esc(nombre(m))} ${esc(g.g)} (${g.y[0]})" loading="lazy" decoding="async"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(f.file)}" rel="noopener">${esc(f.author || "Wikimedia Commons")}</a> · ${esc(f.license)}</figcaption></figure>`; };
 const ageOf = y => Math.max(0.25, NOW - (y + 0.5));
 const kmOf = (ver, y) => Math.min(100000, Math.round(FUEL[ver[2]].kmY * ageOf(y) / 5000) * 5000);
 const precio = (m, ver, y) => valueAt(m, ver, y, ageOf(y), kmOf(ver, y), 1).v;
@@ -69,7 +75,7 @@ function versiones(g) {
 const CSS = faces.join("\n") + `
 :root{--bg:#0f0f0e;--surface:#1a1a19;--surface-2:#232321;--line:#2c2c2a;--axis:#3a3a37;--ink:#f2f1ec;--ink-2:#bdbcb4;--ink-3:#8a897f;--accent:#e4ff4f;--on-accent:#0f0f0e;--disp:"Barlow Condensed",Inter,sans-serif;--hazard:repeating-linear-gradient(-45deg,var(--accent) 0 12px,#0f0f0e 12px 24px);color-scheme:dark}
 *{box-sizing:border-box}
-.foto{max-width:640px;margin:22px 0 26px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--surface);position:relative}.foto img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}.foto figcaption{position:absolute;right:0;bottom:0;max-width:100%;padding:3px 9px;font-size:11px;line-height:1.5;color:#e9e8e2;background:rgba(15,15,14,.72);border-top-left-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.foto figcaption a{color:inherit}
+.foto{max-width:640px;margin:22px 0 26px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--surface);position:relative}.foto img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}.foto figcaption{position:absolute;right:0;bottom:0;max-width:100%;padding:3px 9px;font-size:11px;line-height:1.5;color:#e9e8e2;background:rgba(15,15,14,.72);border-top-left-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.foto figcaption a{color:inherit}.foto.fg{max-width:420px;margin:10px 0 14px}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
@@ -182,7 +188,7 @@ for (const m of DB) {
     for (const v of g.v) for (let y = g.y[0]; y <= Math.min(g.y[1], 2026); y++){ const r = riskOf(m, g, v, y); if (r){ const a = avisos.get(r.t) || {r, vs: new Set(), y0: y, y1: y}; a.vs.add(v[0]); a.y0 = Math.min(a.y0, y); a.y1 = Math.max(a.y1, y); avisos.set(r.t, a); } }
     avisos.forEach(a => { const t = todosAvisos.get(a.r.t); if (!t) todosAvisos.set(a.r.t, {r: a.r, vs: new Set(a.vs), y0: a.y0, y1: a.y1}); else { a.vs.forEach(x => t.vs.add(x)); t.y0 = Math.min(t.y0, a.y0); t.y1 = Math.max(t.y1, a.y1); } });
     const avisoHtml = [...avisos.values()].map(a => `<div class="warn"><b>⚠ Cuidado: ${esc(a.r.t)}</b><span>Afecta a: ${esc([...a.vs].join(", "))} (${a.y0}–${a.y1})</span><p>${esc(a.r.d)}</p></div>`).join("");
-    return `<section class="gen"><h3>${esc(g.g)} (${g.y[0]}–${hasta})</h3><p>Precio de nuevo: ${vs.map(v => `${esc(v[0])} ${v[1]} CV, ${eur(v[3])}`).join(" · ")}</p>
+    return `<section class="gen"><h3>${esc(g.g)} (${g.y[0]}–${hasta})</h3>${gens.length > 1 ? fotoGen(m, g, "../../", "foto fg") : ""}<p>Precio de nuevo: ${vs.map(v => `${esc(v[0])} ${v[1]} CV, ${eur(v[3])}`).join(" · ")}</p>
 <div class="tbl"><table><thead><tr><th>Año</th><th>Km normales</th>${vs.map(v => `<th>${esc(v[0])}<br>${v[1]} CV · ${FUEL[v[2]].l}</th>`).join("")}</tr></thead><tbody>${filas}</tbody></table></div>${avisoHtml}</section>`;
   }).join("\n");
   const min = todos.reduce((a, b) => b.p < a.p ? b : a), max = todos.reduce((a, b) => b.p > a.p ? b : a);
@@ -208,7 +214,7 @@ for (const m of DB) {
   const body = `<p class="crumbs"><a href="../../">Par Motor</a> › <a href="../">Precios por modelo</a> › ${esc(n)}</p>
 <span class="tag">Precio de segunda mano · ${MES}</span>
 <h1>¿Cuánto vale un ${esc(n)} de segunda mano?</h1>
-${fotoHtml(m, "../../")}
+${(gens.length > 1 && fotoGen(m, gens[gens.length - 1], "../../").replace(' loading="lazy"', "")) || fotoHtml(m, "../../")}
 <p class="lead">Precio justo estimado de un ${esc(n)} usado en España, año por año, con los kilómetros normales para su edad y en buen estado: ${rango}. Para tasar el tuyo con sus kilómetros reales y su estado, usa el tasador gratis.</p>
 <div class="hl"><div><b>${eur(min.p)}</b><span>el más barato (${esc(min.v[0])}, ${min.y})</span></div><div><b>${eur(ultimo[0].p)}</b><span>uno de ${ultimo[0].y} (${esc(ultimo[0].v[0])})</span></div><div><b>${perdida ? `−${perdida} %` : gens.length}</b><span>${perdida ? "de valor al año, aprox." : "generaciones"}</span></div></div>
 <a class="btn" href="../../?mk=${encodeURIComponent(m.mk)}&amp;md=${encodeURIComponent(m.md)}&amp;y=${years[0]}#tasador">Tasar mi ${esc(m.md)} con mis datos →</a>
