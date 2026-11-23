@@ -111,7 +111,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
     wake();
   });
   scene.environmentIntensity = 1.0;
-  const hemi = new THREE.HemisphereLight(0xd7dde4, 0x4a4a3e, 1.1); scene.add(hemi);
+  const hemi = new THREE.HemisphereLight(0xd7dde4, 0x4a4a3e, 0.9); scene.add(hemi);
   // día cubierto: no hay sol directo (sólo la luz difusa del cielo de la foto)
 
   // ---------- encuadre final de los cuatro coches ----------
@@ -178,7 +178,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
 
   // ---------- aparcamiento y sala: espejo debajo (agua) + materiales encima con charcos ----------
   if (!movil) {
-    const mirror = new Reflector(new THREE.PlaneGeometry(X1 - X0 + 30, LOT - Z0 + 2), { textureWidth: 1280, textureHeight: 1280, color: 0x6c6c6c });
+    const mirror = new Reflector(new THREE.PlaneGeometry(X1 - X0 + 30, LOT - Z0 + 2), { textureWidth: 1280, textureHeight: 1280, color: 0x5a5a5a });
     mirror.rotation.x = -Math.PI / 2; mirror.position.set(CX, 0.002, (Z0 - 2 + LOT + 2) / 2); scene.add(mirror);
   }
   const capa = (x0, x1, z0, z1, mat, y) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(x1 - x0, z1 - z0), mat); m.rotation.x = -Math.PI / 2; m.position.set((x0 + x1) / 2, y, (z0 + z1) / 2); scene.add(m); return m; };
@@ -280,6 +280,23 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
     const x0 = X0 + 4; a.m.position.set(x0, HV + 2.9, F + 0.62); b.m.position.set(x0 + a.w + gap, HV + 2.9, F + 0.62);
     edificio.add(a.m, b.m);
     const c = letras('PAR MOTOR', rojo, 0.7); c.m.position.set(PW / 2 + 1.4, PH - 1.6, F + 0.62); edificio.add(c.m);
+    // tótem a la entrada del aparcamiento
+    const tot = new THREE.Group(); tot.position.set(39, 0, LOT - 3); tot.rotation.y = -0.35; scene.add(tot);
+    const tm = placa(1.8, 9.5); const cuerpo = new THREE.Mesh(new THREE.BoxGeometry(1.8, 9.5, 0.7), tm); cuerpo.position.y = 4.75; tot.add(cuerpo);
+    const p1 = letras('PAR', blanco, 0.42), p2 = letras('MOTOR', rojo, 0.3);
+    p1.m.position.set(-p1.w / 2, 8.15, 0.36); p2.m.position.set(-p2.w / 2, 7.45, 0.36);
+    tot.add(p1.m, p2.m);
+    const tl = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.04, 0.05), led); tl.position.set(0, 6.8, 0.37); tot.add(tl);
+    // logotipo retroiluminado en la pared del fondo de la sala (a la derecha, lejos del titular)
+    const lb = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xfff3e6).multiplyScalar(1.3), toneMapped: false });
+    const l1 = letras('PAR MOTOR', lb, 0.9); l1.m.position.set(X1 - 11 - l1.w, H - 4.4, Z0 + 0.1); edificio.add(l1.m);
+    // mostrador de recepción junto a la entrada
+    const mesaTop = new THREE.MeshPhysicalMaterial({ color: 0xf1efea, roughness: 0.15, clearcoat: 1, envMap: envSala });
+    const mesaFr = new THREE.MeshStandardMaterial({ color: 0x5b4636, roughness: 0.55, envMap: envSala });
+    const mx = -15, mz = F - 9;
+    const fr = new THREE.Mesh(new THREE.BoxGeometry(6, 1.05, 0.9), mesaFr); fr.position.set(mx, 0.53, mz); edificio.add(fr);
+    const tp = new THREE.Mesh(new THREE.BoxGeometry(6.2, 0.06, 1.1), mesaTop); tp.position.set(mx, 1.09, mz); edificio.add(tp);
+    const tira2 = new THREE.Mesh(new THREE.BoxGeometry(6, 0.03, 0.03), led); tira2.position.set(mx, 0.08, mz + 0.47); edificio.add(tira2);
   }
   // escaparate: cristal que refleja el cielo real y deja ver la sala iluminada
   const vidrio = new THREE.MeshPhysicalMaterial({ color: 0x9eabb6, transparent: true, opacity: 0.3, roughness: 0.02, metalness: 0.45, envMapIntensity: 2.6, depthWrite: false, side: THREE.DoubleSide });
@@ -301,12 +318,12 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
     caja(0.07, 3.7, 0.07, perfil, -PW / 2 - 1.6, 1.85, F + 0.75);
   }
   // interior: suelo de mármol con juntas, techo blanco con luminarias, pared del fondo oscura con líneas de luz
-  const marmol = new THREE.MeshStandardMaterial({ map: ptex('marmol_c.webp', [(X1 - X0) / 2.4, (F - Z0) / 2.4]), roughnessMap: ptex('marmol_r.webp', [(X1 - X0) / 2.4, (F - Z0) / 2.4], false), color: 0xd9d6d0, roughness: 0.25, metalness: 0, envMap: envSala, envMapIntensity: 0.5, transparent: !movil, opacity: movil ? 1 : 0.7, depthWrite: movil });
+  const marmol = new THREE.MeshStandardMaterial({ map: ptex('marmol_c.webp', [(X1 - X0) / 2.4, (F - Z0) / 2.4]), roughnessMap: ptex('marmol_r.webp', [(X1 - X0) / 2.4, (F - Z0) / 2.4], false), color: 0xc4c1bb, roughness: 0.25, metalness: 0, envMap: envSala, envMapIntensity: 0.4, transparent: !movil, opacity: movil ? 1 : 0.8, depthWrite: movil });
   capa(X0, X1, Z0, F, marmol, 0.012);
   { const t = tex(512, 512, (x, w) => { x.clearRect(0, 0, w, w); x.fillStyle = 'rgba(90,86,80,.55)'; x.fillRect(0, 0, w, 3); x.fillRect(0, 0, 3, w); }, [(X1 - X0) / 1.2, (F - Z0) / 1.2]);
     capa(X0, X1, Z0, F, new THREE.MeshBasicMaterial({ map: t, transparent: true, depthWrite: false }), 0.014); }
   const techo = new THREE.Group(); edificio.add(techo);
-  { const m = new THREE.Mesh(new THREE.PlaneGeometry(X1 - X0, F - Z0), new THREE.MeshStandardMaterial({ color: 0xe8e5df, roughness: 0.85, envMap: envSala })); m.rotation.x = Math.PI / 2; m.position.set(CX, H, (Z0 + F) / 2); techo.add(m); }
+  { const m = new THREE.Mesh(new THREE.PlaneGeometry(X1 - X0, F - Z0), new THREE.MeshStandardMaterial({ color: 0xcfccc6, roughness: 0.9, envMap: envSala })); m.rotation.x = Math.PI / 2; m.position.set(CX, H, (Z0 + F) / 2); techo.add(m); }
   {
     const luz = new THREE.MeshBasicMaterial({ color: new THREE.Color(0xfff3e2).multiplyScalar(1.25), toneMapped: false });
     const g = new THREE.BoxGeometry(1.1, 0.04, 1.1);
@@ -350,7 +367,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
   let fin = null, layout = 'h';
   const ruta3 = { pos: null, look: null };
   const KT = [0, 0.185, 0.37, 0.556, 0.665, 0.775, 0.93];
-  let composer = null, pelicula = null;
+  let composer = null, pelicula = null, bloomPass = null;
   const place = () => {
     const w = canvas.clientWidth || innerWidth, h = canvas.clientHeight || innerHeight, asp = w / Math.max(1, h);
     camera.aspect = asp;
@@ -377,7 +394,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
   if (!movil) {
     composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
-    composer.addPass(new UnrealBloomPass(new THREE.Vector2(512, 512), 0.22, 0.5, 0.96));
+    bloomPass = new UnrealBloomPass(new THREE.Vector2(512, 512), 0.22, 0.5, 0.96); composer.addPass(bloomPass);
     composer.addPass(new OutputPass());
     pelicula = new ShaderPass(Pelicula); composer.addPass(pelicula);
   }
@@ -464,7 +481,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
     for (let i = 0; i < (movil ? 6 : 14); i++) { const t = 0.06 + i * 0.045, p = ruta.getPoint(t), tg = ruta.getTangent(t), s = i % 2 ? 1 : -1; hoja.push([p.x - tg.z * 9 * s, p.z + tg.x * 9 * s, 0.85 + rng() * 0.35]); }
     [[X0 - 26, F - 6], [X0 - 30, F - 20], [X0 - 24, Z0 - 10], [X1 + 26, F - 4], [X1 + 30, Z0 + 4], [X1 + 22, Z0 - 14], [CX - 10, Z0 - 28], [CX + 14, Z0 - 30]].forEach(([x, z]) => hoja.push([x, z, 0.9 + rng() * 0.4]));
     if (!movil) [[X0 - 34, F + 14], [X1 + 34, F + 20], [X0 - 40, Z0 - 2], [X1 + 40, F - 14], [-60, LOT + 40], [70, LOT + 20]].forEach(([x, z]) => seco.push([x, z, 0.9 + rng() * 0.3]));
-    usar('arbol.glb', 10.5, hoja); if (seco.length) usar('desnudo.glb', 9, seco);
+    usar('desnudo.glb', 10, hoja.concat(seco));
   };
   (async () => { for (const i of [0, 1, 2, 3]) await cargar(i); room.classList.add('sr-listo'); aparcar(); plantar(); })();
 
@@ -536,6 +553,10 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
     sky.position.copy(camera.position);
     const dentro = camera.position.z < F && camera.position.x > X0 && camera.position.x < X1;
     scene.fog.density = 0.0016 + (0.0004 - 0.0016) * smooth(F + 3, F - 6, camera.position.z) * (camera.position.x > X0 && camera.position.x < X1 ? 1 : 0);
+    // como una cámara de verdad: al entrar en la sala iluminada baja la exposición
+    const ent = smooth(F + 2, F - 8, camera.position.z);
+    renderer.toneMappingExposure = 1.15 - ent * 0.3;
+    if (bloomPass) bloomPass.strength = 0.22 - ent * 0.1;
     const abre = smooth(F + 24, F + 7, camera.position.z);
     hojas.forEach(g => { g.position.x = g.userData.s * (DW / 2 + abre * DW * 0.98); });
     cubierta.visible = !(dentro && camera.position.y > FH - 0.5);
