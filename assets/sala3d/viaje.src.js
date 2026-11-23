@@ -598,7 +598,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
       sl.spot.intensity = (60 + sl.on * 90 + sl.hover * 190);
       if (sl.sombra) sl.sombra.material.opacity = 1 - sl.hover * 0.45;
       sl.pinturas.forEach(m => { m.emissiveIntensity = sl.hover * 0.05; });
-      if (soloSala && !activo()) { /* quietos mientras se funde el render: misma postura que en Blender */ }
+      if (soloSala && (!activo() || (estado.sala ?? 1) < 0.999)) { /* quietos mientras se funde el render: misma postura que en Blender */ }
       else if (!(drag && drag.i === i && drag.movido)) {
         const objetivo = sl.sentido * (0.12 + sl.hover * 0.7);
         sl.vel += (objetivo - sl.vel) * (1 - Math.exp(-dt * (Math.abs(sl.vel) > Math.abs(objetivo) ? 0.55 : 2.5)));

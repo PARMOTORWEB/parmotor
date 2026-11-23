@@ -50,14 +50,18 @@
   const SEQ_N = seqCv ? +(SEQ_V ? seqCv.dataset.nV : seqCv.dataset.n) : 0, SEQ_FIN = seqCv ? +seqCv.dataset.fin : 1, SEQ_DIR = seqCv ? (SEQ_V ? seqCv.dataset.dirV : seqCv.dataset.dir) : '';
   const salaFin = p => smooth(SEQ_FIN, SEQ_FIN + 0.04, p); // fundido del último fotograma a la sala interactiva
   const fotos = new Array(SEQ_N); let seqP = -1, seqPend = false, salaIm = null;
-  const sx = seqCv && seqCv.getContext('2d');
+  const sx = seqCv && seqCv.getContext('2d', { alpha: false });
   const seqSize = () => { if (!seqCv) return; const d = Math.min(devicePixelRatio || 1, 1.25); seqCv.width = Math.round(seqCv.clientWidth * d); seqCv.height = Math.round(seqCv.clientHeight * d); seqP = -1; };
   const cercana = i => { for (let k = 0; k < SEQ_N; k++) { if (fotos[i - k] && fotos[i - k].ok) return fotos[i - k]; if (fotos[i + k] && fotos[i + k].ok) return fotos[i + k]; } return null; };
-  const pinta = (im, a) => { const W = seqCv.width, H = seqCv.height, s = Math.max(W / im.naturalWidth, H / im.naturalHeight), w = im.naturalWidth * s, h = im.naturalHeight * s; sx.globalAlpha = a; sx.drawImage(im, (W - w) / 2, (H - h) / 2, w, h); };
+  const pinta = (im, a) => { const W = seqCv.width, H = seqCv.height, s = Math.max(W / im.naturalWidth, H / im.naturalHeight), w = im.naturalWidth * s, h = im.naturalHeight * s; sx.globalAlpha = a; sx.drawImage(im.bm || im, (W - w) / 2, (H - h) / 2, w, h); };
+  // los fotogramas cercanos a la posición actual se guardan ya descodificados en la GPU (ImageBitmap): dibujarlos no cuesta nada
+  let actual = 0; const VENT = 8;
+  const ventana = () => { for (let j = 0; j < SEQ_N; j++) { const im = fotos[j]; if (!im || !im.ok) continue; const cerca = Math.abs(j - actual) <= VENT; if (cerca && !im.bm && !im.pide && window.createImageBitmap) { im.pide = true; createImageBitmap(im).then(bm => { im.pide = false; if (Math.abs(j - actual) <= VENT + 2) im.bm = bm; else bm.close(); }, () => { im.pide = false; }); } else if (!cerca && im.bm && Math.abs(j - actual) > VENT + 2) { im.bm.close(); im.bm = null; } } };
   const dibujaSeq = p => {
     if (!seqCv || (p === seqP && !seqPend)) return; seqP = p; seqPend = false;
     // fotograma más cercano, sin fundidos entre fotogramas (mezclar dos fotogramas distintos deja doble imagen)
     const i = Math.round(clamp(p / SEQ_FIN) * (SEQ_N - 1));
+    if (i !== actual) { actual = i; ventana(); }
     const A = (fotos[i] && fotos[i].ok) ? fotos[i] : cercana(i);
     if (!A) return;
     pinta(A, 1);
@@ -70,19 +74,25 @@
   let seqObj = 0, seqVis = -1, seqRaf = 0, seqT = 0;
   const pasoSeq = now => {
     seqRaf = 0; const dt = Math.min(0.05, (now - (seqT || now)) / 1000); seqT = now;
-    seqVis = seqVis < 0 ? seqObj : seqVis + (seqObj - seqVis) * (1 - Math.exp(-dt * 9));
+    seqVis = seqVis < 0 ? seqObj : seqVis + (seqObj - seqVis) * (1 - Math.exp(-dt * 12));
     if (Math.abs(seqObj - seqVis) < 0.0002) seqVis = seqObj;
-    dibujaSeq(seqVis); sec.style.setProperty('--sala', salaFin(seqVis).toFixed(3));
+    dibujaSeq(seqVis); estado.sala = salaFin(seqVis); sec.style.setProperty('--sala', estado.sala.toFixed(3)); viaje && viaje.wake();
     if (seqVis !== seqObj) seqRaf = requestAnimationFrame(pasoSeq); else seqT = 0;
   };
   const anima = () => { if (!seqRaf && seqCv) seqRaf = requestAnimationFrame(pasoSeq); };
   if (seqCv && !RM.matches) {
-    // orden de carga: primero fotogramas salteados (se ve todo el recorrido enseguida) y luego el resto
-    const orden = []; [32, 16, 8, 4, 2, 1].forEach(st => { for (let i = 0; i < SEQ_N; i += st) if (!orden.includes(i)) orden.push(i); });
-    if (!orden.includes(SEQ_N - 1)) orden.splice(1, 0, SEQ_N - 1);
+    // orden de carga: primero unos pocos fotogramas salteados (se ve todo el recorrido enseguida);
+    // después, siempre el que falte más cerca de donde está el usuario, con preferencia hacia delante
+    const salteados = []; [32, 16, 8].forEach(st => { for (let i = 0; i < SEQ_N; i += st) if (!salteados.includes(i)) salteados.push(i); });
+    salteados.splice(1, 0, SEQ_N - 1);
+    const siguiente = () => {
+      while (salteados.length) { const i = salteados.shift(); if (!fotos[i]) return i; }
+      for (let d = 0; d < SEQ_N; d++) { for (const i of [actual + d, actual - d]) if (i >= 0 && i < SEQ_N && !fotos[i]) return i; }
+      return -1;
+    };
     // cada fotograma se descodifica antes de usarlo, para que dibujarlo al hacer scroll no dé tirones
-    let k = 0; const sig = () => { if (k >= orden.length) return; const i = orden[k++]; const im = new Image(); im.src = `${SEQ_DIR}/f${String(i).padStart(3, '0')}.webp`; fotos[i] = im; const listo = () => { im.ok = true; seqPend = true; anima(); sig(); }; im.decode().then(listo, () => { if (im.complete && im.naturalWidth) listo(); else sig(); }); };
-    for (let c = 0; c < 4; c++) sig();
+    const sig = () => { const i = siguiente(); if (i < 0) return; const im = new Image(); im.src = `${SEQ_DIR}/f${String(i).padStart(3, '0')}.webp`; fotos[i] = im; const listo = () => { im.ok = true; seqPend = true; ventana(); anima(); sig(); }; im.decode().then(listo, () => { if (im.complete && im.naturalWidth) listo(); else sig(); }); };
+    for (let c = 0; c < 6; c++) sig();
     salaIm = new Image(); salaIm.src = `${SEQ_DIR}/sala.webp`; salaIm.decode().then(() => { salaIm.ok = true; seqPend = true; anima(); }, () => { });
   }
 
@@ -136,7 +146,7 @@
     scrollTo({ top, behavior: 'smooth' });
   }));
   // la escena 3D (three.js, el concesionario y los coches) se carga aparte
-  import('./sala3d/viaje.js')
+  import('./sala3d/viaje.js?v=7')
     .then(m => { viaje = m.iniciarViaje({ sec, canvas: canvas3d, room, base: 'assets/sala3d/', estado, soloSala: !!seqCv && !RM.matches, vertical: SEQ_V }); if (!viaje) sec.classList.add('sin3d'); })
     .catch(() => sec.classList.add('sin3d'));
 })();

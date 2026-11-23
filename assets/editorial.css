@@ -36,7 +36,7 @@ h1 em,h2 em,h3 em,.ser{font-family:var(--serif);font-style:italic!important;font
 
 /* ---------- cabecera ---------- */
 header{background:linear-gradient(rgba(12,11,10,.72),rgba(12,11,10,0))!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border-bottom:0!important;transition:background .4s}
-header.scrolled{background:rgba(12,11,10,.84)!important;-webkit-backdrop-filter:blur(12px)!important;backdrop-filter:blur(12px)!important}
+header.scrolled{background:rgba(12,11,10,.93)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 .logo{font-family:var(--wide)!important;font-stretch:125%;font-style:normal!important;font-size:17px!important;letter-spacing:.06em!important}
 .nav ul a{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
 .nav ul a.on{background:transparent!important;color:var(--ink)!important;box-shadow:inset 0 -1px 0 var(--ink)}
@@ -50,7 +50,7 @@ header.scrolled{background:rgba(12,11,10,.84)!important;-webkit-backdrop-filter:
 .cf img{width:100%;height:100%;object-fit:cover;display:block}
 .cf picture{display:contents}
 .cf:first-child{z-index:2}
-.cine-rain{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none;mix-blend-mode:screen}
+.cine-rain{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
 .cine-grade{position:absolute;inset:0;z-index:5;pointer-events:none;background:
   radial-gradient(120% 90% at 50% 40%,transparent 45%,rgba(0,0,0,.55) 100%),
   linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 22%,transparent 55%,rgba(0,0,0,.72) 100%)}
@@ -264,7 +264,8 @@ footer{padding-top:34px!important}
 .cine-grade{opacity:calc(1 - var(--dim,0) * .55)}
 @media (max-width:760px){.cine-cred{display:none}}
 /* recorrido renderizado: fotogramas en un lienzo 2D; la sala 3D interactiva aparece al final */
-.cine-seq{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none}
+.cine-seq{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none;visibility:hidden}
+.cine.conseq .cine-seq{visibility:visible}
 .cine .cine-3d{z-index:2}
 .cine.conseq .cine-3d{opacity:max(var(--sala,0),.002)!important;transition:none}
 .cine.conseq .cf.cine-poster{opacity:0}
