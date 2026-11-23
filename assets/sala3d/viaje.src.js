@@ -631,6 +631,8 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
     slots.forEach(s => s.g.children.forEach(c => { if (c.isMesh && c !== s.halo && c !== s.disco) c.visible = false; }));
   }
   place();
+  // las etiquetas de cada coche no esperan a que carguen los modelos: su sitio ya se conoce
+  room.classList.add('sr-listo');
   addEventListener('resize', () => { place(); wake(); });
   wake();
   return { wake };
