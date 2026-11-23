@@ -573,7 +573,9 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
     if (soloSala) {
       // misma cámara que el render de Blender y el mismo recorte que la foto de fondo (cubre la pantalla)
       const fH = Math.max(h, w / REF), fW = fH * REF;
-      camera.fov = fin.fov; camera.setViewOffset(fW, fH, (fW - w) / 2, (fH - h) / 2 + fin.off * fH, w, h);
+      // en Blender el desplazamiento vertical se aplicó en fracción del lado mayor: en horizontal equivale a off / proporción
+      const offR = fin.off * (REF >= 1 ? 1 / REF : 1);
+      camera.fov = fin.fov; camera.setViewOffset(fW, fH, (fW - w) / 2, (fH - h) / 2 + offR * fH, w, h);
     } else camera.setViewOffset(w, h, 0, fin.off * h * enSala, w, h);
     camera.updateProjectionMatrix();
     sky.position.copy(camera.position);

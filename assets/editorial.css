@@ -270,3 +270,21 @@ footer{padding-top:34px!important}
 .cine.conseq .cine-3d{opacity:max(var(--sala,0),.002)!important;transition:none}
 .cine.conseq .cf.cine-poster{opacity:0}
 .cine-quieto .cine-seq,html:not(.js) .cine-seq{display:none}
+
+/* la sala es la única puerta: el scroll se detiene en los coches y cada coche abre su apartado */
+body.puerta main > :not(.cine):not(.ap-on){display:none!important}
+body.puerta .firma{display:none}
+body.puerta:not(.en-apartado) footer{display:none}
+body.puerta.en-apartado .cine{display:none!important}
+body.puerta.en-apartado main{padding-top:clamp(40px,6vh,80px)}
+.ap-volver{display:none;position:fixed;z-index:40;left:clamp(12px,3vw,40px);top:84px;align-items:center;gap:8px;padding:10px 16px 10px 13px;border-radius:999px;border:1px solid rgba(233,201,143,.55);background:rgba(16,15,13,.9);color:#f6f2ea;font:600 11px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.35);transition:background .25s,border-color .25s}
+.ap-volver span{font-size:14px;letter-spacing:0;transition:transform .25s}
+.ap-volver:hover,.ap-volver:focus-visible{background:#1d1b18;border-color:#e9c98f;outline:none}
+.ap-volver:hover span{transform:translateX(-3px)}
+body.en-apartado .ap-volver{display:inline-flex}
+@media (max-width:760px){.ap-volver{top:auto;bottom:16px;left:16px}}
+.sr-legal{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:14px;pointer-events:auto;font:500 10px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity .6s .9s;white-space:nowrap}
+.sr-legal a{color:rgba(246,242,234,.6);text-decoration:none}
+.sr-legal a:hover,.sr-legal a:focus-visible{color:#f6f2ea;text-decoration:underline}
+.cine.vivo .showroom.on .sr-legal{opacity:1}
+.cine-quieto .sr-legal,html:not(.js) .sr-legal,.cine.sin3d .sr-legal{position:static;transform:none;opacity:1;width:100%}
