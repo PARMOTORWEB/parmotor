@@ -45,8 +45,11 @@
 
   // ---------- recorrido renderizado (Blender Cycles): fotogramas que avanzan con el scroll ----------
   const seqCv = sec.querySelector('.cine-seq');
-  const SEQ_N = seqCv ? +seqCv.dataset.n : 0, SEQ_FIN = seqCv ? +seqCv.dataset.fin : 1, SEQ_DIR = seqCv ? seqCv.dataset.dir : '';
-  const fotos = new Array(SEQ_N); let seqP = -1, seqPend = false;
+  // en pantallas verticales (móvil) hay otra tanda de fotogramas, encuadrada en vertical
+  const SEQ_V = !!(seqCv && seqCv.dataset.dirV && innerWidth / innerHeight < 0.9);
+  const SEQ_N = seqCv ? +(SEQ_V ? seqCv.dataset.nV : seqCv.dataset.n) : 0, SEQ_FIN = seqCv ? +seqCv.dataset.fin : 1, SEQ_DIR = seqCv ? (SEQ_V ? seqCv.dataset.dirV : seqCv.dataset.dir) : '';
+  const salaFin = p => smooth(SEQ_FIN, SEQ_FIN + 0.04, p); // fundido del último fotograma a la sala interactiva
+  const fotos = new Array(SEQ_N); let seqP = -1, seqPend = false, salaIm = null;
   const sx = seqCv && seqCv.getContext('2d');
   const seqSize = () => { if (!seqCv) return; const d = Math.min(devicePixelRatio || 1, 1.5); seqCv.width = Math.round(seqCv.clientWidth * d); seqCv.height = Math.round(seqCv.clientHeight * d); seqP = -1; };
   const cercana = i => { for (let k = 0; k < SEQ_N; k++) { if (fotos[i - k] && fotos[i - k].ok) return fotos[i - k]; if (fotos[i + k] && fotos[i + k].ok) return fotos[i + k]; } return null; };
@@ -56,7 +59,10 @@
     const f = clamp(p / SEQ_FIN) * (SEQ_N - 1), i = Math.floor(f), a = f - i;
     const A = (fotos[i] && fotos[i].ok) ? fotos[i] : cercana(i), Bm = fotos[i + 1] && fotos[i + 1].ok ? fotos[i + 1] : null;
     if (!A) return;
-    pinta(A, 1); if (Bm && a > 0.01) pinta(Bm, a); sx.globalAlpha = 1;
+    pinta(A, 1); if (Bm && a > 0.01) pinta(Bm, a);
+    // al final: la sala vacía (fotografía renderizada) y encima, en 3D, los cuatro coches que se pueden girar
+    const k = salaFin(p); if (salaIm && salaIm.ok && k > 0.001) pinta(salaIm, k);
+    sx.globalAlpha = 1;
     if (!sec.classList.contains('conseq')) sec.classList.add('conseq');
   };
   if (seqCv && !RM.matches) {
@@ -65,6 +71,7 @@
     if (!orden.includes(SEQ_N - 1)) orden.splice(1, 0, SEQ_N - 1);
     let k = 0; const sig = () => { if (k >= orden.length) return; const i = orden[k++]; const im = new Image(); im.decoding = 'async'; im.onload = () => { im.ok = true; seqPend = true; dibujaSeq(estado.p); sig(); }; im.onerror = sig; im.src = `${SEQ_DIR}/f${String(i).padStart(3, '0')}.webp`; fotos[i] = im; };
     for (let c = 0; c < 4; c++) sig();
+    salaIm = new Image(); salaIm.decoding = 'async'; salaIm.onload = () => { salaIm.ok = true; seqPend = true; dibujaSeq(estado.p); }; salaIm.src = `${SEQ_DIR}/sala.webp`;
   }
 
   // ---------- scroll ----------
@@ -96,7 +103,7 @@
     cv.style.opacity = wet.toFixed(3);
     sec.style.setProperty('--p', p.toFixed(4));
     dibujaSeq(p);
-    sec.style.setProperty('--sala', smooth(SEQ_FIN - 0.05, SEQ_FIN - 0.005, p).toFixed(3));
+    sec.style.setProperty('--sala', salaFin(p).toFixed(3));
     sec.style.setProperty('--dim', smooth(N - 1.45, N - 0.95, u).toFixed(3));
     kick();
     viaje && viaje.wake();
@@ -119,6 +126,6 @@
   }));
   // la escena 3D (three.js, el concesionario y los coches) se carga aparte
   import('./sala3d/viaje.js')
-    .then(m => { viaje = m.iniciarViaje({ sec, canvas: canvas3d, room, base: 'assets/sala3d/', estado, soloSala: !!seqCv }); if (!viaje) sec.classList.add('sin3d'); })
+    .then(m => { viaje = m.iniciarViaje({ sec, canvas: canvas3d, room, base: 'assets/sala3d/', estado, soloSala: !!seqCv && !RM.matches, vertical: SEQ_V }); if (!viaje) sec.classList.add('sin3d'); })
     .catch(() => sec.classList.add('sin3d'));
 })();

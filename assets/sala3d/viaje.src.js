@@ -50,11 +50,11 @@ const Pelicula = {
     }`,
 };
 
-export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false }) {
+export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false, vertical = false }) {
   // soloSala: el recorrido exterior ya viene renderizado en fotogramas; aquí sólo hace falta la sala interactiva
   const tags = [...room.querySelectorAll('.car')];
   let renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' }); }
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: soloSala, powerPreference: 'high-performance' }); }
   catch (e) { return null; }
   const movil = matchMedia('(max-width: 760px)').matches || matchMedia('(pointer: coarse)').matches;
   const DPR = Math.min(devicePixelRatio || 1, movil ? 1.4 : 1.6);
@@ -68,13 +68,14 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
   const scene = new THREE.Scene();
   const FOG = new THREE.Color(0x9aa1a6);
   scene.fog = new THREE.FogExp2(FOG, 0.0016);
-  scene.background = FOG;
+  scene.background = soloSala ? null : FOG;
+  if (soloSala) renderer.setClearColor(0x000000, 0);
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 3000);
   const warm = new THREE.Color(0xffe2b8);
   const R = 2.85;
   const loaderTex = new THREE.TextureLoader();
   const blanca = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1); blanca.needsUpdate = true;
-  const ptex = (f, rep, srgb = true) => { if (soloSala && /hierba|asfalto|hormigon/.test(f)) return blanca.clone(); const t = loaderTex.load(T + f, () => wake()); t.wrapS = t.wrapT = THREE.RepeatWrapping; if (rep) t.repeat.set(rep[0], rep[1]); t.anisotropy = maxAniso; if (srgb) t.colorSpace = THREE.SRGBColorSpace; return t; };
+  const ptex = (f, rep, srgb = true) => { if (soloSala) return blanca.clone(); const t = loaderTex.load(T + f, () => wake()); t.wrapS = t.wrapT = THREE.RepeatWrapping; if (rep) t.repeat.set(rep[0], rep[1]); t.anisotropy = maxAniso; if (srgb) t.colorSpace = THREE.SRGBColorSpace; return t; };
   const tex = (w, h, draw, rep) => { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; if (rep) t.repeat.set(rep[0], rep[1]); t.anisotropy = maxAniso; return t; };
 
   // ---------- cielo: fotografía panorámica real ----------
@@ -99,7 +100,13 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
   scene.add(sky);
   if (!soloSala) loaderTex.load(T + (movil ? 'cielo-m.jpg' : 'cielo.jpg'), t => { t.colorSpace = THREE.SRGBColorSpace; t.wrapS = THREE.RepeatWrapping; t.anisotropy = maxAniso; skyMat.uniforms.map.value = t; wake(); });
   const pm = new THREE.PMREMGenerator(renderer);
-  const envSala = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+  let envSala = pm.fromScene(new RoomEnvironment(), 0.04).texture;
+  const salaMats = [];
+  // con la sala renderizada, los coches reflejan esa misma sala (panorama hecho en Blender desde el centro)
+  if (soloSala) loaderTex.load(T + 'sala-env.jpg', t => {
+    t.mapping = THREE.EquirectangularReflectionMapping; t.colorSpace = THREE.SRGBColorSpace;
+    envSala = pm.fromEquirectangular(t).texture; salaMats.forEach(m => { m.envMap = envSala; m.needsUpdate = true; }); wake();
+  });
   let envCielo = envSala;
   const exteriores = []; // materiales que deben reflejar el cielo real cuando cargue
   if (!soloSala) loaderTex.load(T + 'cielo-env.jpg', t => {
@@ -378,13 +385,14 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
 
   // ---------- encuadre y recorrido de la cámara ----------
   let fin = null, layout = 'h';
+  const REF = vertical ? 0.45 : 16 / 9; // proporción de los fotogramas renderizados
   const ruta3 = { pos: null, look: null };
   const KT = [0, 0.185, 0.37, 0.556, 0.665, 0.775, 0.93];
   let composer = null, pelicula = null, bloomPass = null;
   const place = () => {
     const w = canvas.clientWidth || innerWidth, h = canvas.clientHeight || innerHeight, asp = w / Math.max(1, h);
-    camera.aspect = asp;
-    fin = encuadre(asp, w, h); layout = asp < 0.9 ? 'v' : 'h';
+    camera.aspect = soloSala ? REF : asp;
+    fin = encuadre(soloSala ? REF : asp, w, h); layout = (soloSala ? REF : asp) < 0.9 ? 'v' : 'h';
     fin.L.pos.forEach(([x, z], i) => slots[i].g.position.set(x, 0, z));
     const v = layout === 'v', k = v ? 1.25 : 1;
     const pos = [[78 * k, 24, F + 118 * k], [44, 9, F + 74], [16, 3.4, F + 36], [0, 2.6, F + 19], [0, 2.3, F + 4], [v ? 0 : -1.5, v ? 4.2 : 3.0, F - 5], [fin.pos.x, fin.pos.y, fin.pos.z]];
@@ -404,7 +412,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
     return s;
   };
   // posproceso (sólo en ordenador): brillo suave en las luces, grano y viñeta
-  if (!movil) {
+  if (!movil && !soloSala) {
     composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
     bloomPass = new UnrealBloomPass(new THREE.Vector2(512, 512), 0.22, 0.5, 0.96); composer.addPass(bloomPass);
@@ -445,17 +453,17 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
         } else if (M.cristal && M.cristal.includes(m.name)) {
           n = new THREE.MeshPhysicalMaterial({ color: 0x0a0c0f, metalness: 0.3, roughness: 0.04, transparent: true, opacity: 0.86 });
         } else n = m.clone();
-        if (fuera) { n.envMap = envCielo; exteriores.push(n); } else n.envMap = envSala;
-        n.envMapIntensity = 1.1;
+        if (fuera) { n.envMap = envCielo; exteriores.push(n); } else { n.envMap = envSala; salaMats.push(n); }
+        n.envMapIntensity = soloSala ? 1.6 : 1.1;
         cache.set(m, n); return n;
       });
       o.material = Array.isArray(o.material) ? nuevos : nuevos[0];
     });
     return pinturas;
   };
-  const sombra = (sz, o = 1) => { const sh = new THREE.Mesh(new THREE.PlaneGeometry(sz.x * 1.25, sz.z * 1.18), new THREE.MeshBasicMaterial({ map: sombraTex, transparent: true, depthWrite: false, toneMapped: false, opacity: o })); sh.rotation.x = -Math.PI / 2; sh.position.y = 0.02; sh.renderOrder = 2; return sh; };
+  const sombra = (sz, o = 1) => { const [kx, kz] = soloSala ? [1.02, Math.min(1, R * 1.7 / sz.z)] : [1.25, 1.18]; const sh = new THREE.Mesh(new THREE.PlaneGeometry(sz.x * kx, sz.z * kz), new THREE.MeshBasicMaterial({ map: sombraTex, transparent: true, depthWrite: false, toneMapped: false, opacity: o })); sh.rotation.x = -Math.PI / 2; sh.position.y = 0.02; sh.renderOrder = 2; return sh; };
   const gltfs = [];
-  const cargar = i => new Promise(res => loader.load(base + MODELOS[i].f, g => { gltfs[i] = g; const s = slots[i]; const { holder, sz } = normaliza(g.scene.clone(true), s.M.largo); s.pinturas = materiales(holder, s.M, i, undefined, false); const sh = sombra(sz); s.sombra = sh; s.turn.add(holder, sh); s.car = holder; s.plat.userData.slot = i; res(); }, undefined, () => res()));
+  const cargar = i => new Promise(res => loader.load(base + MODELOS[i].f, g => { gltfs[i] = g; const s = slots[i]; const { holder, sz } = normaliza(g.scene.clone(true), s.M.largo); s.pinturas = materiales(holder, s.M, i, undefined, false); const sh = sombra(sz); s.sombra = sh; s.turn.add(holder, sh); if (soloSala) { sh.visible = false; holder.traverse(o => { if (o.isMesh) o.castShadow = true; }); renderer.shadowMap.needsUpdate = true; } s.car = holder; s.plat.userData.slot = i; res(); }, undefined, () => res()));
   const aparcar = () => {
     APARCADOS.slice(0, movil ? 3 : APARCADOS.length).forEach(a => {
       const g = gltfs[a.m]; if (!g) return;
@@ -554,22 +562,26 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
     const dt = Math.min(0.05, (now - (last || now)) / 1000); last = now;
     if (soloSala && estado.p < 0.86 && !primero) return; // aún se ven los fotogramas renderizados
     const w = canvas.clientWidth, h = canvas.clientHeight;
-    const tObj = clamp(estado.p);
+    const tObj = soloSala ? 1 : clamp(estado.p);
     tSuave = tSuave < 0 || SALTO ? tObj : tSuave + (tObj - tSuave) * (1 - Math.exp(-dt * 7));
     const t = tSuave;
     poseEn(t, tP, tL);
     const enSala = smooth(KT[5], KT[6], t);
-    if (activo() && !drag) { tP.x += px * (layout === 'h' ? 2.0 : 0.9) * enSala; tP.y -= py * 0.7 * enSala; }
+    if (activo() && !drag && !soloSala) { tP.x += px * (layout === 'h' ? 2.0 : 0.9) * enSala; tP.y -= py * 0.7 * enSala; }
     camera.position.copy(tP); camera.lookAt(tL);
     camera.fov = 38 + (fin.fov - 38) * enSala;
-    camera.setViewOffset(w, h, 0, fin.off * h * enSala, w, h);
+    if (soloSala) {
+      // misma cámara que el render de Blender y el mismo recorte que la foto de fondo (cubre la pantalla)
+      const fH = Math.max(h, w / REF), fW = fH * REF;
+      camera.fov = fin.fov; camera.setViewOffset(fW, fH, (fW - w) / 2, (fH - h) / 2 + fin.off * fH, w, h);
+    } else camera.setViewOffset(w, h, 0, fin.off * h * enSala, w, h);
     camera.updateProjectionMatrix();
     sky.position.copy(camera.position);
     const dentro = camera.position.z < F && camera.position.x > X0 && camera.position.x < X1;
     scene.fog.density = 0.0016 + (0.0004 - 0.0016) * smooth(F + 3, F - 6, camera.position.z) * (camera.position.x > X0 && camera.position.x < X1 ? 1 : 0);
     // como una cámara de verdad: al entrar en la sala iluminada baja la exposición
     const ent = smooth(F + 2, F - 8, camera.position.z);
-    renderer.toneMappingExposure = 1.15 - ent * 0.3;
+    renderer.toneMappingExposure = soloSala ? 1.05 : 1.15 - ent * 0.3;
     if (bloomPass) bloomPass.strength = 0.22 - ent * 0.1;
     const abre = smooth(F + 24, F + 7, camera.position.z);
     hojas.forEach(g => { g.position.x = g.userData.s * (DW / 2 + abre * DW * 0.98); });
@@ -582,11 +594,12 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
       sl.hover += ((hov === i ? 1 : 0) - sl.hover) * 0.1;
       const lit = 0.25 + sl.on * (0.5 + sl.hover * 0.5);
       sl.ringMat.color.copy(warm).multiplyScalar(0.25 + lit * 2.2);
-      sl.halo.material.opacity = lit * 0.55 + sl.hover * 0.25;
+      sl.halo.material.opacity = soloSala ? sl.hover * 0.4 : lit * 0.55 + sl.hover * 0.25;
       sl.spot.intensity = (60 + sl.on * 90 + sl.hover * 190);
       if (sl.sombra) sl.sombra.material.opacity = 1 - sl.hover * 0.45;
       sl.pinturas.forEach(m => { m.emissiveIntensity = sl.hover * 0.05; });
-      if (!(drag && drag.i === i && drag.movido)) {
+      if (soloSala && !activo()) { /* quietos mientras se funde el render: misma postura que en Blender */ }
+      else if (!(drag && drag.i === i && drag.movido)) {
         const objetivo = sl.sentido * (0.12 + sl.hover * 0.7);
         sl.vel += (objetivo - sl.vel) * (1 - Math.exp(-dt * (Math.abs(sl.vel) > Math.abs(objetivo) ? 0.55 : 2.5)));
         sl.rot += sl.vel * dt;
@@ -603,6 +616,20 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
     if (estado.visible) raf = requestAnimationFrame(frame);
   };
   const wake = () => { if (!raf && estado.visible) { last = 0; raf = requestAnimationFrame(frame); } };
+  if (soloSala) {
+    // sombra de verdad de cada coche sobre su plataforma (luz cenital, recortada al disco)
+    renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap; renderer.shadowMap.autoUpdate = true;
+    const cen = new THREE.DirectionalLight(0xffffff, 0); cen.castShadow = true;
+    const cx = slots.reduce((a, s) => a + s.g.position.x, 0) / 4, cz = slots.reduce((a, s) => a + s.g.position.z, 0) / 4;
+    cen.position.set(cx + 1.5, 30, cz + 2.5); cen.target.position.set(cx, 0, cz); scene.add(cen, cen.target);
+    Object.assign(cen.shadow.camera, { left: -16, right: 16, top: 16, bottom: -16, near: 1, far: 60 }); cen.shadow.mapSize.set(2048, 2048); cen.shadow.radius = 6; cen.shadow.blurSamples = 16; cen.shadow.bias = -0.0005;
+    // la luz no ilumina (intensidad 0) pero ShadowMaterial necesita su sombra: se usa una segunda luz casi nula
+    cen.intensity = 0.001;
+    slots.forEach(s => { const d = new THREE.Mesh(new THREE.CircleGeometry(R - 0.03, 96), new THREE.ShadowMaterial({ opacity: 0.55, transparent: true, depthWrite: false })); d.rotation.x = -Math.PI / 2; d.position.y = 0.295; d.receiveShadow = true; d.renderOrder = 1; s.g.add(d); s.disco = d; });
+    // sólo se dibujan los coches (y su sombra); la sala y las plataformas ya están en la foto renderizada
+    scene.children.forEach(c => { if (!c.isLight && !slots.some(s => s.g === c)) c.visible = false; });
+    slots.forEach(s => s.g.children.forEach(c => { if (c.isMesh && c !== s.halo && c !== s.disco) c.visible = false; }));
+  }
   place();
   addEventListener('resize', () => { place(); wake(); });
   wake();
