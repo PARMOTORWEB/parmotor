@@ -51,11 +51,12 @@
   const salaFin = p => smooth(SEQ_FIN, SEQ_FIN + 0.04, p); // fundido del último fotograma a la sala interactiva
   const fotos = new Array(SEQ_N); let seqP = -1, seqPend = false, salaIm = null;
   const sx = seqCv && seqCv.getContext('2d', { alpha: false });
-  const seqSize = () => { if (!seqCv) return; const d = Math.min(devicePixelRatio || 1, 1.25); seqCv.width = Math.round(seqCv.clientWidth * d); seqCv.height = Math.round(seqCv.clientHeight * d); seqP = -1; };
+  // el lienzo va a la resolución real de la pantalla (hasta 2×): los fotogramas son de 1080p y se ven nítidos
+  const seqSize = () => { if (!seqCv) return; const d = Math.min(devicePixelRatio || 1, 2); seqCv.width = Math.round(seqCv.clientWidth * d); seqCv.height = Math.round(seqCv.clientHeight * d); sx.imageSmoothingEnabled = true; sx.imageSmoothingQuality = 'high'; seqP = -1; };
   const cercana = i => { for (let k = 0; k < SEQ_N; k++) { if (fotos[i - k] && fotos[i - k].ok) return fotos[i - k]; if (fotos[i + k] && fotos[i + k].ok) return fotos[i + k]; } return null; };
   const pinta = (im, a) => { const W = seqCv.width, H = seqCv.height, s = Math.max(W / im.naturalWidth, H / im.naturalHeight), w = im.naturalWidth * s, h = im.naturalHeight * s; sx.globalAlpha = a; sx.drawImage(im.bm || im, (W - w) / 2, (H - h) / 2, w, h); };
   // los fotogramas cercanos a la posición actual se guardan ya descodificados en la GPU (ImageBitmap): dibujarlos no cuesta nada
-  let actual = 0; const VENT = 8;
+  let actual = 0; const VENT = 6;
   const ventana = () => { for (let j = 0; j < SEQ_N; j++) { const im = fotos[j]; if (!im || !im.ok) continue; const cerca = Math.abs(j - actual) <= VENT; if (cerca && !im.bm && !im.pide && window.createImageBitmap) { im.pide = true; createImageBitmap(im).then(bm => { im.pide = false; if (Math.abs(j - actual) <= VENT + 2) im.bm = bm; else bm.close(); }, () => { im.pide = false; }); } else if (!cerca && im.bm && Math.abs(j - actual) > VENT + 2) { im.bm.close(); im.bm = null; } } };
   const dibujaSeq = p => {
     if (!seqCv || (p === seqP && !seqPend)) return; seqP = p; seqPend = false;
