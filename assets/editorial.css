@@ -262,3 +262,9 @@ footer{padding-top:34px!important}
 .cine.vivo.sin3d .showroom.on .car-tag{opacity:1}
 .cine-grade{opacity:calc(1 - var(--dim,0) * .55)}
 @media (max-width:760px){.cine-cred{display:none}}
+/* recorrido renderizado: fotogramas en un lienzo 2D; la sala 3D interactiva aparece al final */
+.cine-seq{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none}
+.cine .cine-3d{z-index:2}
+.cine.conseq .cine-3d{opacity:var(--sala,0)!important;transition:none}
+.cine.conseq .cf.cine-poster{opacity:0}
+.cine-quieto .cine-seq,html:not(.js) .cine-seq{display:none}

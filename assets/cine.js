@@ -43,6 +43,30 @@
   };
   const kick = () => { if (!raf && estado.visible && wet > 0.01 && !RM.matches) raf = requestAnimationFrame(rain); };
 
+  // ---------- recorrido renderizado (Blender Cycles): fotogramas que avanzan con el scroll ----------
+  const seqCv = sec.querySelector('.cine-seq');
+  const SEQ_N = seqCv ? +seqCv.dataset.n : 0, SEQ_FIN = seqCv ? +seqCv.dataset.fin : 1, SEQ_DIR = seqCv ? seqCv.dataset.dir : '';
+  const fotos = new Array(SEQ_N); let seqP = -1, seqPend = false;
+  const sx = seqCv && seqCv.getContext('2d');
+  const seqSize = () => { if (!seqCv) return; const d = Math.min(devicePixelRatio || 1, 1.5); seqCv.width = Math.round(seqCv.clientWidth * d); seqCv.height = Math.round(seqCv.clientHeight * d); seqP = -1; };
+  const cercana = i => { for (let k = 0; k < SEQ_N; k++) { if (fotos[i - k] && fotos[i - k].ok) return fotos[i - k]; if (fotos[i + k] && fotos[i + k].ok) return fotos[i + k]; } return null; };
+  const pinta = (im, a) => { const W = seqCv.width, H = seqCv.height, s = Math.max(W / im.naturalWidth, H / im.naturalHeight), w = im.naturalWidth * s, h = im.naturalHeight * s; sx.globalAlpha = a; sx.drawImage(im, (W - w) / 2, (H - h) / 2, w, h); };
+  const dibujaSeq = p => {
+    if (!seqCv || (p === seqP && !seqPend)) return; seqP = p; seqPend = false;
+    const f = clamp(p / SEQ_FIN) * (SEQ_N - 1), i = Math.floor(f), a = f - i;
+    const A = (fotos[i] && fotos[i].ok) ? fotos[i] : cercana(i), Bm = fotos[i + 1] && fotos[i + 1].ok ? fotos[i + 1] : null;
+    if (!A) return;
+    pinta(A, 1); if (Bm && a > 0.01) pinta(Bm, a); sx.globalAlpha = 1;
+    if (!sec.classList.contains('conseq')) sec.classList.add('conseq');
+  };
+  if (seqCv && !RM.matches) {
+    // orden de carga: primero fotogramas salteados (se ve todo el recorrido enseguida) y luego el resto
+    const orden = []; [16, 8, 4, 2, 1].forEach(st => { for (let i = 0; i < SEQ_N; i += st) if (!orden.includes(i)) orden.push(i); });
+    if (!orden.includes(SEQ_N - 1)) orden.splice(1, 0, SEQ_N - 1);
+    let k = 0; const sig = () => { if (k >= orden.length) return; const i = orden[k++]; const im = new Image(); im.decoding = 'async'; im.onload = () => { im.ok = true; seqPend = true; dibujaSeq(estado.p); sig(); }; im.onerror = sig; im.src = `${SEQ_DIR}/f${String(i).padStart(3, '0')}.webp`; fotos[i] = im; };
+    for (let c = 0; c < 4; c++) sig();
+  }
+
   // ---------- scroll ----------
   let lastIdx = -1;
   const tick = () => {
@@ -71,6 +95,8 @@
     wet = 1 - smooth(3.3, 3.9, u); // llueve fuera; dentro, no
     cv.style.opacity = wet.toFixed(3);
     sec.style.setProperty('--p', p.toFixed(4));
+    dibujaSeq(p);
+    sec.style.setProperty('--sala', smooth(SEQ_FIN - 0.05, SEQ_FIN - 0.005, p).toFixed(3));
     sec.style.setProperty('--dim', smooth(N - 1.45, N - 0.95, u).toFixed(3));
     kick();
     viaje && viaje.wake();
@@ -84,7 +110,8 @@
   sec.classList.add('vivo');
   resize(); tick();
   addEventListener('scroll', onScroll, { passive: true });
-  addEventListener('resize', () => { resize(); tick(); });
+  seqSize();
+  addEventListener('resize', () => { resize(); seqSize(); tick(); });
   // los capítulos de la derecha llevan a su momento del recorrido
   chapters.forEach((li, i) => li.addEventListener('click', () => {
     const top = sec.offsetTop + (sec.offsetHeight - innerHeight) * (i / ((N - 1) * 1.08));
@@ -92,6 +119,6 @@
   }));
   // la escena 3D (three.js, el concesionario y los coches) se carga aparte
   import('./sala3d/viaje.js')
-    .then(m => { viaje = m.iniciarViaje({ sec, canvas: canvas3d, room, base: 'assets/sala3d/', estado }); if (!viaje) sec.classList.add('sin3d'); })
+    .then(m => { viaje = m.iniciarViaje({ sec, canvas: canvas3d, room, base: 'assets/sala3d/', estado, soloSala: !!seqCv }); if (!viaje) sec.classList.add('sin3d'); })
     .catch(() => sec.classList.add('sin3d'));
 })();

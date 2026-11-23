@@ -50,7 +50,8 @@ const Pelicula = {
     }`,
 };
 
-export function iniciarViaje({ sec, canvas, room, base, estado }) {
+export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false }) {
+  // soloSala: el recorrido exterior ya viene renderizado en fotogramas; aquí sólo hace falta la sala interactiva
   const tags = [...room.querySelectorAll('.car')];
   let renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' }); }
@@ -72,7 +73,8 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
   const warm = new THREE.Color(0xffe2b8);
   const R = 2.85;
   const loaderTex = new THREE.TextureLoader();
-  const ptex = (f, rep, srgb = true) => { const t = loaderTex.load(T + f, () => wake()); t.wrapS = t.wrapT = THREE.RepeatWrapping; if (rep) t.repeat.set(rep[0], rep[1]); t.anisotropy = maxAniso; if (srgb) t.colorSpace = THREE.SRGBColorSpace; return t; };
+  const blanca = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1); blanca.needsUpdate = true;
+  const ptex = (f, rep, srgb = true) => { if (soloSala && /hierba|asfalto|hormigon/.test(f)) return blanca.clone(); const t = loaderTex.load(T + f, () => wake()); t.wrapS = t.wrapT = THREE.RepeatWrapping; if (rep) t.repeat.set(rep[0], rep[1]); t.anisotropy = maxAniso; if (srgb) t.colorSpace = THREE.SRGBColorSpace; return t; };
   const tex = (w, h, draw, rep) => { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; if (rep) t.repeat.set(rep[0], rep[1]); t.anisotropy = maxAniso; return t; };
 
   // ---------- cielo: fotografía panorámica real ----------
@@ -95,12 +97,12 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
   });
   const sky = new THREE.Mesh(new THREE.SphereGeometry(2400, 64, 32), skyMat);
   scene.add(sky);
-  loaderTex.load(T + (movil ? 'cielo-m.jpg' : 'cielo.jpg'), t => { t.colorSpace = THREE.SRGBColorSpace; t.wrapS = THREE.RepeatWrapping; t.anisotropy = maxAniso; skyMat.uniforms.map.value = t; wake(); });
+  if (!soloSala) loaderTex.load(T + (movil ? 'cielo-m.jpg' : 'cielo.jpg'), t => { t.colorSpace = THREE.SRGBColorSpace; t.wrapS = THREE.RepeatWrapping; t.anisotropy = maxAniso; skyMat.uniforms.map.value = t; wake(); });
   const pm = new THREE.PMREMGenerator(renderer);
   const envSala = pm.fromScene(new RoomEnvironment(), 0.04).texture;
   let envCielo = envSala;
   const exteriores = []; // materiales que deben reflejar el cielo real cuando cargue
-  loaderTex.load(T + 'cielo-env.jpg', t => {
+  if (!soloSala) loaderTex.load(T + 'cielo-env.jpg', t => {
     t.mapping = THREE.EquirectangularReflectionMapping; t.colorSpace = THREE.SRGBColorSpace;
     const rt = pm.fromEquirectangular(t); envCielo = rt.texture; scene.environment = envCielo; scene.environmentRotation.y = -2.1;
     exteriores.forEach(m => { m.envMap = envCielo; m.needsUpdate = true; });
@@ -238,7 +240,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
   // fachada: hormigón fotográfico oscurecido, con despiece de placas y poros (como en la foto)
   const placas = [];
   const placaMat = new THREE.MeshStandardMaterial({ color: 0x9a9a9a, roughness: 0.55, metalness: 0.05, normalScale: new THREE.Vector2(0.6, 0.6), envMapIntensity: 1.0 });
-  new THREE.ImageLoader().load(T + 'hormigon_c.webp', img => {
+  if (!soloSala) new THREE.ImageLoader().load(T + 'hormigon_c.webp', img => {
     const c = document.createElement('canvas'), S = 1024; c.width = c.height = S; const x = c.getContext('2d');
     const cols = 2, rows = 4, pw = S / cols, ph = S / rows;
     for (let i = 0; i < cols; i++) for (let j = 0; j < rows; j++) {
@@ -494,7 +496,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
     if (!movil) [[X0 - 34, F + 14], [X1 + 34, F + 20], [X0 - 40, Z0 - 2], [X1 + 40, F - 14], [-60, LOT + 40], [70, LOT + 20]].forEach(([x, z]) => seco.push([x, z, 0.9 + rng() * 0.3]));
     usar('desnudo.glb', 10, hoja.concat(seco));
   };
-  (async () => { for (const i of [0, 1, 2, 3]) await cargar(i); room.classList.add('sr-listo'); aparcar(); plantar(); })();
+  (async () => { for (const i of [0, 1, 2, 3]) await cargar(i); room.classList.add('sr-listo'); if (!soloSala) { aparcar(); plantar(); } })();
 
   // ---------- interacción: pasar por encima, arrastrar para girar, pulsar para entrar ----------
   const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
@@ -550,6 +552,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
   const frame = now => {
     raf = 0;
     const dt = Math.min(0.05, (now - (last || now)) / 1000); last = now;
+    if (soloSala && estado.p < 0.86 && !primero) return; // aún se ven los fotogramas renderizados
     const w = canvas.clientWidth, h = canvas.clientHeight;
     const tObj = clamp(estado.p);
     tSuave = tSuave < 0 || SALTO ? tObj : tSuave + (tObj - tSuave) * (1 - Math.exp(-dt * 7));
