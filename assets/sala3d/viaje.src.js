@@ -150,6 +150,10 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nvarying float vDist;').replace('#include <dithering_fragment>', '#include <dithering_fragment>\ngl_FragColor.a *= 1.0 - smoothstep(260.0, 820.0, vDist);');
     sh.fragmentShader = sh.fragmentShader.replace('#include <map_fragment>', `#include <map_fragment>
       { vec2 q = vMapUv / 420.0 * 9.0; float n = sin(q.x * 3.1) * sin(q.y * 2.7) + sin(q.x * 7.3 + 1.7) * sin(q.y * 6.1 + 0.4) * 0.5;
+        vec3 t2 = texture2D(map, vMapUv * 0.27 + vec2(0.37, 0.11)).rgb;
+        diffuseColor.rgb = mix(diffuseColor.rgb, t2, 0.45 * smoothstep(-0.8, 0.8, n));
+        float seco = smoothstep(0.55, 1.3, sin(q.x * 1.3 + 2.0) * sin(q.y * 1.1) + sin(q.x * 4.7) * sin(q.y * 5.3 + 1.0) * 0.4);
+        diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * vec3(1.35, 1.2, 0.75), seco * 0.6);
         vec3 c0 = diffuseColor.rgb; float l = dot(c0, vec3(0.3, 0.59, 0.11)); diffuseColor.rgb = mix(vec3(l), c0, 0.72);
         diffuseColor.rgb *= mix(vec3(0.78, 0.8, 0.68), vec3(1.12, 1.06, 0.9), smoothstep(-1.2, 1.2, n)); }`);
   };
@@ -258,6 +262,13 @@ export function iniciarViaje({ sec, canvas, room, base, estado }) {
   caja(0.6, FH, F - Z0, placa(F - Z0, FH), X0 - 0.3, FH / 2, (Z0 + F) / 2);
   caja(0.6, FH, F - Z0, placa(F - Z0, FH), X1 + 0.3, FH / 2, (Z0 + F) / 2);
   caja(X1 - X0 + 1.2, FH, 0.6, placa(X1 - X0, FH), CX, FH / 2, Z0 - 0.3);
+  // laterales: pilastras metálicas, bajantes y una salida de emergencia (rompen la caja lisa)
+  { const pil = new THREE.MeshStandardMaterial({ color: 0x2b2c2e, roughness: 0.4, metalness: 0.85 }); exteriores.push(pil);
+    for (let z = Z0 + 6; z < F - 2; z += 8) { caja(0.25, FH, 0.5, pil, X1 + 0.65, FH / 2, z); caja(0.25, FH, 0.5, pil, X0 - 0.65, FH / 2, z); }
+    for (const z of [Z0 + 2, F - 8]) { caja(0.16, FH - 0.5, 0.16, pil, X1 + 0.7, (FH - 0.5) / 2, z); }
+    const pe = new THREE.MeshStandardMaterial({ color: 0x3d4045, roughness: 0.5, metalness: 0.6 }); exteriores.push(pe);
+    caja(0.1, 2.3, 1.4, pe, X1 + 0.65, 1.15, Z0 + 14); caja(0.12, 0.08, 1.6, pil, X1 + 0.7, 2.36, Z0 + 14);
+    const verde = new THREE.MeshBasicMaterial({ color: 0x2fbf5a }); caja(0.06, 0.25, 0.5, verde, X1 + 0.72, 2.7, Z0 + 14); }
   const cubierta = caja(X1 - X0 + 1.2, 0.5, F - Z0 + 0.6, new THREE.MeshStandardMaterial({ color: 0x3a3b3d, roughness: 0.85 }), CX, FH - 0.25, (Z0 + F) / 2);
   { const m = new THREE.MeshStandardMaterial({ color: 0x2a2b2d, roughness: 0.35, metalness: 0.9 }); exteriores.push(m); caja(X1 - X0 + 1.4, 0.18, 0.75, m, CX, FH + 0.09, F + 0.32); }
   // sombra de contacto a pie de fachada (ancla el edificio al suelo)
