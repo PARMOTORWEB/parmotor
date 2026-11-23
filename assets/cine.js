@@ -146,7 +146,7 @@
     scrollTo({ top, behavior: 'smooth' });
   }));
   // la escena 3D (three.js, el concesionario y los coches) se carga aparte
-  import('./sala3d/viaje.js?v=8')
+  import('./sala3d/viaje.js?v=9')
     .then(m => { viaje = m.iniciarViaje({ sec, canvas: canvas3d, room, base: 'assets/sala3d/', estado, soloSala: !!seqCv && !RM.matches, vertical: SEQ_V }); if (!viaje) sec.classList.add('sin3d'); })
     .catch(() => sec.classList.add('sin3d'));
 })();
