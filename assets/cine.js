@@ -47,12 +47,17 @@
   const seqCv = sec.querySelector('.cine-seq');
   // en pantallas verticales (móvil) hay otra tanda de fotogramas, encuadrada en vertical
   const SEQ_V = !!(seqCv && seqCv.dataset.dirV && innerWidth / innerHeight < 0.9);
-  const SEQ_N = seqCv ? +(SEQ_V ? seqCv.dataset.nV : seqCv.dataset.n) : 0, SEQ_FIN = seqCv ? +seqCv.dataset.fin : 1, SEQ_DIR = seqCv ? (SEQ_V ? seqCv.dataset.dirV : seqCv.dataset.dir) : '';
+  // pantallas con más píxeles reciben el juego de fotogramas en alta resolución (1440p / 1080x2400), salvo con ahorro de datos
+  const DPR_MAX = SEQ_V ? 3 : 2, conx = navigator.connection || {};
+  const SEQ_Q = !!(seqCv && (SEQ_V ? seqCv.dataset.dirVq : seqCv.dataset.dirQ) && !conx.saveData && !/(^|-)2g|3g/.test(conx.effectiveType || '')
+    && innerWidth * Math.min(devicePixelRatio || 1, DPR_MAX) > (SEQ_V ? 960 : 2100));
+  const SEQ_N = seqCv ? +(SEQ_V ? seqCv.dataset.nV : seqCv.dataset.n) : 0, SEQ_FIN = seqCv ? +seqCv.dataset.fin : 1;
+  const SEQ_DIR = seqCv ? (SEQ_V ? (SEQ_Q ? seqCv.dataset.dirVq : seqCv.dataset.dirV) : (SEQ_Q ? seqCv.dataset.dirQ : seqCv.dataset.dir)) : '';
   const salaFin = p => smooth(SEQ_FIN, SEQ_FIN + 0.04, p); // fundido del último fotograma a la sala interactiva
   const fotos = new Array(SEQ_N); let seqP = -1, seqPend = false, salaIm = null;
   const sx = seqCv && seqCv.getContext('2d', { alpha: false });
   // el lienzo va a la resolución real de la pantalla (hasta 2×): los fotogramas son de 1080p y se ven nítidos
-  const seqSize = () => { if (!seqCv) return; const d = Math.min(devicePixelRatio || 1, 2); seqCv.width = Math.round(seqCv.clientWidth * d); seqCv.height = Math.round(seqCv.clientHeight * d); sx.imageSmoothingEnabled = true; sx.imageSmoothingQuality = 'high'; seqP = -1; };
+  const seqSize = () => { if (!seqCv) return; const d = Math.min(devicePixelRatio || 1, DPR_MAX); seqCv.width = Math.round(seqCv.clientWidth * d); seqCv.height = Math.round(seqCv.clientHeight * d); sx.imageSmoothingEnabled = true; sx.imageSmoothingQuality = 'high'; seqP = -1; };
   const cercana = i => { for (let k = 0; k < SEQ_N; k++) { if (fotos[i - k] && fotos[i - k].ok) return fotos[i - k]; if (fotos[i + k] && fotos[i + k].ok) return fotos[i + k]; } return null; };
   const pinta = (im, a) => { const W = seqCv.width, H = seqCv.height, s = Math.max(W / im.naturalWidth, H / im.naturalHeight), w = im.naturalWidth * s, h = im.naturalHeight * s; sx.globalAlpha = a; sx.drawImage(im.bm || im, (W - w) / 2, (H - h) / 2, w, h); };
   // los fotogramas cercanos a la posición actual se guardan ya descodificados en la GPU (ImageBitmap): dibujarlos no cuesta nada
