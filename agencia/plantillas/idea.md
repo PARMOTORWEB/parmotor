@@ -1,0 +1,11 @@
+### [NN] Título de trabajo
+- **Pilar:** #
+- **Concepto:** (2 frases)
+- **Público objetivo:** (quien compra / vende / compara… y su situación)
+- **Gancho inicial (0–3 s, literal):** «…»
+- **Desarrollo:** (3–5 golpes)
+- **Objetivo comercial:** (qué acción en la web)
+- **Página de destino:** `/tasar/<modelo>/` | `#tasador` | `#calculadora` | `#asesor` | `#radar` | `/historia/<modelo>/`
+- **CTA:** «…»
+- **Plataforma recomendada:** IG / TikTok / Shorts / YouTube largo (y por qué)
+- **Datos a verificar:** (lista para el investigador)
