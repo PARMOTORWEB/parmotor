@@ -1,7 +1,7 @@
 # Backlog
 | # | Tarea | Responsable | Estado | Fecha |
 |---|---|---|---|---|
-| 1 | Conectar web en Metricool (ajustes marca → Web/Blog) | Dueño | pendiente | 27 nov |
+| 1 | Conectar web en Metricool (ajustes marca → Web/Blog) | Dueño | **hecho 25 nov** | 27 nov |
 | 2 | Elegir medición de eventos (GoatCounter / GA4 / Plausible) | Dueño → Web/CRO | pendiente | 30 nov |
 | 3 | Elegir proveedor de email para el Radar | Dueño → Web/CRO + Growth | pendiente | 4 dic |
 | 4 | Producir hueco 26–30 nov (calendario/2026-W48.md) | Creativo → … → CM | pendiente aprobación | 26 nov |
