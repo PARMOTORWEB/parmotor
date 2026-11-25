@@ -4,6 +4,10 @@ La tarea diaria lee este archivo al empezar y lo actualiza al terminar.
 Formato: una línea por caso comprobado. Los «Pendientes» se vuelven a comprobar primero.
 
 ## Pendientes
+- Desde el 25/11/2026 el registro detallado está en herramientas/precios/ (estado.json = rotación por modelo y generación; historial.csv = cada comparación; mercado.csv = informes del mercado). Este archivo queda como resumen.
+- Curva de km: en 208 II, Puma, Arona y Golf VIII los anuncios a 40.000–75.000 km salen por encima del mercado (+10/+20 %) y las medias de coches.net a ~85.000–100.000 km por debajo (−5/−23 %). Indica que el ajuste por km por encima de 70.000 km castiga de más; no se toca k en esos modelos. Revisar la fórmula (decisión de Tomás).
+- Fiat 500 (2007) 1.2: k 0,95 → 0,85 solo con datos de 2019; comprobar años 2012–2015.
+- Ford Fiesta Mk7 (−21 % tras el ajuste), GLA H247 (−10 %), Duster II (−11 %), Model Y (−8 %): quedan por debajo por el tope de ±0,15; repetir y seguir bajando k si se confirma.
 - Dacia Sandero III: k 0,85 → 0,65 en todas las versiones el 21/11/2026 (coches.net 2022: 117 anuncios, media 12.893 €, 58.283 km; antes ≈ −17 %, ahora ≈ −7 %). Falta la versión «Stepway 1.0 TCe 90» (la más anunciada); añadirla cuando haya PVP fiable.
 - Enlace coches.net con modelos de dos palabras: la web usa guion bajo (/mercedes-benz/clase_c/, /bmw/serie_1/, /citroen/c3_aircross/) y el asesor genera guion (/clase-c/, /serie-1/). El 22/11/2026 no se pudo abrir la versión con guion (permiso de WebFetch). El 23/11/2026 hay más indicios de que coches.net acepta variantes: Google indexa como listas válidas /land-rover/ y /land_rover/, /mazda/cx-5/, /mazda/cx5/ y /mazda/cx__5/, /volkswagen/troc/ y /t__roc/. Probablemente /clase-a/ funciona; no se toca shopLinks hasta abrir una URL con guion.
 - Mercedes Clase A W177: en 2019 ≈ −25 % (media >100.000 km), pero el 24/11/2026 anuncios de 2022 a ~65.000 km dan solo −6/−7 % (A 200 d, A 250 e). Falta un A 180/A 200 gasolina 2020–2021 <100.000 km para cerrarlo.
@@ -46,6 +50,8 @@ Formato: una línea por caso comprobado. Los «Pendientes» se vuelven a comprob
 - 24/11/2026 · Toyota Corolla XII 1.8 Hybrid 2020 (coches.net, 88–98 anuncios, 18.730 €, 112.250 km >100.000): 39.392 km +13 %, 87.000 km −5 %, 90.048 km −18 % · sin cambios.
 - 24/11/2026 · Volvo XC40 2020 (coches.net, 121–132 anuncios, 22.802 €, 116.981 km >100.000): D3 AWD 64.488 km −2 %; T5 Recharge contradictorio · sin cambios.
 - 24/11/2026 · Enlaces: coches.net /marca/modelo/segunda-mano/ vigente; AutoScout24 /lst/ y Wallapop /search no salen en WebSearch hoy (sin indicios de cambio) · shopLinks sin tocar.
+
+- 25/11/2026 · 17 modelos (84 comparaciones, ver historial.csv). Ajustes de k: Fiesta Mk7 1,05→0,9 (−30 %→−21 %), Fiat 500 1.2 0,95→0,85 (−20 %→−13 %), GLA H247 1,05→0,9 (−18 %→−10 %), GLC X253 1,1→0,95 (−12 %→0 %), Duster II 0,85→0,7 (−20 %→−11 %), Q3 F3 1→0,86 (−10 %→0 %), Model Y 1,05→0,9 (−15 %→−8 %), EV6 RWD 1,15→1 (−9 %→−1 %). Sin cambios: Golf VIII, Arona, 208 II, Puma (señales opuestas por km), Niro I, Serie 3 G20, RAV4 V, Kamiq (−8 %, calibración VW), Macan (1 anuncio). Sin datos: Yaris III/IV, MG ZS 2021.
 
 ## Fuentes que funcionan
 - coches.net /marca/modelo/segunda-mano/AAAA/ (por año): el bloque de preguntas frecuentes da precio medio, km medio, nº de anuncios, CV medio y % de combustible. Es la mejor fuente.

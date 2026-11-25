@@ -1,0 +1,88 @@
+fecha,marca,modelo,generación,versión,año,km,precio_real,anuncios,fuente,tasador,dif_pct,accion
+2026-11-25,Volkswagen,Golf,Golf VIII,2.0 TDI 115 CV,2021,96985,18500,1,anuncio coches.net/volkswagen/golf/segunda-mano/2021/,19302,4.3,sin cambios
+2026-11-25,Volkswagen,Golf,Golf VIII,2.0 TDI 150 CV,2021,81174,18900,1,anuncio coches.net/volkswagen/golf/segunda-mano/2021/,23776,25.8,sin cambios
+2026-11-25,Volkswagen,Golf,Golf VIII,GTI 2.0 TSI 245 CV,2021,59136,27990,1,anuncio coches.net/volkswagen/golf/segunda-mano/2021/,32518,16.2,sin cambios
+2026-11-25,Volkswagen,Golf,Golf VIII,R 2.0 TSI 320 CV,2021,27000,44990,1,anuncio coches.net/volkswagen/golf/segunda-mano/2021/,43495,-3.3,sin cambios
+2026-11-25,Volkswagen,Golf,Golf VIII,1.5 eTSI 130 CV,2021,37504,26490,1,anuncio coches.net/volkswagen/golf/segunda-mano/2021/,23521,-11.2,sin cambios
+2026-11-25,Seat,Arona,Arona,1.0 TSI 115 CV,2020,45090,14700,1,anuncio coches.net/seat/arona/segunda-mano/2020/,15597,6.1,sin cambios
+2026-11-25,Seat,Arona,Arona,1.0 TGI (GNC) 90 CV,2020,85159,13990,1,anuncio coches.net/seat/arona/segunda-mano/2020/,13166,-5.9,sin cambios
+2026-11-25,Seat,Arona,Arona,1.0 TSI 95 CV,2020,86000,14900,1,anuncio coches.net/seat/arona/segunda-mano/2020/,12105,-18.8,sin cambios
+2026-11-25,Peugeot,207 y 208,208 II,1.2 PureTech 100 CV,2021,72705,9995,1,anuncio coches.net/peugeot/208/segunda-mano/2021/,12055,20.6,sin cambios
+2026-11-25,Peugeot,207 y 208,208 II,1.2 PureTech 100 CV,2021,39500,11190,1,anuncio coches.net/peugeot/208/segunda-mano/2021/,13370,19.5,sin cambios
+2026-11-25,Peugeot,207 y 208,208 II,1.2 PureTech 100 CV,2021,73835,10990,1,anuncio coches.net/peugeot/208/segunda-mano/2021/,11961,8.8,sin cambios
+2026-11-25,Peugeot,207 y 208,208 II,1.5 BlueHDi 100 CV,2021,91000,10500,1,anuncio coches.net/peugeot/208/segunda-mano/2021/,12384,17.9,sin cambios
+2026-11-25,Peugeot,207 y 208,208 II,1.5 BlueHDi 100 CV,2021,75760,9490,1,anuncio coches.net/peugeot/208/segunda-mano/2021/,13753,44.9,sin cambios
+2026-11-25,Peugeot,207 y 208,208 II,1.2 PureTech 130 CV,2021,48000,13990,1,anuncio coches.net/peugeot/208/segunda-mano/2021/,15244,9.0,sin cambios
+2026-11-25,Ford,Puma,Puma,1.0 EcoBoost mHEV 125 CV,2021,50000,13990,1,anuncio coches.net/ford/puma/segunda-mano/2021/,16604,18.7,sin cambios
+2026-11-25,Ford,Puma,Puma,1.0 EcoBoost mHEV 155 CV,2021,66000,14900,1,anuncio coches.net/ford/puma/segunda-mano/2021/,17600,18.1,sin cambios
+2026-11-25,Ford,Puma,Puma,ST 1.5 EcoBoost 200 CV,2021,95274,19990,1,anuncio coches.net/ford/puma/segunda-mano/2021/,18089,-9.5,sin cambios
+2026-11-25,Ford,Puma,Puma,1.5 EcoBlue 120 CV,2021,74141,15600,1,anuncio coches.net/ford/puma/segunda-mano/2021/,16678,6.9,sin cambios
+2026-11-25,Ford,Puma,Puma,1.5 EcoBlue 120 CV,2021,50341,15490,1,anuncio coches.net/ford/puma/segunda-mano/2021/,17701,14.3,sin cambios
+2026-11-25,Kia,Niro,Niro I,HEV 141 CV,2020,76998,17990,1,anuncio coches.net/kia/niro/segunda-mano/2020/,16640,-7.5,sin cambios
+2026-11-25,Kia,Niro,Niro I,PHEV (enchufable) 141 CV,2020,98080,16490,1,anuncio coches.net/kia/niro/segunda-mano/2020/,16124,-2.2,sin cambios
+2026-11-25,Kia,Niro,Niro I,PHEV (enchufable) 141 CV,2020,37252,19960,1,anuncio coches.net/kia/niro/segunda-mano/2020/,21064,5.5,sin cambios
+2026-11-25,BMW,Serie 3,Serie 3 G20,320d 190 CV,2020,70000,28000,1,anuncio coches.net/bmw/serie_3/segunda-mano/2020/,29848,6.6,sin cambios
+2026-11-25,BMW,Serie 3,Serie 3 G20,330i 258 CV,2020,82832,31800,1,anuncio coches.net/bmw/serie_3/segunda-mano/2020/,29346,-7.7,sin cambios
+2026-11-25,Audi,Q3,Q3 F3,35 TFSI 150 CV,2020,47000,29990,1,anuncio coches.net/audi/q3/segunda-mano/2020/,24734,-17.5,"k 1→0,86 (tras ajuste 27396 €, -8.7 %)"
+2026-11-25,Audi,Q3,Q3 F3,35 TFSI 150 CV,2020,92851,25580,1,anuncio coches.net/audi/q3/segunda-mano/2020/,19792,-22.6,"k 1→0,86 (tras ajuste 21922 €, -14.3 %)"
+2026-11-25,Audi,Q3,Q3 F3,35 TFSI 150 CV,2020,66000,22999,1,anuncio coches.net/audi/q3/segunda-mano/2020/,23504,2.2,"k 1→0,86 (tras ajuste 26033 €, 13.2 %)"
+2026-11-25,Audi,Q3,Q3 F3,35 TFSI 150 CV,2020,71096,24900,1,anuncio coches.net/audi/q3/segunda-mano/2020/,23079,-7.3,"k 1→0,86 (tras ajuste 25563 €, 2.7 %)"
+2026-11-25,Audi,Q3,Q3 F3,35 TDI 150 CV,2020,59500,28999,1,anuncio coches.net/audi/q3/segunda-mano/2020/,25454,-12.2,"k 1→0,86 (tras ajuste 28193 €, -2.8 %)"
+2026-11-25,Audi,Q3,Q3 F3,40 TFSI 190 CV,2020,95000,22990,1,anuncio coches.net/audi/q3/segunda-mano/2020/,23361,1.6,"k 1→0,86 (tras ajuste 25875 €, 12.5 %)"
+2026-11-25,Mercedes-Benz,GLA,GLA H247,GLA 200 d 150 CV,2021,58461,29399,1,anuncio coches.net/mercedes-benz/gla/segunda-mano/2021/,29933,1.8,"k 1,05→0,9 (tras ajuste 32928 €, 12.0 %)"
+2026-11-25,Mercedes-Benz,GLA,GLA H247,GLA 200 d 150 CV,2021,59000,33400,1,anuncio coches.net/mercedes-benz/gla/segunda-mano/2021/,29891,-10.5,"k 1,05→0,9 (tras ajuste 32881 €, -1.6 %)"
+2026-11-25,Mercedes-Benz,GLA,GLA H247,GLA 200 d 150 CV,2021,95000,29900,1,anuncio coches.net/mercedes-benz/gla/segunda-mano/2021/,24463,-18.2,"k 1,05→0,9 (tras ajuste 26911 €, -10.0 %)"
+2026-11-25,Mercedes-Benz,GLA,GLA H247,GLA 180 136 CV,2021,49900,28890,1,anuncio coches.net/mercedes-benz/gla/segunda-mano/2021/,25883,-10.4,"k 1,05→0,9 (tras ajuste 28473 €, -1.4 %)"
+2026-11-25,Mercedes-Benz,GLA,GLA H247,GLA 250 e (enchufable) 218 CV,2021,91745,30990,1,anuncio coches.net/mercedes-benz/gla/segunda-mano/2021/,24340,-21.5,"k 1,05→0,9 (tras ajuste 26775 €, -13.6 %)"
+2026-11-25,Mercedes-Benz,GLA,GLA H247,GLA 250 e (enchufable) 218 CV,2021,96000,30900,1,anuncio coches.net/mercedes-benz/gla/segunda-mano/2021/,23516,-23.9,"k 1,05→0,9 (tras ajuste 25869 €, -16.3 %)"
+2026-11-25,Dacia,Duster,Duster II,1.5 Blue dCi 115 CV,2020,64000,13990,1,anuncio coches.net/dacia/duster/segunda-mano/2020/,13432,-4.0,"k 0,85→0,7 (tras ajuste 14987 €, 7.1 %)"
+2026-11-25,Dacia,Duster,Duster II,1.0 TCe 100 CV,2020,22000,15250,1,anuncio coches.net/dacia/duster/segunda-mano/2020/,11078,-27.4,"k 0,85→0,7 (tras ajuste 12360 €, -18.9 %)"
+2026-11-25,Dacia,Duster,Duster II,1.5 Blue dCi 4x4 115 CV,2020,68524,16890,1,anuncio coches.net/dacia/duster/segunda-mano/2020/,15351,-9.1,"k 0,85→0,7 (tras ajuste 17128 €, 1.4 %)"
+2026-11-25,Dacia,Duster,Duster II,1.0 TCe 100 CV,2020,94541,12999,1,anuncio coches.net/dacia/duster/segunda-mano/2020/,8719,-32.9,"k 0,85→0,7 (tras ajuste 9728 €, -25.2 %)"
+2026-11-25,Ford,Fiesta,Fiesta Mk7,1.0 EcoBoost 100 CV,2019,51000,12890,1,anuncio coches.net/ford/fiesta/segunda-mano/2019/,10157,-21.2,"k 1,05→0,9 (tras ajuste 11494 €, -10.8 %)"
+2026-11-25,Ford,Fiesta,Fiesta Mk7,1.0 EcoBoost 100 CV,2019,59990,14490,1,anuncio coches.net/ford/fiesta/segunda-mano/2019/,10157,-29.9,"k 1,05→0,9 (tras ajuste 11494 €, -20.7 %)"
+2026-11-25,Ford,Fiesta,Fiesta Mk7,1.1 75 CV,2019,47610,12900,1,anuncio coches.net/ford/fiesta/segunda-mano/2019/,8887,-31.1,"k 1,05→0,9 (tras ajuste 10057 €, -22.0 %)"
+2026-11-25,Ford,Fiesta,Fiesta Mk7,1.1 75 CV,2019,74862,10290,1,anuncio coches.net/ford/fiesta/segunda-mano/2019/,8407,-18.3,"k 1,05→0,9 (tras ajuste 9514 €, -7.5 %)"
+2026-11-25,Mercedes-Benz,GLC,GLC X253,GLC 220 d 194 CV,2019,76720,34900,1,anuncio coches.net/mercedes-benz/clase_glc/segunda-mano/2019/,30727,-12.0,"k 1,1→0,95 (tras ajuste 34772 €, -0.4 %)"
+2026-11-25,Mercedes-Benz,GLC,GLC X253,GLC 250 211 CV,2019,96021,29990,1,anuncio coches.net/mercedes-benz/clase_glc/segunda-mano/2019/,26881,-10.4,"k 1,1→0,95 (tras ajuste 30419 €, 1.4 %)"
+2026-11-25,Mercedes-Benz,GLC,GLC X253,GLC 200 197 CV,2019,56000,36300,1,anuncio coches.net/mercedes-benz/clase_glc/segunda-mano/2019/,31678,-12.7,"k 1,1→0,95 (tras ajuste 35847 €, -1.2 %)"
+2026-11-25,Kia,EV6,EV6,RWD 229 CV,2022,74550,28750,1,anuncio coches.net/kia/ev6/segunda-mano/2022/,25466,-11.4,"k RWD 1,15→1 (tras ajuste 27621 €, -3.9 %)"
+2026-11-25,Kia,EV6,EV6,RWD 229 CV,2022,56648,29990,1,anuncio coches.net/kia/ev6/segunda-mano/2022/,27383,-8.7,"k RWD 1,15→1 (tras ajuste 29700 €, -1.0 %)"
+2026-11-25,Kia,EV6,EV6,RWD 229 CV,2022,69100,28900,1,anuncio coches.net/kia/ev6/segunda-mano/2022/,26387,-8.7,"k RWD 1,15→1 (tras ajuste 28620 €, -1.0 %)"
+2026-11-25,Kia,EV6,EV6,RWD 58 kWh 170 CV,2022,76000,23950,1,anuncio coches.net/kia/ev6/segunda-mano/2022/,23621,-1.4,sin cambios
+2026-11-25,Kia,EV6,EV6,GT-Line AWD 325 CV,2022,36000,35899,1,anuncio coches.net/kia/ev6/segunda-mano/2022/,35084,-2.3,sin cambios
+2026-11-25,Fiat,500,500 (2007),1.2 69 CV,2019,86000,7699,1,anuncio coches.net/fiat/500/segunda-mano/2019/,7567,-1.7,"k 1.2 0,95→0,85 (tras ajuste 8217 €, 6.7 %)"
+2026-11-25,Fiat,500,500 (2007),1.2 69 CV,2019,99000,8000,1,anuncio coches.net/fiat/500/segunda-mano/2019/,6885,-13.9,"k 1.2 0,95→0,85 (tras ajuste 7477 €, -6.5 %)"
+2026-11-25,Fiat,500,500 (2007),1.2 69 CV,2019,93000,10500,1,anuncio coches.net/fiat/500/segunda-mano/2019/,7200,-31.4,"k 1.2 0,95→0,85 (tras ajuste 7819 €, -25.5 %)"
+2026-11-25,Fiat,500,500 (2007),1.2 69 CV,2019,93000,9950,1,anuncio coches.net/fiat/500/segunda-mano/2019/,7200,-27.6,"k 1.2 0,95→0,85 (tras ajuste 7819 €, -21.4 %)"
+2026-11-25,Fiat,500,500 (2007),1.2 69 CV,2019,67330,12490,1,anuncio coches.net/fiat/500/segunda-mano/2019/,8466,-32.2,"k 1.2 0,95→0,85 (tras ajuste 9194 €, -26.4 %)"
+2026-11-25,Fiat,500,500 (2007),1.2 69 CV,2019,61310,9990,1,anuncio coches.net/fiat/500/segunda-mano/2019/,8602,-13.9,"k 1.2 0,95→0,85 (tras ajuste 9341 €, -6.5 %)"
+2026-11-25,Porsche,Macan,Macan I,2.0 252 CV,2019,83700,44500,1,anuncio coches.net/porsche/macan/segunda-mano/2019/,53026,19.2,sin cambios
+2026-11-25,Skoda,Kamiq,Kamiq,1.0 TSI 110 CV,2021,27000,16990,1,anuncio coches.net/skoda/kamiq/segunda-mano/2021/,17405,2.4,sin cambios
+2026-11-25,Skoda,Kamiq,Kamiq,1.0 TSI 110 CV,2021,69284,16990,1,anuncio coches.net/skoda/kamiq/segunda-mano/2021/,15650,-7.9,sin cambios
+2026-11-25,Skoda,Kamiq,Kamiq,1.0 TSI 110 CV,2021,80900,18500,1,anuncio coches.net/skoda/kamiq/segunda-mano/2021/,14463,-21.8,sin cambios
+2026-11-25,Skoda,Kamiq,Kamiq,1.0 TSI 110 CV,2021,14396,18985,1,anuncio coches.net/skoda/kamiq/segunda-mano/2021/,17405,-8.3,sin cambios
+2026-11-25,Skoda,Kamiq,Kamiq,1.0 TSI 110 CV,2021,24000,18990,1,anuncio coches.net/skoda/kamiq/segunda-mano/2021/,17405,-8.3,sin cambios
+2026-11-25,Toyota,RAV4,RAV4 V,2.5 Hybrid 218 CV,2019,42369,27299,1,anuncio coches.net/toyota/rav4/hibrido/segunda-mano/,28297,3.7,sin cambios
+2026-11-25,Toyota,RAV4,RAV4 V,2.5 Hybrid AWD 222 CV,2020,79924,30490,1,anuncio coches.net/toyota/rav4/hibrido/segunda-mano/,28386,-6.9,sin cambios
+2026-11-25,Toyota,RAV4,RAV4 V,2.5 Hybrid 218 CV,2021,29000,32990,1,anuncio coches.net/toyota/rav4/hibrido/segunda-mano/,31618,-4.2,sin cambios
+2026-11-25,Tesla,Model Y,Model Y,RWD 299 CV,2023,37000,29999,1,anuncio coches.net/tesla/model_y/segunda-mano/,30245,0.8,"k 1,05→0,9 (tras ajuste 32343 €, 7.8 %)"
+2026-11-25,Tesla,Model Y,Model Y,RWD 299 CV,2023,73247,36790,1,anuncio coches.net/tesla/model_y/segunda-mano/,26708,-27.4,"k 1,05→0,9 (tras ajuste 28561 €, -22.4 %)"
+2026-11-25,Tesla,Model Y,Model Y,Long Range AWD 514 CV,2022,28890,39999,1,anuncio coches.net/tesla/model_y/segunda-mano/,35808,-10.5,"k 1,05→0,9 (tras ajuste 38838 €, -2.9 %)"
+2026-11-25,Tesla,Model Y,Model Y,Long Range AWD 514 CV,2022,89199,32300,1,anuncio coches.net/tesla/model_y/segunda-mano/,27496,-14.9,"k 1,05→0,9 (tras ajuste 29822 €, -7.7 %)"
+2026-11-25,Tesla,Model Y,Model Y,Long Range AWD 514 CV,2023,79926,35900,1,anuncio coches.net/tesla/model_y/segunda-mano/,30309,-15.6,"k 1,05→0,9 (tras ajuste 32412 €, -9.7 %)"
+2026-11-25,Tesla,Model Y,Model Y,Long Range AWD 514 CV,2022,40000,36990,1,anuncio coches.net/tesla/model_y/segunda-mano/,34733,-6.1,"k 1,05→0,9 (tras ajuste 37672 €, 1.8 %)"
+2026-11-25,Tesla,Model Y,Model Y,Performance 534 CV,2022,89000,38990,1,anuncio coches.net/tesla/model_y/segunda-mano/,32047,-17.8,"k 1,05→0,9 (tras ajuste 34759 €, -10.9 %)"
+2026-11-25,Peugeot,207 y 208,208 II,1.2 PureTech 100 CV,2021,89496,11214,204,precio medio coches.net/peugeot/208/segunda-mano/2021/,10656,-5.0,sin cambios
+2026-11-25,Ford,Puma,Puma,1.0 EcoBoost mHEV 125 CV,2021,83492,16011,103,precio medio coches.net/ford/puma/segunda-mano/2021/,14256,-11.0,sin cambios
+2026-11-25,Ford,Fiesta,Fiesta Mk7,1.0 EcoBoost 100 CV,2019,97505,11901,69,precio medio coches.net/ford/fiesta/segunda-mano/2019/,8208,-31.0,"k 1,05→0,9 (tras ajuste 9289 €, -22.0 %)"
+2026-11-25,Fiat,500,500 (2007),1.2 69 CV,2019,81659,9682,75,precio medio coches.net/fiat/500/segunda-mano/2019/,7795,-19.5,"k 1.2 0,95→0,85 (tras ajuste 8465 €, -12.6 %)"
+2026-11-25,Skoda,Kamiq,Kamiq,1.0 TSI 110 CV,2021,74244,16769,112,precio medio coches.net/skoda/kamiq/segunda-mano/2021/,15168,-9.5,sin cambios
+2026-11-25,Mercedes-Benz,GLA,GLA H247,GLA 200 d 150 CV,2021,98246,30482,120,precio medio coches.net/mercedes-benz/gla/segunda-mano/2021/,23870,-21.7,"k 1,05→0,9 (tras ajuste 26258 €, -13.9 %)"
+2026-11-25,Seat,Arona,Arona,1.0 TSI 95 CV,2020,93315,14048,145,precio medio coches.net/seat/arona/segunda-mano/2020/,11462,-18.4,sin cambios
+2026-11-25,Kia,EV6,EV6,RWD 229 CV,2022,77217,27096,12,precio medio coches.net/kia/ev6/segunda-mano/2022/,24968,-7.9,"k RWD 1,15→1 (tras ajuste 27081 €, -0.1 %)"
+2026-11-25,Dacia,Duster,Duster II,1.5 Blue dCi 115 CV,2020,104584,13563,56,precio medio coches.net/dacia/duster/segunda-mano/2020/,10868,-19.9,"k 0,85→0,7 (tras ajuste 12125 €, -10.6 %)"
+2026-11-25,Volkswagen,Golf,Golf VIII,1.5 TSI 150 CV,2021,100030,23020,531,precio medio coches.net/volkswagen/golf/segunda-mano/2021/,17702,-23.1,sin cambios
+2026-11-25,Toyota,Yaris,Yaris IV,1.5 Hybrid 116 CV,2022,,,,coches.net/toyota/yaris/hibrido/segunda-mano/ (solo anuncios 2022 >100.000 km o 2025-2026),,,sin datos
+2026-11-25,Toyota,Yaris,Yaris III,1.5 Hybrid 100 CV,2018,,,2,coches.net/toyota/yaris/hibrido/segunda-mano/ (solo 2 anuncios ≤100.000 km),,,sin datos
+2026-11-25,MG,ZS,ZS,,2021,,,0,coches.net/mg/zs/segunda-mano/2021/ (0 anuncios),,,sin datos
