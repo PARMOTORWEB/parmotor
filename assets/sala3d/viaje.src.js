@@ -590,6 +590,7 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
     cubierta.visible = !(dentro && camera.position.y > FH - 0.5);
     techo.visible = camera.position.y < H - 0.1;
     const luces = smooth(KT[3], KT[5], t);
+    const visto = Math.min(h, ((window.visualViewport && visualViewport.height) || innerHeight) - canvas.getBoundingClientRect().top);
     slots.forEach((sl, i) => {
       const d = clamp((luces * 1.6 - i * 0.18) / 0.9);
       sl.on += (d - sl.on) * 0.12;
@@ -611,7 +612,9 @@ export function iniciarViaje({ sec, canvas, room, base, estado, soloSala = false
       v3.set(0, 0, R + 0.3).add(sl.g.position).project(camera);
       const tg = tags[i], hw = (tg.offsetWidth || 160) / 2 + 8;
       const tx = Math.min(w - hw, Math.max(hw, (v3.x + 1) / 2 * w));
-      tg.style.transform = `translate3d(${tx.toFixed(1)}px,${((1 - v3.y) / 2 * h).toFixed(1)}px,0) translate(-50%,0)`;
+      // nunca por debajo de la parte visible (barra del navegador o del sistema, enlaces legales y botón de subir)
+      const ty = Math.max(8, Math.min((1 - v3.y) / 2 * h, visto - (w < 700 ? 78 : 56) - (tg.offsetHeight || 40)));
+      tg.style.transform = `translate3d(${tx.toFixed(1)}px,${ty.toFixed(1)}px,0) translate(-50%,0)`;
     });
     if (composer) { pelicula.uniforms.t.value = now * 0.001; composer.render(); } else renderer.render(scene, camera);
     if (primero) { primero = false; sec.classList.add('con3d'); }
