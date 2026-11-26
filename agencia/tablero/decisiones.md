@@ -6,3 +6,4 @@
 | 2026-11-25 | No se toca lo ya programado 1–14 dic | Director (propuesta) | Evitar trabajo doble; pendiente confirmación del dueño |
 | 2026-11-25 | La rama `agencia` no se fusiona con `main`: la estrategia no se publica en la web | Dueño | El repositorio es público y Pages serviría `agencia/` |
 | 2026-11-25 | Se crea el agente 11, Director de eficiencia; propone cambios y no toca configuraciones críticas sin sí del dueño | Dueño | Petición del dueño |
+| 2026-11-26 | **Opción B:** desde el 15 dic, la franja de tarde (YT 16:00 · IG 18:00 · TT 18:30) pasa a la agencia; la mañana sigue con historia. Los vídeos de historia de tarde desplazados se reprograman al final de la cola. Los cambios en Metricool se hacen solo cuando cada vídeo de la agencia esté montado y aprobado | Dueño | Mezcla con intención comercial sin perder vídeos ya hechos |
