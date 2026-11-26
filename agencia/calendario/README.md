@@ -38,5 +38,4 @@ Total: 14. El formato de historia baja del 100 % actual al 14 %. **Así no se pi
 
 ## Estado a 25 de noviembre de 2026
 - **26–30 nov:** hueco sin nada programado → `2026-W48.md`.
-- **1–14 dic:** ya programado (historia, 2 al día). No se toca salvo que el dueño lo pida.
-- **Desde el 15 de diciembre:** nueva mezcla → `2026-W51.md`. Primero hay que comprobar si existe algo programado del 15 en adelante.
+- **1 dic – 1 feb 2027 (como mínimo):** ya programado (historia, 2 al día). Hay que decidir cómo entra la mezcla nueva: ver las opciones A, B y C en `2026-30-dias.md`. Recomendada, la B: la tarde pasa a la agencia desde el 15 de diciembre.

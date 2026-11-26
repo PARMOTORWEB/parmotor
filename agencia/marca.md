@@ -24,12 +24,14 @@ No hay compraventa, peritaje, contacto comercial, servicio de pago ni respuestas
 
 ## Identidad visual (tomada de la web)
 - Fondo casi negro `#0f0f0e` (`theme-color`), modo oscuro.
-- Acento amarillo lima, el de los botones «TASADOR» y las etiquetas. Hay que confirmar el valor hexadecimal exacto en el CSS del repositorio y apuntarlo aquí.
+- Acento amarillo lima `#e4ff4f` (confirmado en `herramientas/perfil.mjs`), el de los botones «TASADOR» y las etiquetas.
+- Tipografías de la marca: Barlow Condensed 800 cursiva (titulares) e Inter 600 (texto), en `assets/fonts/`.
 - Tipografía condensada en mayúsculas y cursiva para los titulares, y sans legible para el texto.
 - Logotipo: engranaje con la palabra PAR MOTOR.
 - Fotografía real de coches con crédito; nada de renders de coches con marcas inventadas.
 
 ## Avisos obligatorios
+- **Nada de exclusividad sin prueba:** nunca «el único tasador sin registro» ni «el único comparador». Motor.es también tasa sin registro (competidores.md, 26 nov). Lo que sí distingue a Par Motor: gratis, sin registro **y** sin enviar ningún dato (el cálculo se hace en el navegador), coste real al mes y método publicado.
 - En los vídeos que mencionen el tasador, al menos una vez cada pocos vídeos o en la descripción: «precio orientativo, no es una tasación oficial».
 - Los créditos de las fotos de Wikimedia van en la descripción («autor y licencia en el vídeo»).
 - Se marca el contenido generado con IA en cada plataforma.

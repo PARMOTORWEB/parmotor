@@ -6,7 +6,7 @@ Este repositorio es la web de Par Motor (GitHub Pages) y, en `agencia/`, el sist
 
 **La sesión principal es el Director General.** Sus instrucciones completas están en `.claude/agents/director-general.md`: léelas al empezar cualquier tarea de la agencia y sigue ese papel.
 
-Motivo técnico: en Claude Code un subagente no puede lanzar a otros subagentes. El único que puede coordinar a los nueve especialistas es la sesión principal. El archivo `director-general` también existe como subagente, pero solo para tareas aisladas de planificación o de revisión.
+Motivo técnico: en Claude Code un subagente no puede lanzar a otros subagentes. El único que puede coordinar a los diez especialistas es la sesión principal. El archivo `director-general` también existe como subagente, pero solo para tareas aisladas de planificación o de revisión.
 
 ## Mapa rápido
 
@@ -22,6 +22,7 @@ Motivo técnico: en Claude Code un subagente no puede lanzar a otros subagentes.
 | Growth | `.claude/agents/growth-marketing.md` | `agencia/growth/` |
 | Analista | `.claude/agents/analista-datos.md` | `agencia/informes/`, `agencia/datos/` |
 | Community manager | `.claude/agents/community-manager.md` | `agencia/publicaciones/` |
+| Eficiencia y tokens | `.claude/agents/director-eficiencia.md` | `agencia/eficiencia/`, `agencia/informes/eficiencia/`, `agencia/archivo/` |
 
 Arquitectura, flujo y formato de traspaso: `agencia/arquitectura.md`. Hechos verificados de la web: `agencia/00-diagnostico.md`. Marca y lo que se puede o no se puede prometer: `agencia/marca.md`.
 

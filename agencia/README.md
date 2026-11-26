@@ -1,6 +1,6 @@
 # Cómo usar la agencia Par Motor
 
-1. Abre Claude Code **en la raíz del repositorio** `parmotor`. Así se cargan `CLAUDE.md` y los 10 agentes de `.claude/agents/`.
+1. Abre Claude Code **en la raíz del repositorio** `parmotor`. Así se cargan `CLAUDE.md` y los 11 agentes de `.claude/agents/`.
 2. Habla con el Director General (la sesión principal) en lenguaje natural:
 
 | Dices | Pasa |

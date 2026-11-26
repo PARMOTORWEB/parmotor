@@ -6,7 +6,7 @@ Lo hizo el sistema al arrancar, leyendo la web publicada y la cuenta de Metricoo
 
 - **URL:** https://parmotorweb.github.io/parmotor/. Es una web estática en GitHub Pages, con repositorio `PARMOTORWEB/parmotor` y sin dominio propio.
 - **Tamaño:** el `sitemap.xml` tiene **461 URLs**: la portada, `/tasar/` con unas 396 fichas «Precio [modelo] de segunda mano 2026» y `/historia/` con 63 fichas de modelos míticos.
-- **Portada** (unos 457 KB de HTML): empieza con una intro cinematográfica en scroll («Desliza para entrar») con modelos 3D, y tiene un enlace «Saltar al tasador». Sus secciones son:
+- **Portada** (HTML de 355.868 B, 104.028 B comprimido; la cifra inicial de 457 KB era la del DOM ya renderizado. **Lo pesado es la intro:** de 15 a 44 MB de fotogramas según el dispositivo y unos 6,4 MB de modelos 3D, que se descargan aunque se entre directo a `#tasador`, según `web/auditoria-2026-11-25.md`): empieza con una intro cinematográfica en scroll («Desliza para entrar») con modelos 3D, y tiene un enlace «Saltar al tasador». Sus secciones son:
   - Asesor de compra: filtro de presupuesto de 3.000 € a 150.000 € (20.000 € por defecto), con 288 modelos, 502 generaciones y 2.811 motores, y enlaces a anuncios de AutoScout24, coches.net y Wallapop. Corregido por el investigador el 25 de noviembre.
   - Tasador de segunda mano.
   - Comparador de coste real, con el desglose «¿En qué se va el dinero?».
@@ -36,7 +36,7 @@ Lo hizo el sistema al arrancar, leyendo la web publicada y la cuenta de Metricoo
 - **Ya existe una cadena de publicación automática:**
   - 2 vídeos al día en las 3 redes.
   - Horario: 10:00 (YouTube e Instagram) y 10:30 (TikTok); 16:00 (YouTube), 18:00 (Instagram) y 18:30 (TikTok).
-  - Está programada **al menos hasta el 14 de diciembre de 2026**. Se creó entre el 23 y el 25 de noviembre.
+  - Está programada **al menos hasta el 1 de febrero de 2027** (unas 196 publicaciones contadas por el analista el 26 de noviembre). Se creó entre el 23 y el 25 de noviembre.
 - **Todo es el mismo formato:** «4 cosas que no sabías del [clásico]», con fotos de Wikimedia Commons y la marca de contenido generado con IA activada.
 - El CTA es genérico: en Instagram y TikTok, «tasador gratis en el enlace del perfil»; en YouTube, la URL de la portada.
 - **Hueco:** del 25 al 30 de noviembre no hay nada programado.
