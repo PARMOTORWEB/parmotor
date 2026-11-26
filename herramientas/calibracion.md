@@ -17,6 +17,13 @@ Formato: una línea por caso comprobado. Los «Pendientes» se vuelven a comprob
 - Volvo XC40 T5 Recharge 2020: datos contradictorios (58.500 km 23.300 € → tasador +27 %; 110.900 km 23.900 € → −11 %). Repetir con más anuncios.
 - Enlaces: coches.net sigue indexando /mercedes-benz/clase_a/ y /mercedes__benz/clase_a/ (24/11/2026); sigue sin abrirse la variante con guion.
 
+- MARKET 1,08→1,09 el 26/11/2026 (mediana −7,8 % en 204 comprobaciones de 23 marcas, 19–26/11). Próxima revisión semanal: lunes 30/11; no subir otra vez antes.
+- Peugeot 2008 II: tras k 1,1 los anuncios a 35.000–80.000 km siguen +6/+18 % (media coches.net a 86.744 km: +1,5 %). Es el mismo efecto de la curva de km; repetir antes de subir más.
+- Cupra Born 170 kW (231 CV) 2023: +26/+29 % tras k 1,3 con 2 anuncios a 22.000–23.000 €; el 77 kWh +6 %. Confirmar con más anuncios; quizá falta separar las versiones por batería.
+- Dacia Jogger (−17/−24 % en la media de coches.net tras k 0,7), Ceed III 1.0 T-GDi (−15/−17 %), Mini F56 Cooper (−19 % en la media mezclada), T-Cross 1.0 TSI 95 (−12 % en la media): quedan por debajo por el tope de ±0,15; repetir y seguir bajando k si se confirma.
+- Porsche 911 992 Carrera S 2020: +4/+14 % (4 anuncios). BMW 530e G30 2019: +29 % (1 anuncio). Mercedes E W213 2019: −18 % (solo un Cabrio y un E 53 Coupé). Repetir.
+- Volvo XC60 II: faltan en la base los D3 150 y T4 190 (los más anunciados de 2019). Audi A4 B9 y Q5 FY 2019: ningún anuncio ≤100.000 km; probar con 2021–2022.
+
 ## Historial
 - 19/11/2026 · Opel Corsa, Kia Sportage, Audi A3, Skoda Octavia, Mazda MX-5, Tesla Model 3 · sin cambios.
 - 20/11/2026 · VW T-Roc 2024 (coches.net, 194 anuncios, media 24.613 €, 53.354 km): −10 % (1.5 TSI) a +4 % (2.0 TDI) · sin cambios.
@@ -62,3 +69,6 @@ Formato: una línea por caso comprobado. Los «Pendientes» se vuelven a comprob
 - WebSearch con allowed_domains ["autoscout24.es"] da error del proxy (23/11/2026); sin filtro de dominio sí devuelve /lst/marca/modelo (autoscout24.com).
 - Las URL de coches.net por año solo se pueden leer si antes salen en un WebSearch (p. ej. «coches.net Marca Modelo año AAAA de segunda mano»); construirlas a mano da error de permiso. Toyota C-HR es /toyota/chr/.
 - coches.com (antibots Incapsula), autouncle.es y Wallapop fallan al leerlos con WebFetch (24/11/2026). Tarifas oficiales: motor.es/noticias y autonocion.com se leen bien.
+
+- 26/11/2026 · 29 modelos (120 comparaciones: 105 anuncios y 15 medias de coches.net). Ajustes: 2008 II k 1→1,1 (+20 %→+12 %), i10 III 0,95→0,8 (−17 %→−9 %), Jogger 0,85→0,7 (−15 %→−9 %), T-Cross 1→0,85 (−12 %→−5 %), Fabia III 0,95(×0,87)→0,7 (−13 %→−3 %), XCeed gasolina 1→0,85 (−18 %→−10 %), Ceed III 1.0 T-GDi 1→0,85 (−24 %→−15 %), Mini F56 One/Cooper 0,95→0,82 (−11 %→−1 %), Captur II combustión 1→0,9 (−12 %→−6 %), Qashqai II 1.3 DIG-T 1→0,9 (−16 %→−9 %), Born 1,15→1,3 (+12 %→+6 %). MARKET 1,08→1,09. Sin cambios: Ateca, Kona I, Tiguan II, X1 F48, CX-5 II, Ioniq 5, Mégane IV, Clase E W213, Astra K, C5 Aircross, Renegade, Serie 5 G30, Mazda3 BP, 911 992, X3 G01. Sin datos: A4 B9, Q5 FY, XC60 II.
+- 26/11/2026 · Enlaces: coches.net /marca/modelo/segunda-mano/ vigente (29 páginas leídas); AutoScout24 sigue indexando /lst/marca/modelo; Wallapop indexa /coches-segunda-mano/marca-modelo, sin indicios de que /search haya dejado de funcionar · shopLinks sin tocar.
