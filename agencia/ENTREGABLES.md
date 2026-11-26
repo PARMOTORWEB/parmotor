@@ -4,7 +4,7 @@
 
 | # | Entregable | Archivo(s) | Responsable | Estado |
 |---|---|---|---|---|
-| 1 | Auditoría completa de la web | `web/auditoria-2026-11-25.md` | Web/CRO | listo; 3 mejoras no críticas ejecutándose en la rama `web/mejoras-rapidas` |
+| 1 | Auditoría completa de la web | `web/auditoria-2026-11-25.md` | Web/CRO | listo; 3 mejoras no críticas ya hechas en la rama `web/mejoras-rapidas` (404, erratas y `/enlaces/`), sin publicar |
 | 2 | Análisis de competidores | `investigacion/competidores.md` (negocio) · `seo/competencia.md` (Google) | Investigador · SEO | listo (negocio parcial: faltan coches.net, Wallapop, Clicars y creadores) |
 | 3 | Estrategia general de crecimiento | `growth/estrategia-crecimiento.md` · `growth/experimentos.md` | Growth | listo (propuesta; los experimentos quedan bloqueados hasta poder medir) |
 | 4 | Calendario editorial de 30 días | `calendario/2026-30-dias.md` | Director | listo (pendiente de tu decisión B/A/C) |
