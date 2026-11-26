@@ -14,3 +14,5 @@
 11. **Arreglar lo ya programado** en Metricool: añadir el CTA que falta en al menos 18 publicaciones de TikTok y llevar las descripciones de YouTube a la ficha `/tasar/` del modelo cuando exista. Lo hago yo con tu sí.
 12. **Confirmar los seguidores reales de Instagram** en la app (la API devuelve 0).
 13. **Permiso para participar en comunidades o foros como Par Motor** (propuesta de Growth; siempre con borradores que apruebas tú).
+14. **Dónde va el largo L1:** tu fábrica ya publica largos de historia los domingos a las 11:00. Propongo L1 el **miércoles 23 de diciembre a las 19:00** como segundo largo de esa semana. ¿Te parece bien, o sustituye al largo de historia de algún domingo?
+15. **Formato de las diapositivas:** en la copia publicada de `redes.mjs`, la imagen `vid` mide 1080×1350, no 1920. Producción ha diseñado las de la agencia para 9:16. Dime si tu `video.py` necesita 1080×1350 o 1080×1920.

@@ -1,0 +1,41 @@
+{
+ "estilo": "informativo",
+ "escenas": [
+  {
+   "imagen": "social/2026-12-23/48-electrico-mas-barato-vid-1.jpg",
+   "frases": [
+    "¿Un eléctrico sale siempre más barato?",
+    "[pausa]",
+    "Depende del precio del kilovatio {lento}",
+    "En el comparador de Par Motor no hay casilla de carga en casa. Hay un precio de la electricidad, y lo cambias tú."
+   ]
+  },
+  {
+   "imagen": "social/2026-12-23/48-electrico-mas-barato-vid-2.jpg",
+   "frases": [
+    "Primera pasada, con el precio que trae el comparador: 15 céntimos el kilovatio.",
+    "Renault Zoe de 2022: 311 euros al mes. Peugeot 208 de gasolina: 327.",
+    "El eléctrico gana por 16 euros al mes."
+   ]
+  },
+  {
+   "imagen": "social/2026-12-23/48-electrico-mas-barato-vid-3.jpg",
+   "frases": [
+    "Segunda pasada: subo el kilovatio.",
+    "A partir de unos 24 céntimos, el de gasolina ya sale más barato {lento}",
+    "[pausa]",
+    "Con 40 céntimos, el Zoe se va a 356 euros al mes.",
+    "Y hay otra cosa: lo que pierde.",
+    "El Renault Zoe de la ficha baja en torno al 12 por ciento al año. Otros, entre el 3 y el 7. Un caso, no todos los eléctricos."
+   ]
+  },
+  {
+   "imagen": "social/2026-12-23/48-electrico-mas-barato-vid-4.jpg",
+   "frases": [
+    "Un eléctrico no es más barato por serlo.",
+    "Depende de lo que pagas el kilovatio y de lo que pierde {lento}",
+    "Cambia el precio en el comparador de Par Motor. Gratis y sin registro."
+   ]
+  }
+ ]
+}

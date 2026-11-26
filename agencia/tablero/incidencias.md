@@ -6,3 +6,4 @@
 | 2026-11-25 | No hay captura de leads (Radar no activo) | Embudo sin etapa 6 | Elegir proveedor de email | abierta |
 | 2026-11-25 | Hueco sin publicaciones 26–30 nov | 10 shorts sin publicar | calendario/2026-W48.md | abierta |
 | 2026-11-25 | TikTok no enlazado desde la web | Menos descubrimiento cruzado | Confirmar @ y añadir | abierta |
+| 2026-11-26 | Un agente sobrescribió `investigacion/2026-W51-verificacion-top15.md` (usó Write en vez de Edit) y se perdieron 217 líneas | Pérdida de las tablas de verificación | **Recuperado** por el Director desde el registro del agente que lo escribió. Regla nueva en `arquitectura.md`: para añadir a un archivo existente se usa Edit; y el Director hace commit de cada ronda en cuanto termina | **cerrada** |

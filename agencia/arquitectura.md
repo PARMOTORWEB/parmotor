@@ -77,3 +77,7 @@ Se piden al Director General (la sesión principal) en lenguaje natural:
 - «Informe semanal»: lanza al analista y después la fase 8.
 - «Informe mensual».
 - «Auditoría web»: Web/CRO y SEO, en paralelo.
+
+## Reglas de escritura (desde el 26 nov 2026)
+- **Nunca se reescribe entero (Write) un archivo que ya existe y es de otro agente:** se añade o se cambia con Edit. Write solo vale para archivos nuevos o propios.
+- El Director hace commit de cada ronda en cuanto termina, para que nada quede sin copia.
