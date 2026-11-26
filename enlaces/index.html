@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Par Motor · Enlaces</title>
+<meta name="description" content="Tasador gratis, comparador de coste real, asesor de compra y precios por modelo de Par Motor.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://parmotorweb.github.io/parmotor/enlaces/">
+<link rel="icon" href="/parmotor/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/parmotor/assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(/parmotor/assets/fonts/Inter-400.woff2) format("woff2")}
+@font-face{font-family:"Inter";font-weight:700;font-display:swap;src:url(/parmotor/assets/fonts/Inter-700.woff2) format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:italic;font-weight:800;font-display:swap;src:url(/parmotor/assets/fonts/BarlowCondensed-800i.woff2) format("woff2")}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;padding:32px 20px 40px;background:#0f0f0e;color:#f2f1ec;font:400 16px/1.45 Inter,system-ui,sans-serif}
+main{max-width:480px;margin:0 auto}
+h1{font:italic 800 44px/1 "Barlow Condensed",Inter,sans-serif;color:#e4ff4f;margin:0 0 6px;text-align:center}
+.sub{text-align:center;color:#bdbcb4;margin:0 0 28px}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+a.b{display:block;padding:16px 18px;min-height:56px;border-radius:14px;border:1px solid #2c2c2a;background:#1a1a19;color:#f2f1ec;text-decoration:none;font-weight:700}
+a.b span{display:block;font-weight:400;font-size:14px;color:#8a897f}
+a.b.main{background:#e4ff4f;color:#0f0f0e;border-color:#e4ff4f}
+a.b.main span{color:#0f0f0e}
+a.b:hover,a.b:focus-visible{outline:2px solid #e4ff4f;outline-offset:2px}
+h2{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8a897f;margin:28px 0 12px}
+small{display:block;margin-top:28px;color:#8a897f;font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<main>
+<h1>PAR MOTOR</h1>
+<p class="sub">Herramientas gratis para saber lo que vale un coche.</p>
+<ul>
+<li><a class="b main" data-c="tasador" href="https://parmotorweb.github.io/parmotor/?utm_source=bio&amp;utm_medium=bio&amp;utm_campaign=enlaces&amp;utm_content=tasador#tasador">Tasador gratis<span>Cuánto vale tu coche, en 1 minuto</span></a></li>
+<li><a class="b" data-c="comparador" href="https://parmotorweb.github.io/parmotor/?utm_source=bio&amp;utm_medium=bio&amp;utm_campaign=enlaces&amp;utm_content=comparador#calculadora">Comparador de coste real<span>Lo que cuesta al mes tener un coche</span></a></li>
+<li><a class="b" data-c="asesor" href="https://parmotorweb.github.io/parmotor/?utm_source=bio&amp;utm_medium=bio&amp;utm_campaign=enlaces&amp;utm_content=asesor#asesor">Asesor de compra<span>Coches por menos de 20.000 €</span></a></li>
+<li><a class="b" data-c="precios" href="https://parmotorweb.github.io/parmotor/tasar/?utm_source=bio&amp;utm_medium=bio&amp;utm_campaign=enlaces&amp;utm_content=precios">Precios por modelo<span>Cuánto vale cada modelo de segunda mano</span></a></li>
+<li><a class="b" data-c="radar" href="https://parmotorweb.github.io/parmotor/?utm_source=bio&amp;utm_medium=bio&amp;utm_campaign=enlaces&amp;utm_content=radar#radar">Radar semanal<span>El artículo de la semana</span></a></li>
+</ul>
+<h2>Síguenos</h2>
+<ul>
+<li><a class="b" rel="noopener" href="https://www.instagram.com/parmotorrr/">Instagram</a></li>
+<li><a class="b" rel="noopener" href="https://www.youtube.com/channel/UCdaSZmZUMuUJtuB3xbGmAJA">YouTube</a></li>
+</ul>
+<small>Valores orientativos de segunda mano. No son una tasación oficial.</small>
+</main>
+<script>
+/* Sin cookies ni terceros: solo sustituye utm_source por ?from=instagram|tiktok|youtube. Sin JS queda utm_source=bio. */
+(function(){var f=new URLSearchParams(location.search).get("from");
+if(["instagram","tiktok","youtube"].indexOf(f)<0)return;
+document.querySelectorAll("a[data-c]").forEach(function(a){a.href=a.href.replace("utm_source=bio","utm_source="+f)})})();
+</script>
+</body>
+</html>
